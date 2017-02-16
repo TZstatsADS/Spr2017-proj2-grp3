@@ -1,0 +1,15 @@
+Smoking-attributable mortality (SAM) is the number of deaths caused by cigarette smoking based on diseases for which the U.S. Surgeon General has determined that cigarette smoking is a causal factor.
+
+MeasureID:
+
+500SAM(Average Annual Deaths):
+
+Average annual number of deaths over a specified time period based on diseases for which the U.S. Surgeon General has determined that cigarette smoking is a causal factor.  
+
+*Average annual deaths are for 2005-2009 and represent deaths in adults aged 35 years and older from 23 diseases (SGR 2014). Deaths from fires or deaths attributable to exposure to secondhand smoke are not included.
+
+501SAM(Average Annual SAM):
+
+Average annual number of deaths over a specified time period caused by cigarette smoking based on diseases for which the U.S. Surgeon General has determined that cigarette smoking is a causal factor.
+
+*Average annual SAM are for 2005-2009 and represent SAM in adults aged 35 years and older from 23 diseases (SGR 2014). SAM from fires or SAM attributable to exposure to secondhand smoke are not included.

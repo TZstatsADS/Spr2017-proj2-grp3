@@ -1,0 +1,122 @@
+---
+title: "Tobacco related death"
+author: "Yini Zhang (yz3005)"
+date: "2017/02/14"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+mortality <- read.csv("SAM.csv", header = TRUE, as.is = TRUE)
+```
+
+```{r}
+library(ggplot2)
+
+# Annual SAM plot (states & gender)
+
+sam <- subset.data.frame(mortality, 
+                         subset=c(mortality$MeasureID=="501SAM" 
+                                  & mortality$Gender!="Overall"
+                                  & mortality$LocationAbbr != "US"),
+                         select = c("LocationAbbr","Gender", "Data_Value"))
+
+newlocation <- sam$LocationAbbr[order(sam$Data_Value, decreasing = TRUE)]
+
+ggplot(sam)+
+  geom_bar(aes(x=LocationAbbr, y=Data_Value, fill=Gender), stat = "Identity", position = "stack")+
+  coord_flip()+
+  ggtitle("Annual SAM Based on States and Gender")+
+  xlab("States")+
+  ylab("Annual SAM")
+
+```
+```{r}
+ggplot(sam)+
+  geom_bar(aes(x=LocationAbbr, y=Data_Value, fill=Gender), stat = "Identity", position = "fill")+
+  coord_flip()+
+  ggtitle("Annual SAM: Gender proportion")+
+  xlab("States")+
+  ylab("Proportion")
+```
+
+```{r}
+# the proportion of annual SAM to annual death
+ratio <- mortality$Data_Value[mortality$MeasureID=="501SAM"] / mortality$Data_Value[mortality$MeasureID=="500SAM"]
+
+states <- mortality$LocationAbbr[1:52]
+female.sam <- mortality$Data_Value[mortality$Gender=="Female" & mortality$MeasureID=="501SAM"]
+male.sam <- mortality$Data_Value[mortality$Gender=="Male" & mortality$MeasureID=="501SAM"]
+overall.sam <- mortality$Data_Value[mortality$Gender=="Overall" & mortality$MeasureID=="501SAM"]
+female.death <- mortality$Data_Value[mortality$Gender=="Female" & mortality$MeasureID=="500SAM"]
+male.death <- mortality$Data_Value[mortality$Gender=="Male" & mortality$MeasureID=="500SAM"]
+overall.death <- mortality$Data_Value[mortality$Gender=="Overall" & mortality$MeasureID=="500SAM"]
+wide <- data.frame(cbind(states,female.sam,male.sam,overall.sam,female.death,male.death,overall.death))
+
+
+# subset only contains annual death info
+death <- subset.data.frame(mortality, 
+                         subset=c(mortality$MeasureID=="500SAM" 
+                                  & mortality$Gender!="Overall"
+                                  & mortality$LocationAbbr != "US"),
+                         select = c("LocationAbbr","Gender", "Data_Value"))
+ggplot(death)+
+  geom_bar(aes(x=LocationAbbr, y=Data_Value, fill=Gender), stat = "Identity", position = "stack")+
+  coord_flip()+
+  ggtitle("Annual Death Based on States and Gender")+
+  xlab("States")+
+  ylab("Annual Death")
+
+```
+
+```{r}
+ggplot(death)+
+  geom_bar(aes(x=LocationAbbr, y=Data_Value, fill=Gender), stat = "Identity", position = "fill")+
+  coord_flip()+
+  ggtitle("Annual death: Gender proportion")+
+  xlab("States")+
+  ylab("Proportion")
+```
+
+```{r}
+# compare SAM and death
+
+# the proportion of annual SAM to annual death
+ratio <- round(mortality$Data_Value[mortality$MeasureID=="501SAM"] 
+               / mortality$Data_Value[mortality$MeasureID=="500SAM"], 2)
+Gender <- mortality$Gender[1:length(ratio)]
+StateAbbr <- mortality$LocationAbbr[1:length(ratio)]
+compare <- data.frame(cbind(StateAbbr, Gender, ratio))
+
+# sub-dataframe with only overall ratio
+compare.sub.overall <- compare[compare$Gender=="Overall", ]
+# reorder according to ratio
+
+compare.sub.overall$StateAbbr <- factor(compare.sub.overall$StateAbbr,
+                                        levels = compare.sub.overall$StateAbbr
+                                        [order(compare.sub.overall$ratio, decreasing = TRUE)])
+
+compare.sub.overall <- compare.sub.overall[order(compare.sub.overall$ratio, decreasing=TRUE), ]
+
+# plot: the proportion of annual SAM to annual death
+ggplot(compare.sub.overall)+
+  geom_bar(aes(x=StateAbbr, y=ratio), stat = "Identity")+
+  ggtitle("SAM-Death Ratio")+
+  xlab("States")+
+  ylab("Ratio")
+
+```
+```{r}
+compare.sub <- compare[compare$Gender!="Overall", ]
+
+ggplot(compare.sub)+
+  geom_point(aes(x=StateAbbr, y=ratio, col=Gender, shape=Gender))+
+  ggtitle("SAM-Death Ratio: Female V.S. Male")+
+  xlab("States")+
+  ylab("Ratio")
+```
+
