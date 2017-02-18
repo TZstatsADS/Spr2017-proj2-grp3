@@ -5,8 +5,9 @@ The data directory contains data used in the analysis. This is treated as read o
 
 
 #### Table advertising_year_data
-This table contains spending on tobacco advertising from 1970 to 2014.  
+This table contains spending on tobacco advertising from 1970 to 2014.
+Source: [Federal Trade Commission Cigarette Report for 2014](https://www.ftc.gov/system/files/documents/reports/federal-trade-commission-cigarette-report-2014-federal-trade-commission-smokeless-tobacco-report/ftc_cigarette_report_2014.pdf)
 - spendings are splitted per media.  
 - spendings are in thousands of dollars.   
 - N/A means that the expenditures for this category are included in the “Other” category to avoid potential disclosure of individual company data.  
-Source: [Federal Trade Commission Cigarette Report for 2014](https://www.ftc.gov/system/files/documents/reports/federal-trade-commission-cigarette-report-2014-federal-trade-commission-smokeless-tobacco-report/ftc_cigarette_report_2014.pdf)
+
