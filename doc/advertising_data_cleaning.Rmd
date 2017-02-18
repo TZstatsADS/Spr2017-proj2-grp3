@@ -1,0 +1,47 @@
+---
+title: "Cleaning Advertising data"
+output: html_notebook
+---
+
+#### Step 0: Install and Load Packages
+```{r}
+packages.used=c("tidyr")
+
+# check packages that need to be installed.
+packages.needed=setdiff(packages.used, intersect(installed.packages()[,1], 
+                                                 packages.used))
+
+# install additional packages
+if(length(packages.needed)>0){
+  install.packages(packages.needed, dependencies = TRUE,
+                   repos='http://cran.us.r-project.org')
+}
+
+library(tidyr)
+```
+
+#### Step 1: Loading the raw table
+```{r}
+df <- read.csv("../data/advertising_year_media.csv", sep=";", stringsAsFactors = FALSE)
+```
+
+#### Step 2: Organize Table
+```{r}
+# Restructuring table
+df.long <- gather(df, year, spendings, X1970:X2014, factor_key=FALSE)
+
+# Columns naming
+names(df.long)[names(df.long)=="Media"] <- "media"
+names(df.long)[names(df.long)=="Media.Detailed"] <- "media.detailed"
+
+# 
+df.long$year <- substring(df.long$year,2,5)
+df.long$year <- as.numeric(df.long$year)
+df.long$spendings <- as.numeric(df.long$spendings)
+```
+
+#### Step 3: Save the table
+```{r}
+write.table(df.long, "../output/advertising.csv")
+```
+
