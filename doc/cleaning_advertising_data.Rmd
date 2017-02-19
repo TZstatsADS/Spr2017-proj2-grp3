@@ -42,6 +42,6 @@ df.long$spendings <- as.numeric(df.long$spendings)
 
 #### Step 3: Save the table
 ```{r}
-write.table(df.long, "../output/advertising.csv")
+write.csv(df.long, "../output/advertising.csv")
 ```
 
