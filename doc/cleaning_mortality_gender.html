@@ -216,16 +216,6 @@ cdi.state &lt;- select(cdi.pop, -datatype)
 # write in csv file
 write.csv(cdi.state,file = &quot;../output/states mortality (year_disease_gender).csv&quot;)</code></pre>
 </div>
-<div id="step-6-get-and-save-the-cleaned-national-mortality-data" class="section level2">
-<h2>Step 6: Get and save the cleaned national mortality data</h2>
-<pre class="r"><code># national average death of each disease by gender and year
-cdi.avg &lt;- cdi.pop %&gt;% 
-  group_by(year, disease, class) %&gt;%
-  select(deathpop, ratio) %&gt;%
-  summarize(avgdeath = mean(deathpop, na.rm=TRUE), avgratio = mean(ratio, na.rm=TRUE))
-# write in csv file
-write.csv(cdi.avg ,file = &quot;../output/national mortality (year_disease_gender).csv&quot;)</code></pre>
-</div>
 
 
 

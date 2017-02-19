@@ -107,14 +107,4 @@ cdi.state <- select(cdi.pop, -datatype)
 write.csv(cdi.state,file = "../output/states mortality (year_disease_gender).csv")
 ```
 
-##Step 6: Get and save the cleaned national mortality data
-```{r, warning=FALSE, message=FALSE}
-# national average death of each disease by gender and year
-cdi.avg <- cdi.pop %>% 
-  group_by(year, disease, class) %>%
-  select(deathpop, ratio) %>%
-  summarize(avgdeath = mean(deathpop, na.rm=TRUE), avgratio = mean(ratio, na.rm=TRUE))
-# write in csv file
-write.csv(cdi.avg ,file = "../output/national mortality (year_disease_gender).csv")
-```
 
