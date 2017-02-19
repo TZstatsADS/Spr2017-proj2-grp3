@@ -11,3 +11,7 @@ Source: [Federal Trade Commission Cigarette Report for 2014](https://www.ftc.gov
 - spendings are in thousands of dollars.   
 - N/A means that the expenditures for this category are included in the “Other” category to avoid potential disclosure of individual company data.  
 
+#### CDI (U.S. Chronic Disease Indicators)
+CDC's Division of Population Health provides cross-cutting set of 124 indicators that were developed by consensus.
+Source: [U.S. Chronic Disease Indicators](https://catalog.data.gov/dataset/u-s-chronic-disease-indicators-cdi-e50c9)
+
