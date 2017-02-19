@@ -16,7 +16,10 @@ counties <- readRDS("./data/counties.rds")
 # Advertising data
 advertising <- read.csv("./output/advertising.csv", stringsAsFactors = FALSE, sep=",")
 advertising <- advertising[!advertising$media=="Total",]
-advertising <- group_by()
+advertising <- advertising %>%
+  group_by(year, media) %>%
+  summarize(spendings = sum(spendings))
+
 
 
 #### Hearder of the Dashboard ####
@@ -31,22 +34,25 @@ body <- dashboardBody(
   fluidRow(
     tabBox(
       title = "",
-      width = 8,
+      width = 9,
       height = 400,
       tabPanel(
         title = "Map",
         plotOutput("map2", height = 300)
       ),
       tabPanel(
+        title = "Analysis"
+      ),
+      tabPanel(
         title = "Methodology and Sources"
       )
     ),
     box(
-     title = "Legend", width = 4, height = 400, status="primary", solidHeader = TRUE,
+     title = "Legend", width = 3, height = 400, status="primary", solidHeader = TRUE,
      sliderInput("year", label = h5("Year"),
                  min = 2010, max = 2014, value = 2012, 
                  step = 1, ticks = FALSE, sep=""),
-     selectInput("select", label = h3("Select box"), 
+     selectInput("select", label = h5("Disease or Mortality Reason"), 
                  choices = list("Choice 1" = 1, "Choice 2" = 2, "Choice 3" = 3), 
                  selected = 1)
     )
@@ -60,7 +66,7 @@ body <- dashboardBody(
       width = 12,
       tabPanel("Total", 
                plotOutput("hist_advertising_total", 
-                          height= 350)
+                          height= 400)
                ),
       
       tabPanel("Per Media",
@@ -101,6 +107,27 @@ body <- dashboardBody(
                "Promotional Allowances spendings has decreased.
                Missing Values are due to privacy.
                ")
+    )
+  ),
+  
+  fluidRow(
+    tabBox(
+      title = "Gender Differences",
+      height = 500,
+      selected = "Tab 1",
+      width = 12,
+      tabPanel(
+        title = "Tab 1"
+      ),
+      tabPanel(
+        title = "Tab 2"
+      ),
+      tabPanel(
+        title = "Analysis"
+      ),
+      tabPanel(
+        title = "Methodology and Sources"
+      )
     )
   ),
   
