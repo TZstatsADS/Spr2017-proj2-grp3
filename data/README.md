@@ -13,8 +13,12 @@ Source: [Federal Trade Commission Cigarette Report for 2014](https://www.ftc.gov
 
 #### Table CDI (U.S. Chronic Disease Indicators)
 CDC's Division of Population Health provides cross-cutting set of 124 indicators that were developed by consensus.
-Source: [U.S. Chronic Disease Indicators](https://catalog.data.gov/dataset/u-s-chronic-disease-indicators-cdi-e50c9)
+Source: data.gov [U.S. Chronic Disease Indicators](https://catalog.data.gov/dataset/u-s-chronic-disease-indicators-cdi-e50c9)
 
 #### Table Population
-This table contains U.S. population by states from 2010 to 2015
+This table contains U.S. population by states from 2010 to 2015.  
 Source: [U.S. Population](http://www2.census.gov/programs-surveys/popest/datasets/2010-2015/counties/totals/)
+
+#### Table Behavioral_Risk_Factor_Data__Tobacco_Use__2011_to_present
+This table contains the proportion of smokers and the frequency of smoking for those people.  
+Source: data.gov [Behavioral Risk Factor Data](https://catalog.data.gov/dataset/behavioral-risk-factor-data-tobacco-use-2011-to-present-c68e1)
