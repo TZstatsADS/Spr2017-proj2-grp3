@@ -1,0 +1,90 @@
+# package: dplyr
+packages.used="dplyr"
+
+# check packages that need to be installed.
+packages.needed=setdiff(packages.used, 
+                        intersect(installed.packages()[,1], 
+                                  packages.used))
+# install additional packages
+if(length(packages.needed)>0){
+  install.packages(packages.needed, dependencies = TRUE,
+                   repos='http://cran.us.r-project.org')
+}
+library(dplyr)
+
+# load data and get diseases related to smoking
+cdi <- read.csv("../data/CDI.csv")
+questions <- levels(cdi$Question)
+mortality <- questions[c(116,117,118,119,120,122)]
+
+# select columns needed
+cdi <- select(cdi, YearStart, LocationDesc, Question, DataValueTypeID, DataValue, Stratification1)
+cdi <- rename(cdi, year=YearStart, states=LocationDesc, disease=Question, datatype=DataValueTypeID, deathpop=DataValue, class=Stratification1)
+
+stroke <- filter(cdi, disease=="Mortality from cerebrovascular disease (stroke)", datatype == "Nmbr")
+coronary_heart_disease <- filter(cdi, disease=="Mortality from coronary heart disease", datatype == "Nmbr")
+diseases_of_the_heart <- filter(cdi, disease=="Mortality from diseases of the heart", datatype == "Nmbr")
+heart_failure <- filter(cdi, disease=="Mortality from heart failure", datatype == "Nmbr")
+cardiovascular_disease <- filter(cdi, disease=="Mortality from total cardiovascular disease", datatype == "Nmbr")
+pulmonary  <- filter(cdi, 
+                     disease=="Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years",
+                     datatype == "Nmbr")
+
+# all-related diseases in one dataframe
+cdi.new <- rbind(stroke, coronary_heart_disease, diseases_of_the_heart,
+                 heart_failure, cardiovascular_disease, pulmonary)
+
+# unfactorize the deathpop 
+as.numeric.factor <- function(x) {as.numeric(levels(x))[x]}
+cdi.new$deathpop <- as.numeric.factor(cdi.new$deathpop)
+
+# filter the dataframe by class
+cdi.gender <- filter(cdi.new, class == "Overall" | class == "Female" | class == "Male")
+
+# load population
+population <- read.csv("../data/population.csv")
+pop <- select(population, NAME, POPESTIMATE2010:POPESTIMATE2014)
+pop <- rename(pop, states=NAME, population=POPESTIMATE2010, population=POPESTIMATE2011, population=POPESTIMATE2012,
+              population=POPESTIMATE2013, population=POPESTIMATE2014)
+pop <- pop[c(1,6:57), ]
+
+# add population to cdi
+cdi_2010 <- filter(cdi.gender,year==2010)
+pop_2010 <- pop[ ,c(1,2)]
+cdi.pop.2010 <- merge(cdi_2010, pop_2010, by.x = "states")
+
+cdi_2011 <- filter(cdi.gender,year==2011)
+pop_2011 <- pop[ ,c(1,3)]
+cdi.pop.2011 <- merge(cdi_2011, pop_2011, by.x = "states")
+
+
+cdi_2012 <- filter(cdi.gender,year==2012)
+pop_2012 <- pop[ ,c(1,4)]
+cdi.pop.2012 <- merge(cdi_2012, pop_2012, by.x = "states")
+
+cdi_2013 <- filter(cdi.gender,year==2013)
+pop_2013 <- pop[ ,c(1,5)]
+cdi.pop.2013 <- merge(cdi_2013, pop_2013, by.x = "states")
+
+cdi_2014 <- filter(cdi.gender,year==2014)
+pop_2014 <- pop[ ,c(1,6)]
+cdi.pop.2014 <- merge(cdi_2014, pop_2014, by.x = "states")
+
+cdi.pop <- rbind(cdi.pop.2010, cdi.pop.2011, cdi.pop.2012, cdi.pop.2013, cdi.pop.2014)
+
+# add a new colum: the ratio of death among population
+cdi.pop <- mutate(cdi.pop,
+                       ratio = deathpop/population)
+
+# get the clean state data
+cdi.state <- select(cdi.pop, -datatype)
+write.csv(cdi.state,file = "../output/states mortality(year_disease_gender).csv")
+
+
+# national average death of each disease by gender and year
+cdi.avg <- cdi.pop %>% 
+  group_by(year, disease, class) %>%
+  select(deathpop, ratio) %>%
+  summarize(avgdeath = mean(deathpop, na.rm=TRUE), avgratio = mean(ratio, na.rm=TRUE))
+write.csv(cdi.avg ,file = "../output/national mortality(year_disease_gender).csv")
+
