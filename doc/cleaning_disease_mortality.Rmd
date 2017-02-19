@@ -29,12 +29,12 @@ library(dplyr)
 ##Step 2: Data cleaning of raw table: CDI.csv
 ```{r, warning=FALSE, message=FALSE}
 # load data and get diseases related to smoking
-cdi <- read.csv("../data/CDI.csv")
-questions <- levels(cdi$Question)
-mortality <- questions[c(116,117,118,119,120,122)]
+cdi.raw <- read.csv("../data/CDI.csv")
+questions <- levels(cdi.raw$Question)
+mortality <- questions[c(116,117,118,119,120,121,122,40,164,165)]
 
 # select columns needed
-cdi <- select(cdi, YearStart, LocationDesc, Question, DataValueTypeID, DataValue, Stratification1)
+cdi <- select(cdi.raw, YearStart, LocationDesc, Question, DataValueTypeID, DataValue, Stratification1)
 cdi <- rename(cdi, year=YearStart, states=LocationDesc, disease=Question, datatype=DataValueTypeID, deathpop=DataValue, class=Stratification1)
 
 stroke <- filter(cdi, disease=="Mortality from cerebrovascular disease (stroke)", datatype == "Nmbr")
@@ -45,17 +45,35 @@ cardiovascular_disease <- filter(cdi, disease=="Mortality from total cardiovascu
 pulmonary  <- filter(cdi, 
                      disease=="Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years",
                      datatype == "Nmbr")
-
-# all-related diseases in one dataframe
-cdi.new <- rbind(stroke, coronary_heart_disease, diseases_of_the_heart,
-                 heart_failure, cardiovascular_disease, pulmonary)
+asthma <- filter(cdi, disease=="Current asthma prevalence among adults aged >= 18 years", datatype == "CrdPrev")
+pre_pulmonary_18 <- filter(cdi, disease=="Prevalence of chronic obstructive pulmonary disease among adults >= 18", datatype == "CrdPrev")
+pre_pulmonary_45 <- filter(cdi, disease=="Prevalence of chronic obstructive pulmonary disease among adults >= 45 years", datatype == "CrdPrev")
 
 # unfactorize the deathpop 
 as.numeric.factor <- function(x) {as.numeric(levels(x))[x]}
-cdi.new$deathpop <- as.numeric.factor(cdi.new$deathpop)
+asthma$deathpop <- as.numeric.factor(asthma$deathpop)
+pre_pulmonary_18$deathpop <- as.numeric.factor(pre_pulmonary_18$deathpop)
+pre_pulmonary_45$deathpop <- as.numeric.factor(pre_pulmonary_45$deathpop)
+
+# add new column ratio to asthma, pre_pulmonary_18, pre_pulmonary_45
+asthma.new <- mutate(asthma, 
+                     ratio=deathpop/100)
+pre_pulmonary_18_new <- mutate(pre_pulmonary_18, 
+                               ratio=deathpop/100)
+pre_pulmonary_45_new <- mutate(pre_pulmonary_45, 
+                               ratio=deathpop/100)
+
+# all-related diseases in one dataframe
+cdi.mort <- rbind(stroke, coronary_heart_disease, diseases_of_the_heart,
+                 heart_failure, cardiovascular_disease, pulmonary)
+cdi.prev <- rbind(asthma.new, pre_pulmonary_18_new, pre_pulmonary_45_new)
+
+# unfactorize the deathpop in cdi.new
+cdi.mort$deathpop <- as.numeric.factor(cdi.mort$deathpop)
 
 # filter the dataframe by class
-cdi.gender <- filter(cdi.new, class == "Overall" | class == "Female" | class == "Male")
+cdi.mort.gender <- filter(cdi.mort, class == "Overall" | class == "Female" | class == "Male")
+cdi.prev.gender <- filter(cdi.prev, class == "Overall" | class == "Female" | class == "Male")
 ```
 
 ##Step3: Data cleaning of raw table: population.csv
@@ -71,30 +89,40 @@ pop <- pop[c(1,6:57), ]
 ##Step 4: Merge two tables
 ```{r, warning=FALSE, message=FALSE}
 # add population to cdi
-cdi_2010 <- filter(cdi.gender,year==2010)
+cdi_2010 <- filter(cdi.mort.gender,year==2010)
+cdi_2010_prev <- filter(cdi.prev.gender,year==2010)
 pop_2010 <- pop[ ,c(1,2)]
 cdi.pop.2010 <- merge(cdi_2010, pop_2010, by.x = "states")
+cdi.pop.2010_prev <- merge(cdi_2010_prev, pop_2010, by.x = "states")
 
-cdi_2011 <- filter(cdi.gender,year==2011)
+cdi_2011 <- filter(cdi.mort.gender,year==2011)
+cdi_2011_prev <- filter(cdi.prev.gender,year==2011)
 pop_2011 <- pop[ ,c(1,3)]
 cdi.pop.2011 <- merge(cdi_2011, pop_2011, by.x = "states")
+cdi.pop.2011_prev <- merge(cdi_2011_prev, pop_2011, by.x = "states")
 
-
-cdi_2012 <- filter(cdi.gender,year==2012)
+cdi_2012 <- filter(cdi.mort.gender,year==2012)
+cdi_2012_prev <- filter(cdi.prev.gender,year==2012)
 pop_2012 <- pop[ ,c(1,4)]
 cdi.pop.2012 <- merge(cdi_2012, pop_2012, by.x = "states")
+cdi.pop.2012_prev <- merge(cdi_2012_prev, pop_2012, by.x = "states")
 
-cdi_2013 <- filter(cdi.gender,year==2013)
+cdi_2013 <- filter(cdi.mort.gender,year==2013)
+cdi_2013_prev <- filter(cdi.prev.gender,year==2013)
 pop_2013 <- pop[ ,c(1,5)]
 cdi.pop.2013 <- merge(cdi_2013, pop_2013, by.x = "states")
+cdi.pop.2013_prev <- merge(cdi_2013_prev, pop_2013, by.x = "states")
 
-cdi_2014 <- filter(cdi.gender,year==2014)
+cdi_2014 <- filter(cdi.mort.gender,year==2014)
+cdi_2014_prev <- filter(cdi.prev.gender,year==2014)
 pop_2014 <- pop[ ,c(1,6)]
 cdi.pop.2014 <- merge(cdi_2014, pop_2014, by.x = "states")
+cdi.pop.2014_prev <- merge(cdi_2014_prev, pop_2014, by.x = "states")
 
 cdi.pop <- rbind(cdi.pop.2010, cdi.pop.2011, cdi.pop.2012, cdi.pop.2013, cdi.pop.2014)
+cdi.pop.prev <- rbind(cdi.pop.2010_prev, cdi.pop.2011_prev, cdi.pop.2012_prev, cdi.pop.2013_prev, cdi.pop.2014_prev)
 
-# add a new colum: the ratio of death among population
+# add a new colum to cdi.pop: the ratio of death among population
 cdi.pop <- mutate(cdi.pop,
                        ratio = deathpop/population)
 ```
@@ -102,9 +130,10 @@ cdi.pop <- mutate(cdi.pop,
 ##Step 5: Get and save the cleaned state data
 ```{r, warning=FALSE, message=FALSE}
 # get the clean state data
-cdi.state <- select(cdi.pop, -datatype)
+cdi.state <- rbind(cdi.pop, cdi.pop.prev)
+
 # write in csv file
-write.csv(cdi.state,file = "../output/states mortality (year_disease_gender).csv")
+write.csv(cdi.state,file = "../output/states disease and mortality.csv")
 ```
 
 

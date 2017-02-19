@@ -142,12 +142,12 @@ library(dplyr)</code></pre>
 <div id="step-2-data-cleaning-of-raw-table-cdi.csv" class="section level2">
 <h2>Step 2: Data cleaning of raw table: CDI.csv</h2>
 <pre class="r"><code># load data and get diseases related to smoking
-cdi &lt;- read.csv(&quot;../data/CDI.csv&quot;)
-questions &lt;- levels(cdi$Question)
-mortality &lt;- questions[c(116,117,118,119,120,122)]
+cdi.raw &lt;- read.csv(&quot;../data/CDI.csv&quot;)
+questions &lt;- levels(cdi.raw$Question)
+mortality &lt;- questions[c(116,117,118,119,120,121,122,40,164,165)]
 
 # select columns needed
-cdi &lt;- select(cdi, YearStart, LocationDesc, Question, DataValueTypeID, DataValue, Stratification1)
+cdi &lt;- select(cdi.raw, YearStart, LocationDesc, Question, DataValueTypeID, DataValue, Stratification1)
 cdi &lt;- rename(cdi, year=YearStart, states=LocationDesc, disease=Question, datatype=DataValueTypeID, deathpop=DataValue, class=Stratification1)
 
 stroke &lt;- filter(cdi, disease==&quot;Mortality from cerebrovascular disease (stroke)&quot;, datatype == &quot;Nmbr&quot;)
@@ -158,17 +158,35 @@ cardiovascular_disease &lt;- filter(cdi, disease==&quot;Mortality from total car
 pulmonary  &lt;- filter(cdi, 
                      disease==&quot;Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged &gt;=45 years&quot;,
                      datatype == &quot;Nmbr&quot;)
-
-# all-related diseases in one dataframe
-cdi.new &lt;- rbind(stroke, coronary_heart_disease, diseases_of_the_heart,
-                 heart_failure, cardiovascular_disease, pulmonary)
+asthma &lt;- filter(cdi, disease==&quot;Current asthma prevalence among adults aged &gt;= 18 years&quot;, datatype == &quot;CrdPrev&quot;)
+pre_pulmonary_18 &lt;- filter(cdi, disease==&quot;Prevalence of chronic obstructive pulmonary disease among adults &gt;= 18&quot;, datatype == &quot;CrdPrev&quot;)
+pre_pulmonary_45 &lt;- filter(cdi, disease==&quot;Prevalence of chronic obstructive pulmonary disease among adults &gt;= 45 years&quot;, datatype == &quot;CrdPrev&quot;)
 
 # unfactorize the deathpop 
 as.numeric.factor &lt;- function(x) {as.numeric(levels(x))[x]}
-cdi.new$deathpop &lt;- as.numeric.factor(cdi.new$deathpop)
+asthma$deathpop &lt;- as.numeric.factor(asthma$deathpop)
+pre_pulmonary_18$deathpop &lt;- as.numeric.factor(pre_pulmonary_18$deathpop)
+pre_pulmonary_45$deathpop &lt;- as.numeric.factor(pre_pulmonary_45$deathpop)
+
+# add new column ratio to asthma, pre_pulmonary_18, pre_pulmonary_45
+asthma.new &lt;- mutate(asthma, 
+                     ratio=deathpop/100)
+pre_pulmonary_18_new &lt;- mutate(pre_pulmonary_18, 
+                               ratio=deathpop/100)
+pre_pulmonary_45_new &lt;- mutate(pre_pulmonary_45, 
+                               ratio=deathpop/100)
+
+# all-related diseases in one dataframe
+cdi.mort &lt;- rbind(stroke, coronary_heart_disease, diseases_of_the_heart,
+                 heart_failure, cardiovascular_disease, pulmonary)
+cdi.prev &lt;- rbind(asthma.new, pre_pulmonary_18_new, pre_pulmonary_45_new)
+
+# unfactorize the deathpop in cdi.new
+cdi.mort$deathpop &lt;- as.numeric.factor(cdi.mort$deathpop)
 
 # filter the dataframe by class
-cdi.gender &lt;- filter(cdi.new, class == &quot;Overall&quot; | class == &quot;Female&quot; | class == &quot;Male&quot;)</code></pre>
+cdi.mort.gender &lt;- filter(cdi.mort, class == &quot;Overall&quot; | class == &quot;Female&quot; | class == &quot;Male&quot;)
+cdi.prev.gender &lt;- filter(cdi.prev, class == &quot;Overall&quot; | class == &quot;Female&quot; | class == &quot;Male&quot;)</code></pre>
 </div>
 <div id="step3-data-cleaning-of-raw-table-population.csv" class="section level2">
 <h2>Step3: Data cleaning of raw table: population.csv</h2>
@@ -182,39 +200,50 @@ pop &lt;- pop[c(1,6:57), ]</code></pre>
 <div id="step-4-merge-two-tables" class="section level2">
 <h2>Step 4: Merge two tables</h2>
 <pre class="r"><code># add population to cdi
-cdi_2010 &lt;- filter(cdi.gender,year==2010)
+cdi_2010 &lt;- filter(cdi.mort.gender,year==2010)
+cdi_2010_prev &lt;- filter(cdi.prev.gender,year==2010)
 pop_2010 &lt;- pop[ ,c(1,2)]
 cdi.pop.2010 &lt;- merge(cdi_2010, pop_2010, by.x = &quot;states&quot;)
+cdi.pop.2010_prev &lt;- merge(cdi_2010_prev, pop_2010, by.x = &quot;states&quot;)
 
-cdi_2011 &lt;- filter(cdi.gender,year==2011)
+cdi_2011 &lt;- filter(cdi.mort.gender,year==2011)
+cdi_2011_prev &lt;- filter(cdi.prev.gender,year==2011)
 pop_2011 &lt;- pop[ ,c(1,3)]
 cdi.pop.2011 &lt;- merge(cdi_2011, pop_2011, by.x = &quot;states&quot;)
+cdi.pop.2011_prev &lt;- merge(cdi_2011_prev, pop_2011, by.x = &quot;states&quot;)
 
-
-cdi_2012 &lt;- filter(cdi.gender,year==2012)
+cdi_2012 &lt;- filter(cdi.mort.gender,year==2012)
+cdi_2012_prev &lt;- filter(cdi.prev.gender,year==2012)
 pop_2012 &lt;- pop[ ,c(1,4)]
 cdi.pop.2012 &lt;- merge(cdi_2012, pop_2012, by.x = &quot;states&quot;)
+cdi.pop.2012_prev &lt;- merge(cdi_2012_prev, pop_2012, by.x = &quot;states&quot;)
 
-cdi_2013 &lt;- filter(cdi.gender,year==2013)
+cdi_2013 &lt;- filter(cdi.mort.gender,year==2013)
+cdi_2013_prev &lt;- filter(cdi.prev.gender,year==2013)
 pop_2013 &lt;- pop[ ,c(1,5)]
 cdi.pop.2013 &lt;- merge(cdi_2013, pop_2013, by.x = &quot;states&quot;)
+cdi.pop.2013_prev &lt;- merge(cdi_2013_prev, pop_2013, by.x = &quot;states&quot;)
 
-cdi_2014 &lt;- filter(cdi.gender,year==2014)
+cdi_2014 &lt;- filter(cdi.mort.gender,year==2014)
+cdi_2014_prev &lt;- filter(cdi.prev.gender,year==2014)
 pop_2014 &lt;- pop[ ,c(1,6)]
 cdi.pop.2014 &lt;- merge(cdi_2014, pop_2014, by.x = &quot;states&quot;)
+cdi.pop.2014_prev &lt;- merge(cdi_2014_prev, pop_2014, by.x = &quot;states&quot;)
 
 cdi.pop &lt;- rbind(cdi.pop.2010, cdi.pop.2011, cdi.pop.2012, cdi.pop.2013, cdi.pop.2014)
+cdi.pop.prev &lt;- rbind(cdi.pop.2010_prev, cdi.pop.2011_prev, cdi.pop.2012_prev, cdi.pop.2013_prev, cdi.pop.2014_prev)
 
-# add a new colum: the ratio of death among population
+# add a new colum to cdi.pop: the ratio of death among population
 cdi.pop &lt;- mutate(cdi.pop,
                        ratio = deathpop/population)</code></pre>
 </div>
 <div id="step-5-get-and-save-the-cleaned-state-data" class="section level2">
 <h2>Step 5: Get and save the cleaned state data</h2>
 <pre class="r"><code># get the clean state data
-cdi.state &lt;- select(cdi.pop, -datatype)
+cdi.state &lt;- rbind(cdi.pop, cdi.pop.prev)
+
 # write in csv file
-write.csv(cdi.state,file = &quot;../output/states mortality (year_disease_gender).csv&quot;)</code></pre>
+write.csv(cdi.state,file = &quot;../output/states disease and mortality.csv&quot;)</code></pre>
 </div>
 
 
