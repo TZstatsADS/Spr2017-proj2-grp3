@@ -173,10 +173,14 @@ l2011<-l[l$YearStart==2011,]
 l2011 <- l2011[,c(1,2,7,12)]
 write.table(l2011,file = "./output/mortality_pulmonary_disease_2011.csv")
 l2012<-l[l$YearStart==2012,]
-l2010 <- l2010[,c(1,2,7,12)]
-write.table(l2010,file = "./output/mortality_pulmonary_disease_2010.csv")
+l2012 <- l2012[,c(1,2,7,12)]
+write.table(l2012,file = "./output/mortality_pulmonary_disease_2012.csv")
 l2013<-l[l$YearStart==2013,]
+l2013 <- l2013[,c(1,2,7,12)]
+write.table(l2013,file = "./output/mortality_pulmonary_disease_2013.csv")
 l2014<-l[l$YearStart==2014,]
+l2014 <- l2014[,c(1,2,7,12)]
+write.table(l2014,file = "./output/mortality_pulmonary_disease_2014.csv")
 
 # Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years
 m <- cdi[cdi$Question==related_q[13],]
@@ -185,10 +189,20 @@ m <- m[m$Stratification1=="Overall",]
 m <- m[m$DataValueTypeID=="Nmbr",]
 unique(m$YearStart)
 m2010<-m[m$YearStart==2010,]
+m2010 <- m2010[,c(1,2,7,12)]
+write.table(m2010,file = "./output/mortality_pulmonary_disease2_2010.csv")
 m2011<-m[m$YearStart==2011,]
+m2011 <- m2011[,c(1,2,7,12)]
+write.table(m2011,file = "./output/mortality_pulmonary_disease2_2011.csv")
 m2012<-m[m$YearStart==2012,]
+m2012 <- m2012[,c(1,2,7,12)]
+write.table(m2012,file = "./output/mortality_pulmonary_disease2_2012.csv")
 m2013<-m[m$YearStart==2013,]
+m2013 <- m2013[,c(1,2,7,12)]
+write.table(m2013,file = "./output/mortality_pulmonary_disease2_2013.csv")
 m2014<-m[m$YearStart==2014,]
+m2014 <- m2014[,c(1,2,7,12)]
+write.table(m2014,file = "./output/mortality_pulmonary_disease2_2014.csv")
 
 #Prevalence of chronic obstructive pulmonary disease among adults >= 18
 n <- cdi[cdi$Question==related_q[14],]
@@ -197,8 +211,14 @@ n <- n[n$Stratification1=="Overall",]
 n <- n[n$DataValueTypeID=="CrdPrev",]
 unique(n$YearStart)
 n2012<-n[n$YearStart==2012,]
+n2012 <- n2012[,c(1,2,7,12)]
+write.table(n2012,file = "./output/prev_pulmonary_disease_18_2012.csv")
 n2013<-n[n$YearStart==2013,]
+n2013 <- n2013[,c(1,2,7,12)]
+write.table(n2013,file = "./output/prev_pulmonary_disease_18_2013.csv")
 n2014<-n[n$YearStart==2014,]
+n2014 <- n2014[,c(1,2,7,12)]
+write.table(n2014,file = "./output/prev_pulmonary_disease_18_2014.csv")
 
 #Prevalence of chronic obstructive pulmonary disease among adults >= 45 years
 o <- cdi[cdi$Question==related_q[15],]
@@ -207,8 +227,14 @@ o <- o[o$Stratification1=="Overall",]
 o <- o[o$DataValueTypeID=="CrdPrev",]
 unique(o$YearStart)
 o2012<-o[o$YearStart==2012,]
+o2012 <- o2012[,c(1,2,7,12)]
+write.table(o2012,file = "./output/prev_pulmonary_disease_45_2012.csv")
 o2013<-o[o$YearStart==2013,]
+o2013<- o2013[,c(1,2,7,12)]
+write.table(o2013,file = "./output/prev_pulmonary_disease_45_2013.csv")
 o2014<-o[o$YearStart==2014,]
+o2014 <- o2014[,c(1,2,7,12)]
+write.table(o2014,file = "./output/prev_pulmonary_disease_45_2014.csv")
 
 #Prevalence of current smoking among adults >= 18 with diagnosed chronic obstructive pulmonary disease
 p <- cdi[cdi$Question==related_q[16],]
@@ -217,8 +243,14 @@ p <- p[p$Stratification1=="Overall",]
 p <- p[p$DataValueTypeID=="CrdPrev",]
 unique(p$YearStart)
 p2012<-p[p$YearStart==2012,]
+p2012 <- p2012[,c(1,2,7,12)]
+write.table(p2012,file = "./output/prev_smoke_pulmonary_disease_18_2012.csv")
 p2013<-p[p$YearStart==2013,]
+p2013 <- p2013[,c(1,2,7,12)]
+write.table(p2013,file = "./output/prev_smoke_pulmonary_disease_18_2013.csv")
 p2014<-p[p$YearStart==2014,]
+p2014 <- p2014[,c(1,2,7,12)]
+write.table(p2014,file = "./output/prev_smoke_pulmonary_disease_18_2014.csv")
 
 #Prevalence of current smoking among adults >= 45 years with diagnosed chronic obstructive pulmonary disease
 q <- cdi[cdi$Question==related_q[17],]
@@ -227,9 +259,14 @@ q <- q[q$Stratification1=="Overall",]
 q <- q[q$DataValueTypeID=="CrdPrev",]
 unique(q$YearStart)
 q2012<-q[q$YearStart==2012,]
+q2012 <- q2012[,c(1,2,7,12)]
+write.table(q2012,file = "./output/prev_smoke_pulmonary_disease_45_2012.csv")
 q2013<-q[q$YearStart==2013,]
+q2013 <- q2013[,c(1,2,7,12)]
+write.table(q2013,file = "./output/prev_smoke_pulmonary_disease_45_2013.csv")
 q2014<-q[q$YearStart==2014,]
-
+q2014 <- q2014[,c(1,2,7,12)]
+write.table(q2014,file = "./output/prev_smoke_pulmonary_disease_45_2014.csv")
 
 
 
