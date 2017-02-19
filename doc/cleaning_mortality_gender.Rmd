@@ -1,3 +1,16 @@
+---
+title: "Data cleaning: mortality and gender"
+author: "Yini Zhang (yz3005)"
+date: "Feb 19th, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Step 1: Install and load packages
+```{r, warning=FALSE, message=FALSE}
 # package: dplyr
 packages.used="dplyr"
 
@@ -11,7 +24,10 @@ if(length(packages.needed)>0){
                    repos='http://cran.us.r-project.org')
 }
 library(dplyr)
+```
 
+##Step 2: Data cleaning of raw table: CDI.csv
+```{r, warning=FALSE, message=FALSE}
 # load data and get diseases related to smoking
 cdi <- read.csv("../data/CDI.csv")
 questions <- levels(cdi$Question)
@@ -40,14 +56,20 @@ cdi.new$deathpop <- as.numeric.factor(cdi.new$deathpop)
 
 # filter the dataframe by class
 cdi.gender <- filter(cdi.new, class == "Overall" | class == "Female" | class == "Male")
+```
 
+##Step3: Data cleaning of raw table: population.csv
+```{r, warning=FALSE, message=FALSE}
 # load population
 population <- read.csv("../data/population.csv")
 pop <- select(population, NAME, POPESTIMATE2010:POPESTIMATE2014)
 pop <- rename(pop, states=NAME, population=POPESTIMATE2010, population=POPESTIMATE2011, population=POPESTIMATE2012,
               population=POPESTIMATE2013, population=POPESTIMATE2014)
 pop <- pop[c(1,6:57), ]
+```
 
+##Step 4: Merge two tables
+```{r, warning=FALSE, message=FALSE}
 # add population to cdi
 cdi_2010 <- filter(cdi.gender,year==2010)
 pop_2010 <- pop[ ,c(1,2)]
@@ -75,16 +97,24 @@ cdi.pop <- rbind(cdi.pop.2010, cdi.pop.2011, cdi.pop.2012, cdi.pop.2013, cdi.pop
 # add a new colum: the ratio of death among population
 cdi.pop <- mutate(cdi.pop,
                        ratio = deathpop/population)
+```
 
+##Step 5: Get and save the cleaned state data
+```{r, warning=FALSE, message=FALSE}
 # get the clean state data
 cdi.state <- select(cdi.pop, -datatype)
-write.csv(cdi.state,file = "../output/states mortality(year_disease_gender).csv")
+# write in csv file
+write.csv(cdi.state,file = "../output/states mortality (year_disease_gender).csv")
+```
 
-
+##Step 6: Get and save the cleaned national mortality data
+```{r, warning=FALSE, message=FALSE}
 # national average death of each disease by gender and year
 cdi.avg <- cdi.pop %>% 
   group_by(year, disease, class) %>%
   select(deathpop, ratio) %>%
   summarize(avgdeath = mean(deathpop, na.rm=TRUE), avgratio = mean(ratio, na.rm=TRUE))
-write.csv(cdi.avg ,file = "../output/national mortality(year_disease_gender).csv")
+# write in csv file
+write.csv(cdi.avg ,file = "../output/national mortality (year_disease_gender).csv")
+```
 

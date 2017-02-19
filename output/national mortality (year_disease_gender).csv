@@ -1,0 +1,91 @@
+"","year","disease","class","avgdeath","avgratio"
+"1",2010,"Mortality from cerebrovascular disease (stroke)","Female",1511.94117647059,0.000258171116773635
+"2",2010,"Mortality from cerebrovascular disease (stroke)","Male",1026.80392156863,0.0001744633902203
+"3",2010,"Mortality from cerebrovascular disease (stroke)","Overall",4979.84615384615,0.000432363580873492
+"4",2010,"Mortality from coronary heart disease","Female",3372.13725490196,0.000534076760831733
+"5",2010,"Mortality from coronary heart disease","Male",4070.19607843137,0.000669640437698711
+"6",2010,"Mortality from coronary heart disease","Overall",14598.4230769231,0.00120416434786567
+"7",2010,"Mortality from diseases of the heart","Female",5692.25490196078,0.000933934499064875
+"8",2010,"Mortality from diseases of the heart","Male",6027.13725490196,0.00100444634343519
+"9",2010,"Mortality from diseases of the heart","Overall",22988.0384615385,0.00193826005246696
+"10",2010,"Mortality from heart failure","Female",2986.70588235294,0.000523847755608484
+"11",2010,"Mortality from heart failure","Male",2485.80392156863,0.000434163033519037
+"12",2010,"Mortality from heart failure","Overall",10804.8301886792,0.000953356235463391
+"13",2010,"Mortality from total cardiovascular disease","Female",7820.66666666667,0.00129318725831618
+"14",2010,"Mortality from total cardiovascular disease","Male",7560.78431372549,0.00126340616943391
+"15",2010,"Mortality from total cardiovascular disease","Overall",30171.3076923077,0.00255619431410324
+"16",2010,"Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years","Female",2495.66666666667,0.000434364302600282
+"17",2010,"Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years","Male",2597.13725490196,0.0004638792441787
+"18",2010,"Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years","Overall",9989.73076923077,0.000897116120331693
+"19",2011,"Mortality from cerebrovascular disease (stroke)","Female",1501.90196078431,0.000253646053545717
+"20",2011,"Mortality from cerebrovascular disease (stroke)","Male",1026.17647058824,0.000172221351100158
+"21",2011,"Mortality from cerebrovascular disease (stroke)","Overall",4958.92307692308,0.000425631806462792
+"22",2011,"Mortality from coronary heart disease","Female",3301.70588235294,0.000517754894589805
+"23",2011,"Mortality from coronary heart disease","Male",4057.01960784314,0.000667146615637989
+"24",2011,"Mortality from coronary heart disease","Overall",14434.4230769231,0.00118526789409735
+"25",2011,"Mortality from diseases of the heart","Female",5650.56862745098,0.000916942891968157
+"26",2011,"Mortality from diseases of the heart","Male",6047.01960784314,0.00100357173684812
+"27",2011,"Mortality from diseases of the heart","Overall",22945.2692307692,0.00192038608442569
+"28",2011,"Mortality from heart failure","Female",3034.37254901961,0.000527397923857614
+"29",2011,"Mortality from heart failure","Male",2541.86274509804,0.000442424270319636
+"30",2011,"Mortality from heart failure","Overall",10938,0.000968716422997939
+"31",2011,"Mortality from total cardiovascular disease","Female",7776.35294117647,0.00127145403442449
+"32",2011,"Mortality from total cardiovascular disease","Male",7585.90196078431,0.00126060506221711
+"33",2011,"Mortality from total cardiovascular disease","Overall",30133.6538461538,0.00253170031874515
+"34",2011,"Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years","Female",2587.27450980392,0.000449695129455027
+"35",2011,"Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years","Male",2680.62745098039,0.000479104777508478
+"36",2011,"Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years","Overall",10333.1923076923,0.000927512908654223
+"37",2012,"Mortality from cerebrovascular disease (stroke)","Female",1488.39215686275,0.000250067157266304
+"38",2012,"Mortality from cerebrovascular disease (stroke)","Male",1032.11764705882,0.000171016472830193
+"39",2012,"Mortality from cerebrovascular disease (stroke)","Overall",4944.07692307692,0.000420856029768827
+"40",2012,"Mortality from coronary heart disease","Female",3231.05882352941,0.000506753884233345
+"41",2012,"Mortality from coronary heart disease","Male",4052.64705882353,0.000662431787747318
+"42",2012,"Mortality from coronary heart disease","Overall",14287.2692307692,0.00116944432787034
+"43",2012,"Mortality from diseases of the heart","Female",5631.76470588235,0.000915766939971812
+"44",2012,"Mortality from diseases of the heart","Male",6127.27450980392,0.00101209950595491
+"45",2012,"Mortality from diseases of the heart","Overall",23065.8076923077,0.00192750908431256
+"46",2012,"Mortality from heart failure","Female",3019.58823529412,0.000523220595896808
+"47",2012,"Mortality from heart failure","Male",2587.25490196078,0.000444302739462989
+"48",2012,"Mortality from heart failure","Overall",10998.0384615385,0.000966424195722006
+"49",2012,"Mortality from total cardiovascular disease","Female",7760.17647058824,0.00126929113292371
+"50",2012,"Mortality from total cardiovascular disease","Male",7679.64705882353,0.00126789261920306
+"51",2012,"Mortality from total cardiovascular disease","Overall",30285.8076923077,0.00253660180907817
+"52",2012,"Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years","Female",2606.50980392157,0.000447440433790407
+"53",2012,"Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years","Male",2703.88235294118,0.000477043100306739
+"54",2012,"Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years","Overall",10416.5384615385,0.00092328643005752
+"55",2013,"Mortality from cerebrovascular disease (stroke)","Female",1476.21568627451,0.000243661556443127
+"56",2013,"Mortality from cerebrovascular disease (stroke)","Male",1052.76470588235,0.000173119571107296
+"57",2013,"Mortality from cerebrovascular disease (stroke)","Overall",4960.69230769231,0.000416604700732564
+"58",2013,"Mortality from coronary heart disease","Female",3170.54901960784,0.000494125918573891
+"59",2013,"Mortality from coronary heart disease","Male",4088.52941176471,0.000662204870967503
+"60",2013,"Mortality from coronary heart disease","Overall",14238.9615384615,0.00115659323038123
+"61",2013,"Mortality from diseases of the heart","Female",5681.52941176471,0.000918759858250101
+"62",2013,"Mortality from diseases of the heart","Male",6300.92156862745,0.00103129935331231
+"63",2013,"Mortality from diseases of the heart","Overall",23504.0384615385,0.00194969777511817
+"64",2013,"Mortality from heart failure","Female",3137.17647058824,0.000536833778026179
+"65",2013,"Mortality from heart failure","Male",2747.56862745098,0.000464410610174073
+"66",2013,"Mortality from heart failure","Overall",11543.1538461538,0.00100022950272352
+"67",2013,"Mortality from total cardiovascular disease","Female",7805.60784313726,0.0012651482574724
+"68",2013,"Mortality from total cardiovascular disease","Male",7899.03921568627,0.00129362739621704
+"69",2013,"Mortality from total cardiovascular disease","Overall",30805.2692307692,0.00255824510820763
+"70",2013,"Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years","Female",2712.09803921569,0.000462581355950334
+"71",2013,"Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years","Male",2797.86274509804,0.0004872770673596
+"72",2013,"Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years","Overall",10808,0.000948670082500604
+"73",2014,"Mortality from cerebrovascular disease (stroke)","Female",1522.19607843137,0.000248282435494786
+"74",2014,"Mortality from cerebrovascular disease (stroke)","Male",1087.66666666667,0.000177340042497085
+"75",2014,"Mortality from cerebrovascular disease (stroke)","Overall",5119.34615384615,0.000425463813761384
+"76",2014,"Mortality from coronary heart disease","Female",3081.98039215686,0.000480150075728922
+"77",2014,"Mortality from coronary heart disease","Male",4066.90196078431,0.000659246136827961
+"78",2014,"Mortality from coronary heart disease","Overall",14022.8076923077,0.00113947045132074
+"79",2014,"Mortality from diseases of the heart","Female",5671.98039215686,0.000915347090010549
+"80",2014,"Mortality from diseases of the heart","Male",6374.05882352941,0.00104313069291957
+"81",2014,"Mortality from diseases of the heart","Overall",23628.7692307692,0.00195786119089658
+"82",2014,"Mortality from heart failure","Female",3194.19607843137,0.000545632883448203
+"83",2014,"Mortality from heart failure","Male",2864.1568627451,0.00048570846413466
+"84",2014,"Mortality from heart failure","Overall",11883.6923076923,0.00103013974554566
+"85",2014,"Mortality from total cardiovascular disease","Female",7824.07843137255,0.0012636935812167
+"86",2014,"Mortality from total cardiovascular disease","Male",8014.64705882353,0.0013094219727362
+"87",2014,"Mortality from total cardiovascular disease","Overall",31068.2692307692,0.00257234304891854
+"88",2014,"Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years","Female",2668.54901960784,0.000457981511731577
+"89",2014,"Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years","Male",2770.03921568627,0.0004837001424368
+"90",2014,"Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years","Overall",10668,0.000940298249888381
