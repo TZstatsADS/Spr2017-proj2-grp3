@@ -15,14 +15,14 @@ body <- dashboardBody(
 
 )
 
-
+# ui
 ui <- dashboardPage(
   header,
   dashboardSidebar(disable=TRUE),
   body
 )
 
-
+# server
 server <- function(input, output) {
   
 
