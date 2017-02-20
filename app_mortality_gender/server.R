@@ -19,8 +19,7 @@ library(tidyr)
 
 
 # load data
-mortality_state <- read.csv("../output/states disease and mortality.csv")
-mortality_nation <- mortality_state[mortality_state$states=="United States", ]
+mortality_nation <- read.csv("../output/national_mortality.csv")
 
 shinyServer(function(input, output){
   
@@ -84,11 +83,10 @@ shinyServer(function(input, output){
     #check if city and month are not null
     if ((length(SelectedDisease())>0) & (length(SelectedGender())>0)){
       g <- ggplot(mortalityDF(),
-                  aes(x=year, y=ratio, col=factor(class))) +
-        labs(x="Year", y="Mortality rate (Prevalence)") +
-        facet_wrap(~disease)+
-        scale_color_discrete(name="Gender", breaks=c(1:3), labels=c("Overall", "Female", "Male"))
-      g <- g + geom_point() + geom_line()
+                  aes(x=year, y=ratiototal, col=factor(class))) +
+        labs(x="Year", y="Mortality rate") +
+        facet_wrap(~disease, ncol = 2) + scale_color_discrete(name="Gender")
+      g <- g + geom_point(size=3) + geom_line(size=1) 
       g
     } 
   })    
