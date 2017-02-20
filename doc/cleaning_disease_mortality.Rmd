@@ -34,8 +34,8 @@ questions <- levels(cdi.raw$Question)
 mortality <- questions[c(116,117,118,119,120,121,122,40,164,165)]
 
 # select columns needed
-cdi <- select(cdi.raw, YearStart, LocationDesc, Question, DataValueTypeID, DataValue, Stratification1)
-cdi <- rename(cdi, year=YearStart, states=LocationDesc, disease=Question, datatype=DataValueTypeID, deathpop=DataValue, class=Stratification1)
+cdi <- select(cdi.raw, YearStart,LocationAbbr, LocationDesc, Question, DataValueTypeID, DataValue, Stratification1)
+cdi <- rename(cdi, year=YearStart, statesAbbr=LocationAbbr, states=LocationDesc, disease=Question, datatype=DataValueTypeID, deathpop=DataValue, class=Stratification1)
 
 stroke <- filter(cdi, disease=="Mortality from cerebrovascular disease (stroke)", datatype == "Nmbr")
 coronary_heart_disease <- filter(cdi, disease=="Mortality from coronary heart disease", datatype == "Nmbr")

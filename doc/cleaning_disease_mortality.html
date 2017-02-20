@@ -147,8 +147,8 @@ questions &lt;- levels(cdi.raw$Question)
 mortality &lt;- questions[c(116,117,118,119,120,121,122,40,164,165)]
 
 # select columns needed
-cdi &lt;- select(cdi.raw, YearStart, LocationDesc, Question, DataValueTypeID, DataValue, Stratification1)
-cdi &lt;- rename(cdi, year=YearStart, states=LocationDesc, disease=Question, datatype=DataValueTypeID, deathpop=DataValue, class=Stratification1)
+cdi &lt;- select(cdi.raw, YearStart,LocationAbbr, LocationDesc, Question, DataValueTypeID, DataValue, Stratification1)
+cdi &lt;- rename(cdi, year=YearStart, statesAbbr=LocationAbbr, states=LocationDesc, disease=Question, datatype=DataValueTypeID, deathpop=DataValue, class=Stratification1)
 
 stroke &lt;- filter(cdi, disease==&quot;Mortality from cerebrovascular disease (stroke)&quot;, datatype == &quot;Nmbr&quot;)
 coronary_heart_disease &lt;- filter(cdi, disease==&quot;Mortality from coronary heart disease&quot;, datatype == &quot;Nmbr&quot;)
