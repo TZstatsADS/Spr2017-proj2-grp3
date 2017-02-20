@@ -127,13 +127,33 @@ cdi.pop <- mutate(cdi.pop,
                        ratio = deathpop/population)
 ```
 
-##Step 5: Get and save the cleaned state data
+##Step 5: Get and save national mortality in terms of gender
 ```{r, warning=FALSE, message=FALSE}
-# get the clean state data
+# We want to get the national mortality of different gender
+# but the raw data here only has the national mortality of overall population
+
+# remove the rows with "United States" in cdi.pop
+# calculate the total national mortality according to gender
+cdi.pop.new <- cdi.pop[cdi.pop$states!="United States", ]
+national_mortality <- cdi.pop.new %>%
+  group_by(year, disease, class) %>%
+  select(deathpop, ratio) %>%
+  summarise(
+    deathtotal = sum(deathpop, na.rm=TRUE),
+    ratiototal = sum(ratio, na.rm=TRUE)
+  )
+
+# write in csv file
+write.csv(national_mortality, file = "../output/national_mortality.csv")
+```
+
+##Step 5: Get and save state disease prevalence and mortality
+```{r, warning=FALSE, message=FALSE}
+# get the clean state data with all info
 cdi.state <- rbind(cdi.pop, cdi.pop.prev)
 
 # write in csv file
-write.csv(cdi.state,file = "../output/states disease and mortality.csv")
+write.csv(cdi.state,file = "../output/states disease prevalence and mortality.csv")
 ```
 
 

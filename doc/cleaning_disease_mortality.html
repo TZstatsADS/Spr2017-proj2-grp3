@@ -237,13 +237,32 @@ cdi.pop.prev &lt;- rbind(cdi.pop.2010_prev, cdi.pop.2011_prev, cdi.pop.2012_prev
 cdi.pop &lt;- mutate(cdi.pop,
                        ratio = deathpop/population)</code></pre>
 </div>
-<div id="step-5-get-and-save-the-cleaned-state-data" class="section level2">
-<h2>Step 5: Get and save the cleaned state data</h2>
-<pre class="r"><code># get the clean state data
+<div id="step-5-get-and-save-national-mortality-in-terms-of-gender" class="section level2">
+<h2>Step 5: Get and save national mortality in terms of gender</h2>
+<pre class="r"><code># We want to get the national mortality of different gender
+# but the raw data here only has the national mortality of overall population
+
+# remove the rows with &quot;United States&quot; in cdi.pop
+# calculate the total national mortality according to gender
+cdi.pop.new &lt;- cdi.pop[cdi.pop$states!=&quot;United States&quot;, ]
+national_mortality &lt;- cdi.pop.new %&gt;%
+  group_by(year, disease, class) %&gt;%
+  select(deathpop, ratio) %&gt;%
+  summarise(
+    deathtotal = sum(deathpop, na.rm=TRUE),
+    ratiototal = sum(ratio, na.rm=TRUE)
+  )
+
+# write in csv file
+write.csv(national_mortality, file = &quot;../output/national_mortality.csv&quot;)</code></pre>
+</div>
+<div id="step-5-get-and-save-state-disease-prevalence-and-mortality" class="section level2">
+<h2>Step 5: Get and save state disease prevalence and mortality</h2>
+<pre class="r"><code># get the clean state data with all info
 cdi.state &lt;- rbind(cdi.pop, cdi.pop.prev)
 
 # write in csv file
-write.csv(cdi.state,file = &quot;../output/states disease and mortality.csv&quot;)</code></pre>
+write.csv(cdi.state,file = &quot;../output/states disease prevalence and mortality.csv&quot;)</code></pre>
 </div>
 
 
