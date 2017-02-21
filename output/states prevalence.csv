@@ -1,0 +1,1093 @@
+"","states","year","statesAbbr","disease","datatype","deathpop","class","ratio","population"
+"1","Alabama",2012,"AL","Chronic obstructive pulmonary disease prevalence","CrdPrev",9.9,"Overall",9.9,4816089
+"2","Alabama",2012,"AL","Asthma","CrdPrev",8.6,"Overall",8.6,4816089
+"3","Alabama",2012,"AL","Arthritis","CrdPrev",33.9,"Overall",33.9,4816089
+"4","Alaska",2012,"AK","Asthma","CrdPrev",9,"Overall",9,731228
+"5","Alaska",2012,"AK","Arthritis","CrdPrev",22.5,"Overall",22.5,731228
+"6","Alaska",2012,"AK","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.1,"Overall",5.1,731228
+"7","Arizona",2012,"AZ","Asthma","CrdPrev",8.6,"Overall",8.6,6553262
+"8","Arizona",2012,"AZ","Chronic obstructive pulmonary disease prevalence","CrdPrev",6,"Overall",6,6553262
+"9","Arizona",2012,"AZ","Arthritis","CrdPrev",25,"Overall",25,6553262
+"10","Arkansas",2012,"AR","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.8,"Overall",8.8,2949499
+"11","Arkansas",2012,"AR","Asthma","CrdPrev",8.8,"Overall",8.8,2949499
+"12","Arkansas",2012,"AR","Arthritis","CrdPrev",30.3,"Overall",30.3,2949499
+"13","California",2012,"CA","Arthritis","CrdPrev",22,"Overall",22,38056055
+"14","California",2012,"CA","Asthma","CrdPrev",8.8,"Overall",8.8,38056055
+"15","California",2012,"CA","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.6,"Overall",4.6,38056055
+"16","Colorado",2012,"CO","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.8,"Overall",4.8,5191731
+"17","Colorado",2012,"CO","Arthritis","CrdPrev",23.2,"Overall",23.2,5191731
+"18","Colorado",2012,"CO","Asthma","CrdPrev",8.9,"Overall",8.9,5191731
+"19","Connecticut",2012,"CT","Asthma","CrdPrev",9.9,"Overall",9.9,3593541
+"20","Connecticut",2012,"CT","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.4,"Overall",5.4,3593541
+"21","Connecticut",2012,"CT","Arthritis","CrdPrev",24.3,"Overall",24.3,3593541
+"22","Delaware",2012,"DE","Asthma","CrdPrev",9.9,"Overall",9.9,917099
+"23","Delaware",2012,"DE","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.1,"Overall",7.1,917099
+"24","Delaware",2012,"DE","Arthritis","CrdPrev",28,"Overall",28,917099
+"25","District of Columbia",2012,"DC","Asthma","CrdPrev",10.3,"Overall",10.3,635342
+"26","District of Columbia",2012,"DC","Arthritis","CrdPrev",18.2,"Overall",18.2,635342
+"27","District of Columbia",2012,"DC","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.5,"Overall",4.5,635342
+"28","Florida",2012,"FL","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.6,"Overall",7.6,19352021
+"29","Florida",2012,"FL","Asthma","CrdPrev",8.2,"Overall",8.2,19352021
+"30","Florida",2012,"FL","Arthritis","CrdPrev",26.4,"Overall",26.4,19352021
+"31","Georgia",2012,"GA","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.1,"Overall",7.1,9917639
+"32","Georgia",2012,"GA","Arthritis","CrdPrev",24,"Overall",24,9917639
+"33","Georgia",2012,"GA","Asthma","CrdPrev",8.2,"Overall",8.2,9917639
+"34","Hawaii",2012,"HI","Arthritis","CrdPrev",20.3,"Overall",20.3,1392641
+"35","Hawaii",2012,"HI","Asthma","CrdPrev",8.9,"Overall",8.9,1392641
+"36","Hawaii",2012,"HI","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.6,"Overall",3.6,1392641
+"37","Idaho",2012,"ID","Asthma","CrdPrev",8.5,"Overall",8.5,1596097
+"38","Idaho",2012,"ID","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.3,"Overall",5.3,1596097
+"39","Idaho",2012,"ID","Arthritis","CrdPrev",26,"Overall",26,1596097
+"40","Illinois",2012,"IL","Arthritis","CrdPrev",25.4,"Overall",25.4,12875167
+"41","Illinois",2012,"IL","Chronic obstructive pulmonary disease prevalence","CrdPrev",6,"Overall",6,12875167
+"42","Illinois",2012,"IL","Asthma","CrdPrev",8.5,"Overall",8.5,12875167
+"43","Indiana",2012,"IN","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.6,"Overall",7.6,6538283
+"44","Indiana",2012,"IN","Arthritis","CrdPrev",27.8,"Overall",27.8,6538283
+"45","Indiana",2012,"IN","Asthma","CrdPrev",9.1,"Overall",9.1,6538283
+"46","Iowa",2012,"IA","Arthritis","CrdPrev",25.9,"Overall",25.9,3076636
+"47","Iowa",2012,"IA","Asthma","CrdPrev",8.1,"Overall",8.1,3076636
+"48","Iowa",2012,"IA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.2,"Overall",6.2,3076636
+"49","Kansas",2012,"KS","Arthritis","CrdPrev",24,"Overall",24,2886281
+"50","Kansas",2012,"KS","Chronic obstructive pulmonary disease prevalence","CrdPrev",6,"Overall",6,2886281
+"51","Kansas",2012,"KS","Asthma","CrdPrev",8.4,"Overall",8.4,2886281
+"52","Kentucky",2012,"KY","Chronic obstructive pulmonary disease prevalence","CrdPrev",11.2,"Overall",11.2,4382667
+"53","Kentucky",2012,"KY","Asthma","CrdPrev",11.1,"Overall",11.1,4382667
+"54","Kentucky",2012,"KY","Arthritis","CrdPrev",35,"Overall",35,4382667
+"55","Louisiana",2012,"LA","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.5,"Overall",7.5,4603676
+"56","Louisiana",2012,"LA","Arthritis","CrdPrev",28,"Overall",28,4603676
+"57","Louisiana",2012,"LA","Asthma","CrdPrev",7.4,"Overall",7.4,4603676
+"58","Maine",2012,"ME","Asthma","CrdPrev",11.1,"Overall",11.1,1328888
+"59","Maine",2012,"ME","Arthritis","CrdPrev",29.6,"Overall",29.6,1328888
+"60","Maine",2012,"ME","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.8,"Overall",7.8,1328888
+"61","Maryland",2012,"MD","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.5,"Overall",5.5,5890740
+"62","Maryland",2012,"MD","Arthritis","CrdPrev",23.5,"Overall",23.5,5890740
+"63","Maryland",2012,"MD","Asthma","CrdPrev",9,"Overall",9,5890740
+"64","Massachusetts",2012,"MA","Asthma","CrdPrev",10.8,"Overall",10.8,6657780
+"65","Massachusetts",2012,"MA","Arthritis","CrdPrev",23.1,"Overall",23.1,6657780
+"66","Massachusetts",2012,"MA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.4,"Overall",5.4,6657780
+"67","Michigan",2012,"MI","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.4,"Overall",7.4,9886879
+"68","Michigan",2012,"MI","Asthma","CrdPrev",10.5,"Overall",10.5,9886879
+"69","Michigan",2012,"MI","Arthritis","CrdPrev",31.8,"Overall",31.8,9886879
+"70","Minnesota",2012,"MN","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.3,"Overall",4.3,5380443
+"71","Minnesota",2012,"MN","Asthma","CrdPrev",8,"Overall",8,5380443
+"72","Minnesota",2012,"MN","Arthritis","CrdPrev",21.4,"Overall",21.4,5380443
+"73","Mississippi",2012,"MS","Asthma","CrdPrev",8.1,"Overall",8.1,2985660
+"74","Mississippi",2012,"MS","Arthritis","CrdPrev",30.8,"Overall",30.8,2985660
+"75","Mississippi",2012,"MS","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.7,"Overall",6.7,2985660
+"76","Missouri",2012,"MO","Asthma","CrdPrev",10.4,"Overall",10.4,6025468
+"77","Missouri",2012,"MO","Arthritis","CrdPrev",29.6,"Overall",29.6,6025468
+"78","Missouri",2012,"MO","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.1,"Overall",8.1,6025468
+"79","Montana",2012,"MT","Asthma","CrdPrev",9.5,"Overall",9.5,1005157
+"80","Montana",2012,"MT","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.1,"Overall",6.1,1005157
+"81","Montana",2012,"MT","Arthritis","CrdPrev",27.8,"Overall",27.8,1005157
+"82","Nebraska",2012,"NE","Asthma","CrdPrev",7.4,"Overall",7.4,1855973
+"83","Nebraska",2012,"NE","Arthritis","CrdPrev",24.6,"Overall",24.6,1855973
+"84","Nebraska",2012,"NE","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.3,"Overall",5.3,1855973
+"85","Nevada",2012,"NV","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.5,"Overall",7.5,2754874
+"86","Nevada",2012,"NV","Arthritis","CrdPrev",24,"Overall",24,2754874
+"87","Nevada",2012,"NV","Asthma","CrdPrev",7.4,"Overall",7.4,2754874
+"88","New Hampshire",2012,"NH","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.9,"Overall",5.9,1321393
+"89","New Hampshire",2012,"NH","Asthma","CrdPrev",10.2,"Overall",10.2,1321393
+"90","New Hampshire",2012,"NH","Arthritis","CrdPrev",27.3,"Overall",27.3,1321393
+"91","New Jersey",2012,"NJ","Asthma","CrdPrev",8.7,"Overall",8.7,8874893
+"92","New Jersey",2012,"NJ","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.6,"Overall",5.6,8874893
+"93","New Jersey",2012,"NJ","Arthritis","CrdPrev",21.8,"Overall",21.8,8874893
+"94","New Mexico",2012,"NM","Asthma","CrdPrev",9.2,"Overall",9.2,2084792
+"95","New Mexico",2012,"NM","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.7,"Overall",6.7,2084792
+"96","New Mexico",2012,"NM","Arthritis","CrdPrev",23.9,"Overall",23.9,2084792
+"97","New York",2012,"NY","Asthma","CrdPrev",9.3,"Overall",9.3,19606981
+"98","New York",2012,"NY","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.2,"Overall",6.2,19606981
+"99","New York",2012,"NY","Arthritis","CrdPrev",25,"Overall",25,19606981
+"100","North Carolina",2012,"NC","Asthma","CrdPrev",7.7,"Overall",7.7,9747021
+"101","North Carolina",2012,"NC","Arthritis","CrdPrev",26.1,"Overall",26.1,9747021
+"102","North Carolina",2012,"NC","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.8,"Overall",6.8,9747021
+"103","North Dakota",2012,"ND","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.2,"Overall",4.2,702265
+"104","North Dakota",2012,"ND","Arthritis","CrdPrev",24.5,"Overall",24.5,702265
+"105","North Dakota",2012,"ND","Asthma","CrdPrev",7.6,"Overall",7.6,702265
+"106","Ohio",2012,"OH","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.6,"Overall",8.6,11551783
+"107","Ohio",2012,"OH","Asthma","CrdPrev",10.5,"Overall",10.5,11551783
+"108","Ohio",2012,"OH","Arthritis","CrdPrev",30,"Overall",30,11551783
+"109","Oklahoma",2012,"OK","Asthma","CrdPrev",10.2,"Overall",10.2,3817679
+"110","Oklahoma",2012,"OK","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.5,"Overall",7.5,3817679
+"111","Oklahoma",2012,"OK","Arthritis","CrdPrev",28,"Overall",28,3817679
+"112","Oregon",2012,"OR","Asthma","CrdPrev",10.6,"Overall",10.6,3899444
+"113","Oregon",2012,"OR","Arthritis","CrdPrev",28,"Overall",28,3899444
+"114","Oregon",2012,"OR","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.2,"Overall",6.2,3899444
+"115","Pennsylvania",2012,"PA","Asthma","CrdPrev",10.1,"Overall",10.1,12772789
+"116","Pennsylvania",2012,"PA","Arthritis","CrdPrev",29.1,"Overall",29.1,12772789
+"117","Pennsylvania",2012,"PA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.7,"Overall",6.7,12772789
+"118","Puerto Rico",2012,"PR","Asthma","CrdPrev",8.9,"Overall",8.9,3634487
+"119","Puerto Rico",2012,"PR","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.6,"Overall",3.6,3634487
+"120","Puerto Rico",2012,"PR","Arthritis","CrdPrev",24.6,"Overall",24.6,3634487
+"121","Rhode Island",2012,"RI","Asthma","CrdPrev",10.8,"Overall",10.8,1052393
+"122","Rhode Island",2012,"RI","Arthritis","CrdPrev",26.8,"Overall",26.8,1052393
+"123","Rhode Island",2012,"RI","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.5,"Overall",6.5,1052393
+"124","South Carolina",2012,"SC","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.5,"Overall",7.5,4721341
+"125","South Carolina",2012,"SC","Arthritis","CrdPrev",28.9,"Overall",28.9,4721341
+"126","South Carolina",2012,"SC","Asthma","CrdPrev",8.7,"Overall",8.7,4721341
+"127","South Dakota",2012,"SD","Arthritis","CrdPrev",23.7,"Overall",23.7,834631
+"128","South Dakota",2012,"SD","Asthma","CrdPrev",7.5,"Overall",7.5,834631
+"129","South Dakota",2012,"SD","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.9,"Overall",4.9,834631
+"130","Tennessee",2012,"TN","Chronic obstructive pulmonary disease prevalence","CrdPrev",9.4,"Overall",9.4,6455469
+"131","Tennessee",2012,"TN","Arthritis","CrdPrev",29.8,"Overall",29.8,6455469
+"132","Tennessee",2012,"TN","Asthma","CrdPrev",7.7,"Overall",7.7,6455469
+"133","Texas",2012,"TX","Asthma","CrdPrev",6.8,"Overall",6.8,26089741
+"134","Texas",2012,"TX","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.2,"Overall",5.2,26089741
+"135","Texas",2012,"TX","Arthritis","CrdPrev",21.3,"Overall",21.3,26089741
+"139","Utah",2012,"UT","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.8,"Overall",3.8,2856343
+"140","Utah",2012,"UT","Arthritis","CrdPrev",20,"Overall",20,2856343
+"141","Utah",2012,"UT","Asthma","CrdPrev",8.9,"Overall",8.9,2856343
+"142","Vermont",2012,"VT","Asthma","CrdPrev",10.9,"Overall",10.9,626398
+"143","Vermont",2012,"VT","Chronic obstructive pulmonary disease prevalence","CrdPrev",6,"Overall",6,626398
+"144","Vermont",2012,"VT","Arthritis","CrdPrev",27.2,"Overall",27.2,626398
+"145","Virginia",2012,"VA","Arthritis","CrdPrev",25.5,"Overall",25.5,8193374
+"146","Virginia",2012,"VA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.1,"Overall",6.1,8193374
+"147","Virginia",2012,"VA","Asthma","CrdPrev",8.7,"Overall",8.7,8193374
+"148","Washington",2012,"WA","Arthritis","CrdPrev",25.2,"Overall",25.2,6897292
+"149","Washington",2012,"WA","Asthma","CrdPrev",9.7,"Overall",9.7,6897292
+"150","Washington",2012,"WA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.7,"Overall",5.7,6897292
+"151","West Virginia",2012,"WV","Arthritis","CrdPrev",36.4,"Overall",36.4,1856283
+"152","West Virginia",2012,"WV","Asthma","CrdPrev",10.2,"Overall",10.2,1856283
+"153","West Virginia",2012,"WV","Chronic obstructive pulmonary disease prevalence","CrdPrev",10.5,"Overall",10.5,1856283
+"154","Wisconsin",2012,"WI","Asthma","CrdPrev",8.6,"Overall",8.6,5726422
+"155","Wisconsin",2012,"WI","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.1,"Overall",5.1,5726422
+"156","Wisconsin",2012,"WI","Arthritis","CrdPrev",25.7,"Overall",25.7,5726422
+"157","Wyoming",2012,"WY","Arthritis","CrdPrev",24.7,"Overall",24.7,577080
+"158","Wyoming",2012,"WY","Asthma","CrdPrev",9,"Overall",9,577080
+"159","Wyoming",2012,"WY","Chronic obstructive pulmonary disease prevalence","CrdPrev",7,"Overall",7,577080
+"160","Alabama",2013,"AL","Arthritis","CrdPrev",27.8,"Male",27.8,4830533
+"161","Alabama",2013,"AL","Chronic obstructive pulmonary disease prevalence","CrdPrev",10.1,"Female",10.1,4830533
+"162","Alabama",2013,"AL","Asthma","CrdPrev",6.1,"Male",6.1,4830533
+"163","Alabama",2013,"AL","Arthritis","CrdPrev",36.2,"Female",36.2,4830533
+"164","Alabama",2013,"AL","Asthma","CrdPrev",10.8,"Female",10.8,4830533
+"165","Alabama",2013,"AL","Arthritis","CrdPrev",32.2,"Overall",32.2,4830533
+"166","Alabama",2013,"AL","Chronic obstructive pulmonary disease prevalence","CrdPrev",10.6,"Male",10.6,4830533
+"167","Alabama",2013,"AL","Chronic obstructive pulmonary disease prevalence","CrdPrev",10.3,"Overall",10.3,4830533
+"168","Alabama",2013,"AL","Asthma","CrdPrev",8.5,"Overall",8.5,4830533
+"169","Alaska",2013,"AK","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.5,"Overall",5.5,737442
+"170","Alaska",2013,"AK","Arthritis","CrdPrev",24.8,"Female",24.8,737442
+"171","Alaska",2013,"AK","Arthritis","CrdPrev",22.7,"Overall",22.7,737442
+"172","Alaska",2013,"AK","Asthma","CrdPrev",12.7,"Female",12.7,737442
+"173","Alaska",2013,"AK","Asthma","CrdPrev",6.2,"Male",6.2,737442
+"174","Alaska",2013,"AK","Asthma","CrdPrev",9.3,"Overall",9.3,737442
+"175","Alaska",2013,"AK","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.4,"Male",4.4,737442
+"176","Alaska",2013,"AK","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.7,"Female",6.7,737442
+"177","Alaska",2013,"AK","Arthritis","CrdPrev",20.8,"Male",20.8,737442
+"178","Arizona",2013,"AZ","Asthma","CrdPrev",6.6,"Male",6.6,6630799
+"179","Arizona",2013,"AZ","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.7,"Female",6.7,6630799
+"180","Arizona",2013,"AZ","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.5,"Male",7.5,6630799
+"181","Arizona",2013,"AZ","Arthritis","CrdPrev",29.4,"Female",29.4,6630799
+"182","Arizona",2013,"AZ","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.1,"Overall",7.1,6630799
+"183","Arizona",2013,"AZ","Arthritis","CrdPrev",18.4,"Male",18.4,6630799
+"184","Arizona",2013,"AZ","Asthma","CrdPrev",8.9,"Overall",8.9,6630799
+"185","Arizona",2013,"AZ","Arthritis","CrdPrev",24,"Overall",24,6630799
+"186","Arizona",2013,"AZ","Asthma","CrdPrev",11.1,"Female",11.1,6630799
+"187","Arkansas",2013,"AR","Chronic obstructive pulmonary disease prevalence","CrdPrev",9.6,"Female",9.6,2957957
+"188","Arkansas",2013,"AR","Arthritis","CrdPrev",25.6,"Male",25.6,2957957
+"189","Arkansas",2013,"AR","Asthma","CrdPrev",6.6,"Male",6.6,2957957
+"190","Arkansas",2013,"AR","Arthritis","CrdPrev",30,"Overall",30,2957957
+"191","Arkansas",2013,"AR","Asthma","CrdPrev",9.9,"Female",9.9,2957957
+"192","Arkansas",2013,"AR","Chronic obstructive pulmonary disease prevalence","CrdPrev",9,"Overall",9,2957957
+"193","Arkansas",2013,"AR","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.4,"Male",8.4,2957957
+"194","Arkansas",2013,"AR","Asthma","CrdPrev",8.3,"Overall",8.3,2957957
+"195","Arkansas",2013,"AR","Arthritis","CrdPrev",34.1,"Female",34.1,2957957
+"196","California",2013,"CA","Arthritis","CrdPrev",20.4,"Overall",20.4,38414128
+"197","California",2013,"CA","Arthritis","CrdPrev",24.6,"Female",24.6,38414128
+"198","California",2013,"CA","Asthma","CrdPrev",6.3,"Male",6.3,38414128
+"199","California",2013,"CA","Asthma","CrdPrev",11.1,"Female",11.1,38414128
+"200","California",2013,"CA","Asthma","CrdPrev",8.7,"Overall",8.7,38414128
+"201","California",2013,"CA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.4,"Female",5.4,38414128
+"202","California",2013,"CA","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.6,"Overall",4.6,38414128
+"203","California",2013,"CA","Arthritis","CrdPrev",16,"Male",16,38414128
+"204","California",2013,"CA","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.9,"Male",3.9,38414128
+"205","Colorado",2013,"CO","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.8,"Male",3.8,5271132
+"206","Colorado",2013,"CO","Asthma","CrdPrev",11.2,"Female",11.2,5271132
+"207","Colorado",2013,"CO","Asthma","CrdPrev",6.2,"Male",6.2,5271132
+"208","Colorado",2013,"CO","Asthma","CrdPrev",8.7,"Overall",8.7,5271132
+"209","Colorado",2013,"CO","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.3,"Female",5.3,5271132
+"210","Colorado",2013,"CO","Arthritis","CrdPrev",19,"Male",19,5271132
+"211","Colorado",2013,"CO","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.6,"Overall",4.6,5271132
+"212","Colorado",2013,"CO","Arthritis","CrdPrev",22.2,"Overall",22.2,5271132
+"213","Colorado",2013,"CO","Arthritis","CrdPrev",25.5,"Female",25.5,5271132
+"214","Connecticut",2013,"CT","Arthritis","CrdPrev",20.2,"Male",20.2,3597168
+"215","Connecticut",2013,"CT","Asthma","CrdPrev",7,"Male",7,3597168
+"216","Connecticut",2013,"CT","Arthritis","CrdPrev",23.7,"Overall",23.7,3597168
+"217","Connecticut",2013,"CT","Asthma","CrdPrev",9.8,"Overall",9.8,3597168
+"218","Connecticut",2013,"CT","Asthma","CrdPrev",12.4,"Female",12.4,3597168
+"219","Connecticut",2013,"CT","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.9,"Overall",5.9,3597168
+"220","Connecticut",2013,"CT","Arthritis","CrdPrev",27,"Female",27,3597168
+"221","Connecticut",2013,"CT","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.5,"Male",4.5,3597168
+"222","Connecticut",2013,"CT","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.1,"Female",7.1,3597168
+"223","Delaware",2013,"DE","Chronic obstructive pulmonary disease prevalence","CrdPrev",6,"Overall",6,925353
+"224","Delaware",2013,"DE","Arthritis","CrdPrev",26.2,"Overall",26.2,925353
+"225","Delaware",2013,"DE","Arthritis","CrdPrev",21.3,"Male",21.3,925353
+"226","Delaware",2013,"DE","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.7,"Male",4.7,925353
+"227","Delaware",2013,"DE","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.2,"Female",7.2,925353
+"228","Delaware",2013,"DE","Asthma","CrdPrev",10.6,"Overall",10.6,925353
+"229","Delaware",2013,"DE","Asthma","CrdPrev",13.3,"Female",13.3,925353
+"230","Delaware",2013,"DE","Asthma","CrdPrev",7.6,"Male",7.6,925353
+"231","Delaware",2013,"DE","Arthritis","CrdPrev",30.7,"Female",30.7,925353
+"232","District of Columbia",2013,"DC","Asthma","CrdPrev",13.9,"Female",13.9,649540
+"233","District of Columbia",2013,"DC","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.5,"Male",4.5,649540
+"234","District of Columbia",2013,"DC","Asthma","CrdPrev",11.9,"Overall",11.9,649540
+"235","District of Columbia",2013,"DC","Arthritis","CrdPrev",22.4,"Female",22.4,649540
+"236","District of Columbia",2013,"DC","Arthritis","CrdPrev",19.5,"Overall",19.5,649540
+"237","District of Columbia",2013,"DC","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.8,"Overall",5.8,649540
+"238","District of Columbia",2013,"DC","Arthritis","CrdPrev",16.2,"Male",16.2,649540
+"239","District of Columbia",2013,"DC","Chronic obstructive pulmonary disease prevalence","CrdPrev",7,"Female",7,649540
+"240","District of Columbia",2013,"DC","Asthma","CrdPrev",9.5,"Male",9.5,649540
+"241","Florida",2013,"FL","Asthma","CrdPrev",8.3,"Overall",8.3,19594467
+"242","Florida",2013,"FL","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.3,"Female",8.3,19594467
+"243","Florida",2013,"FL","Arthritis","CrdPrev",29.8,"Female",29.8,19594467
+"244","Florida",2013,"FL","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.4,"Male",6.4,19594467
+"245","Florida",2013,"FL","Asthma","CrdPrev",5.7,"Male",5.7,19594467
+"246","Florida",2013,"FL","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.4,"Overall",7.4,19594467
+"247","Florida",2013,"FL","Arthritis","CrdPrev",22,"Male",22,19594467
+"248","Florida",2013,"FL","Asthma","CrdPrev",10.7,"Female",10.7,19594467
+"249","Florida",2013,"FL","Arthritis","CrdPrev",26,"Overall",26,19594467
+"250","Georgia",2013,"GA","Asthma","CrdPrev",5.2,"Male",5.2,9991562
+"251","Georgia",2013,"GA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.1,"Male",5.1,9991562
+"252","Georgia",2013,"GA","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.8,"Female",7.8,9991562
+"253","Georgia",2013,"GA","Asthma","CrdPrev",8.4,"Overall",8.4,9991562
+"254","Georgia",2013,"GA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.5,"Overall",6.5,9991562
+"255","Georgia",2013,"GA","Arthritis","CrdPrev",27.6,"Female",27.6,9991562
+"256","Georgia",2013,"GA","Arthritis","CrdPrev",24.1,"Overall",24.1,9991562
+"257","Georgia",2013,"GA","Asthma","CrdPrev",11.3,"Female",11.3,9991562
+"258","Georgia",2013,"GA","Arthritis","CrdPrev",20.5,"Male",20.5,9991562
+"259","Hawaii",2013,"HI","Arthritis","CrdPrev",20.3,"Female",20.3,1408765
+"260","Hawaii",2013,"HI","Arthritis","CrdPrev",19.6,"Male",19.6,1408765
+"261","Hawaii",2013,"HI","Asthma","CrdPrev",11.5,"Female",11.5,1408765
+"262","Hawaii",2013,"HI","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.7,"Overall",4.7,1408765
+"263","Hawaii",2013,"HI","Arthritis","CrdPrev",19.9,"Overall",19.9,1408765
+"264","Hawaii",2013,"HI","Asthma","CrdPrev",9.4,"Overall",9.4,1408765
+"265","Hawaii",2013,"HI","Asthma","CrdPrev",7.4,"Male",7.4,1408765
+"266","Hawaii",2013,"HI","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.1,"Female",4.1,1408765
+"267","Hawaii",2013,"HI","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.3,"Male",5.3,1408765
+"268","Idaho",2013,"ID","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.2,"Female",5.2,1612785
+"269","Idaho",2013,"ID","Asthma","CrdPrev",11.1,"Female",11.1,1612785
+"270","Idaho",2013,"ID","Arthritis","CrdPrev",24.1,"Overall",24.1,1612785
+"271","Idaho",2013,"ID","Arthritis","CrdPrev",21.7,"Male",21.7,1612785
+"272","Idaho",2013,"ID","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.4,"Overall",4.4,1612785
+"273","Idaho",2013,"ID","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.7,"Male",3.7,1612785
+"274","Idaho",2013,"ID","Asthma","CrdPrev",5.9,"Male",5.9,1612785
+"275","Idaho",2013,"ID","Arthritis","CrdPrev",26.5,"Female",26.5,1612785
+"276","Idaho",2013,"ID","Asthma","CrdPrev",8.5,"Overall",8.5,1612785
+"277","Illinois",2013,"IL","Chronic obstructive pulmonary disease prevalence","CrdPrev",5,"Overall",5,12889580
+"278","Illinois",2013,"IL","Arthritis","CrdPrev",18.9,"Male",18.9,12889580
+"279","Illinois",2013,"IL","Arthritis","CrdPrev",23.5,"Overall",23.5,12889580
+"280","Illinois",2013,"IL","Asthma","CrdPrev",10,"Female",10,12889580
+"281","Illinois",2013,"IL","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.8,"Male",3.8,12889580
+"282","Illinois",2013,"IL","Asthma","CrdPrev",4.9,"Male",4.9,12889580
+"283","Illinois",2013,"IL","Arthritis","CrdPrev",27.9,"Female",27.9,12889580
+"284","Illinois",2013,"IL","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.2,"Female",6.2,12889580
+"285","Illinois",2013,"IL","Asthma","CrdPrev",7.6,"Overall",7.6,12889580
+"286","Indiana",2013,"IN","Asthma","CrdPrev",7.3,"Male",7.3,6570518
+"287","Indiana",2013,"IN","Arthritis","CrdPrev",23.8,"Male",23.8,6570518
+"288","Indiana",2013,"IN","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.8,"Male",6.8,6570518
+"289","Indiana",2013,"IN","Asthma","CrdPrev",10.3,"Overall",10.3,6570518
+"290","Indiana",2013,"IN","Chronic obstructive pulmonary disease prevalence","CrdPrev",9.2,"Female",9.2,6570518
+"291","Indiana",2013,"IN","Arthritis","CrdPrev",32,"Female",32,6570518
+"292","Indiana",2013,"IN","Arthritis","CrdPrev",28,"Overall",28,6570518
+"293","Indiana",2013,"IN","Chronic obstructive pulmonary disease prevalence","CrdPrev",8,"Overall",8,6570518
+"294","Indiana",2013,"IN","Asthma","CrdPrev",13.2,"Female",13.2,6570518
+"295","Iowa",2013,"IA","Arthritis","CrdPrev",20.2,"Male",20.2,3092224
+"296","Iowa",2013,"IA","Arthritis","CrdPrev",24.3,"Overall",24.3,3092224
+"297","Iowa",2013,"IA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.1,"Male",6.1,3092224
+"298","Iowa",2013,"IA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.6,"Female",6.6,3092224
+"299","Iowa",2013,"IA","Asthma","CrdPrev",5.5,"Male",5.5,3092224
+"300","Iowa",2013,"IA","Asthma","CrdPrev",7.8,"Overall",7.8,3092224
+"301","Iowa",2013,"IA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.3,"Overall",6.3,3092224
+"302","Iowa",2013,"IA","Asthma","CrdPrev",9.9,"Female",9.9,3092224
+"303","Iowa",2013,"IA","Arthritis","CrdPrev",28.2,"Female",28.2,3092224
+"304","Kansas",2013,"KS","Arthritis","CrdPrev",23.9,"Overall",23.9,2894630
+"305","Kansas",2013,"KS","Arthritis","CrdPrev",20.6,"Male",20.6,2894630
+"306","Kansas",2013,"KS","Asthma","CrdPrev",10.9,"Female",10.9,2894630
+"307","Kansas",2013,"KS","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.2,"Overall",6.2,2894630
+"308","Kansas",2013,"KS","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.9,"Female",6.9,2894630
+"309","Kansas",2013,"KS","Arthritis","CrdPrev",27.2,"Female",27.2,2894630
+"310","Kansas",2013,"KS","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.5,"Male",5.5,2894630
+"311","Kansas",2013,"KS","Asthma","CrdPrev",6.8,"Male",6.8,2894630
+"312","Kansas",2013,"KS","Asthma","CrdPrev",8.9,"Overall",8.9,2894630
+"313","Kentucky",2013,"KY","Chronic obstructive pulmonary disease prevalence","CrdPrev",10.9,"Overall",10.9,4398500
+"314","Kentucky",2013,"KY","Chronic obstructive pulmonary disease prevalence","CrdPrev",9.7,"Male",9.7,4398500
+"315","Kentucky",2013,"KY","Asthma","CrdPrev",12.1,"Female",12.1,4398500
+"316","Kentucky",2013,"KY","Arthritis","CrdPrev",28.7,"Male",28.7,4398500
+"317","Kentucky",2013,"KY","Arthritis","CrdPrev",31.9,"Overall",31.9,4398500
+"318","Kentucky",2013,"KY","Asthma","CrdPrev",9.5,"Overall",9.5,4398500
+"319","Kentucky",2013,"KY","Asthma","CrdPrev",6.7,"Male",6.7,4398500
+"320","Kentucky",2013,"KY","Chronic obstructive pulmonary disease prevalence","CrdPrev",12.1,"Female",12.1,4398500
+"321","Kentucky",2013,"KY","Arthritis","CrdPrev",34.9,"Female",34.9,4398500
+"322","Louisiana",2013,"LA","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.5,"Overall",7.5,4627491
+"323","Louisiana",2013,"LA","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.9,"Female",7.9,4627491
+"324","Louisiana",2013,"LA","Asthma","CrdPrev",9.2,"Female",9.2,4627491
+"325","Louisiana",2013,"LA","Arthritis","CrdPrev",30.6,"Female",30.6,4627491
+"326","Louisiana",2013,"LA","Arthritis","CrdPrev",21.9,"Male",21.9,4627491
+"327","Louisiana",2013,"LA","Asthma","CrdPrev",6.2,"Male",6.2,4627491
+"328","Louisiana",2013,"LA","Asthma","CrdPrev",7.7,"Overall",7.7,4627491
+"329","Louisiana",2013,"LA","Chronic obstructive pulmonary disease prevalence","CrdPrev",7,"Male",7,4627491
+"330","Louisiana",2013,"LA","Arthritis","CrdPrev",26.4,"Overall",26.4,4627491
+"331","Maine",2013,"ME","Asthma","CrdPrev",8.9,"Male",8.9,1328778
+"332","Maine",2013,"ME","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.8,"Male",6.8,1328778
+"333","Maine",2013,"ME","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.1,"Overall",7.1,1328778
+"334","Maine",2013,"ME","Arthritis","CrdPrev",26.4,"Male",26.4,1328778
+"335","Maine",2013,"ME","Asthma","CrdPrev",11.9,"Overall",11.9,1328778
+"336","Maine",2013,"ME","Arthritis","CrdPrev",30.4,"Overall",30.4,1328778
+"337","Maine",2013,"ME","Asthma","CrdPrev",14.6,"Female",14.6,1328778
+"338","Maine",2013,"ME","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.3,"Female",7.3,1328778
+"339","Maine",2013,"ME","Arthritis","CrdPrev",34.2,"Female",34.2,1328778
+"340","Maryland",2013,"MD","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.4,"Overall",5.4,5936040
+"341","Maryland",2013,"MD","Arthritis","CrdPrev",19.3,"Male",19.3,5936040
+"342","Maryland",2013,"MD","Arthritis","CrdPrev",27.6,"Female",27.6,5936040
+"343","Maryland",2013,"MD","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.1,"Female",6.1,5936040
+"344","Maryland",2013,"MD","Arthritis","CrdPrev",23.6,"Overall",23.6,5936040
+"345","Maryland",2013,"MD","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.7,"Male",4.7,5936040
+"346","Maryland",2013,"MD","Asthma","CrdPrev",11.9,"Female",11.9,5936040
+"347","Maryland",2013,"MD","Asthma","CrdPrev",9.4,"Overall",9.4,5936040
+"348","Maryland",2013,"MD","Asthma","CrdPrev",6.7,"Male",6.7,5936040
+"349","Massachusetts",2013,"MA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.2,"Male",5.2,6708810
+"350","Massachusetts",2013,"MA","Asthma","CrdPrev",11.4,"Overall",11.4,6708810
+"351","Massachusetts",2013,"MA","Arthritis","CrdPrev",28,"Female",28,6708810
+"352","Massachusetts",2013,"MA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.7,"Overall",5.7,6708810
+"353","Massachusetts",2013,"MA","Arthritis","CrdPrev",24.3,"Overall",24.3,6708810
+"354","Massachusetts",2013,"MA","Arthritis","CrdPrev",20.2,"Male",20.2,6708810
+"355","Massachusetts",2013,"MA","Asthma","CrdPrev",8.8,"Male",8.8,6708810
+"356","Massachusetts",2013,"MA","Asthma","CrdPrev",13.7,"Female",13.7,6708810
+"357","Massachusetts",2013,"MA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.1,"Female",6.1,6708810
+"358","Michigan",2013,"MI","Asthma","CrdPrev",8.6,"Male",8.6,9900506
+"359","Michigan",2013,"MI","Chronic obstructive pulmonary disease prevalence","CrdPrev",9.5,"Female",9.5,9900506
+"360","Michigan",2013,"MI","Asthma","CrdPrev",14.2,"Female",14.2,9900506
+"361","Michigan",2013,"MI","Arthritis","CrdPrev",34.6,"Female",34.6,9900506
+"362","Michigan",2013,"MI","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.9,"Male",7.9,9900506
+"363","Michigan",2013,"MI","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.8,"Overall",8.8,9900506
+"364","Michigan",2013,"MI","Arthritis","CrdPrev",31.3,"Overall",31.3,9900506
+"365","Michigan",2013,"MI","Arthritis","CrdPrev",27.9,"Male",27.9,9900506
+"366","Michigan",2013,"MI","Asthma","CrdPrev",11.5,"Overall",11.5,9900506
+"367","Minnesota",2013,"MN","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.2,"Male",4.2,5420541
+"368","Minnesota",2013,"MN","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.3,"Female",4.3,5420541
+"369","Minnesota",2013,"MN","Arthritis","CrdPrev",22.3,"Female",22.3,5420541
+"370","Minnesota",2013,"MN","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.3,"Overall",4.3,5420541
+"371","Minnesota",2013,"MN","Asthma","CrdPrev",9.8,"Female",9.8,5420541
+"372","Minnesota",2013,"MN","Arthritis","CrdPrev",17.4,"Male",17.4,5420541
+"373","Minnesota",2013,"MN","Arthritis","CrdPrev",19.9,"Overall",19.9,5420541
+"374","Minnesota",2013,"MN","Asthma","CrdPrev",5.5,"Male",5.5,5420541
+"375","Minnesota",2013,"MN","Asthma","CrdPrev",7.7,"Overall",7.7,5420541
+"376","Mississippi",2013,"MS","Arthritis","CrdPrev",33.2,"Female",33.2,2990976
+"377","Mississippi",2013,"MS","Arthritis","CrdPrev",30,"Overall",30,2990976
+"378","Mississippi",2013,"MS","Arthritis","CrdPrev",26.5,"Male",26.5,2990976
+"379","Mississippi",2013,"MS","Chronic obstructive pulmonary disease prevalence","CrdPrev",10.1,"Female",10.1,2990976
+"380","Mississippi",2013,"MS","Asthma","CrdPrev",8.2,"Overall",8.2,2990976
+"381","Mississippi",2013,"MS","Asthma","CrdPrev",5.6,"Male",5.6,2990976
+"382","Mississippi",2013,"MS","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.7,"Overall",8.7,2990976
+"383","Mississippi",2013,"MS","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.2,"Male",7.2,2990976
+"384","Mississippi",2013,"MS","Asthma","CrdPrev",10.6,"Female",10.6,2990976
+"385","Missouri",2013,"MO","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.6,"Overall",7.6,6043708
+"386","Missouri",2013,"MO","Asthma","CrdPrev",10.8,"Overall",10.8,6043708
+"387","Missouri",2013,"MO","Asthma","CrdPrev",8.1,"Male",8.1,6043708
+"388","Missouri",2013,"MO","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.2,"Male",6.2,6043708
+"389","Missouri",2013,"MO","Arthritis","CrdPrev",30.2,"Female",30.2,6043708
+"390","Missouri",2013,"MO","Arthritis","CrdPrev",26.5,"Male",26.5,6043708
+"391","Missouri",2013,"MO","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.9,"Female",8.9,6043708
+"392","Missouri",2013,"MO","Asthma","CrdPrev",13.4,"Female",13.4,6043708
+"393","Missouri",2013,"MO","Arthritis","CrdPrev",28.4,"Overall",28.4,6043708
+"394","Montana",2013,"MT","Arthritis","CrdPrev",30.4,"Female",30.4,1014402
+"395","Montana",2013,"MT","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.9,"Female",6.9,1014402
+"396","Montana",2013,"MT","Asthma","CrdPrev",6.4,"Male",6.4,1014402
+"397","Montana",2013,"MT","Arthritis","CrdPrev",24.2,"Male",24.2,1014402
+"398","Montana",2013,"MT","Arthritis","CrdPrev",27.3,"Overall",27.3,1014402
+"399","Montana",2013,"MT","Asthma","CrdPrev",8.6,"Overall",8.6,1014402
+"400","Montana",2013,"MT","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.5,"Overall",6.5,1014402
+"401","Montana",2013,"MT","Chronic obstructive pulmonary disease prevalence","CrdPrev",6,"Male",6,1014402
+"402","Montana",2013,"MT","Asthma","CrdPrev",10.8,"Female",10.8,1014402
+"403","Nebraska",2013,"NE","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.3,"Overall",5.3,1869300
+"404","Nebraska",2013,"NE","Asthma","CrdPrev",5.5,"Male",5.5,1869300
+"405","Nebraska",2013,"NE","Arthritis","CrdPrev",24.7,"Overall",24.7,1869300
+"406","Nebraska",2013,"NE","Arthritis","CrdPrev",27.8,"Female",27.8,1869300
+"407","Nebraska",2013,"NE","Asthma","CrdPrev",7.3,"Overall",7.3,1869300
+"408","Nebraska",2013,"NE","Asthma","CrdPrev",9.1,"Female",9.1,1869300
+"409","Nebraska",2013,"NE","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.8,"Male",4.8,1869300
+"410","Nebraska",2013,"NE","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.8,"Female",5.8,1869300
+"411","Nebraska",2013,"NE","Arthritis","CrdPrev",21.6,"Male",21.6,1869300
+"412","Nevada",2013,"NV","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.7,"Overall",6.7,2790366
+"413","Nevada",2013,"NV","Asthma","CrdPrev",10.5,"Female",10.5,2790366
+"414","Nevada",2013,"NV","Arthritis","CrdPrev",24,"Female",24,2790366
+"415","Nevada",2013,"NV","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.4,"Female",8.4,2790366
+"416","Nevada",2013,"NV","Arthritis","CrdPrev",17.8,"Male",17.8,2790366
+"417","Nevada",2013,"NV","Asthma","CrdPrev",4.7,"Male",4.7,2790366
+"418","Nevada",2013,"NV","Arthritis","CrdPrev",20.9,"Overall",20.9,2790366
+"419","Nevada",2013,"NV","Asthma","CrdPrev",7.6,"Overall",7.6,2790366
+"420","Nevada",2013,"NV","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.9,"Male",4.9,2790366
+"421","New Hampshire",2013,"NH","Arthritis","CrdPrev",23.5,"Male",23.5,1322660
+"422","New Hampshire",2013,"NH","Asthma","CrdPrev",13.3,"Female",13.3,1322660
+"423","New Hampshire",2013,"NH","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.2,"Male",6.2,1322660
+"424","New Hampshire",2013,"NH","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.1,"Overall",7.1,1322660
+"425","New Hampshire",2013,"NH","Arthritis","CrdPrev",26.6,"Overall",26.6,1322660
+"426","New Hampshire",2013,"NH","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.1,"Female",8.1,1322660
+"427","New Hampshire",2013,"NH","Asthma","CrdPrev",11,"Overall",11,1322660
+"428","New Hampshire",2013,"NH","Asthma","CrdPrev",8.5,"Male",8.5,1322660
+"429","New Hampshire",2013,"NH","Arthritis","CrdPrev",29.7,"Female",29.7,1322660
+"430","New Jersey",2013,"NJ","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.7,"Female",6.7,8907384
+"431","New Jersey",2013,"NJ","Arthritis","CrdPrev",27.2,"Female",27.2,8907384
+"432","New Jersey",2013,"NJ","Asthma","CrdPrev",6.3,"Male",6.3,8907384
+"433","New Jersey",2013,"NJ","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.1,"Male",5.1,8907384
+"434","New Jersey",2013,"NJ","Arthritis","CrdPrev",17.9,"Male",17.9,8907384
+"435","New Jersey",2013,"NJ","Asthma","CrdPrev",9,"Overall",9,8907384
+"436","New Jersey",2013,"NJ","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.9,"Overall",5.9,8907384
+"437","New Jersey",2013,"NJ","Asthma","CrdPrev",11.5,"Female",11.5,8907384
+"438","New Jersey",2013,"NJ","Arthritis","CrdPrev",22.8,"Overall",22.8,8907384
+"439","New Mexico",2013,"NM","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.9,"Overall",5.9,2086890
+"440","New Mexico",2013,"NM","Asthma","CrdPrev",7.1,"Male",7.1,2086890
+"441","New Mexico",2013,"NM","Asthma","CrdPrev",11.3,"Female",11.3,2086890
+"442","New Mexico",2013,"NM","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.6,"Female",6.6,2086890
+"443","New Mexico",2013,"NM","Arthritis","CrdPrev",27.2,"Female",27.2,2086890
+"444","New Mexico",2013,"NM","Arthritis","CrdPrev",24.4,"Overall",24.4,2086890
+"445","New Mexico",2013,"NM","Arthritis","CrdPrev",21.4,"Male",21.4,2086890
+"446","New Mexico",2013,"NM","Asthma","CrdPrev",9.2,"Overall",9.2,2086890
+"447","New Mexico",2013,"NM","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.2,"Male",5.2,2086890
+"448","New York",2013,"NY","Asthma","CrdPrev",6.8,"Male",6.8,19691032
+"449","New York",2013,"NY","Arthritis","CrdPrev",24.9,"Overall",24.9,19691032
+"450","New York",2013,"NY","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.6,"Female",6.6,19691032
+"451","New York",2013,"NY","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.7,"Male",4.7,19691032
+"452","New York",2013,"NY","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.7,"Overall",5.7,19691032
+"453","New York",2013,"NY","Arthritis","CrdPrev",29,"Female",29,19691032
+"454","New York",2013,"NY","Arthritis","CrdPrev",20.4,"Male",20.4,19691032
+"455","New York",2013,"NY","Asthma","CrdPrev",12.3,"Female",12.3,19691032
+"456","New York",2013,"NY","Asthma","CrdPrev",9.7,"Overall",9.7,19691032
+"457","North Carolina",2013,"NC","Asthma","CrdPrev",11,"Female",11,9845432
+"458","North Carolina",2013,"NC","Arthritis","CrdPrev",26.4,"Overall",26.4,9845432
+"459","North Carolina",2013,"NC","Arthritis","CrdPrev",28.9,"Female",28.9,9845432
+"460","North Carolina",2013,"NC","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.4,"Overall",7.4,9845432
+"461","North Carolina",2013,"NC","Asthma","CrdPrev",5.6,"Male",5.6,9845432
+"462","North Carolina",2013,"NC","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.8,"Male",6.8,9845432
+"463","North Carolina",2013,"NC","Arthritis","CrdPrev",23.6,"Male",23.6,9845432
+"464","North Carolina",2013,"NC","Chronic obstructive pulmonary disease prevalence","CrdPrev",8,"Female",8,9845432
+"465","North Carolina",2013,"NC","Asthma","CrdPrev",8.4,"Overall",8.4,9845432
+"466","North Dakota",2013,"ND","Asthma","CrdPrev",7,"Male",7,723626
+"467","North Dakota",2013,"ND","Asthma","CrdPrev",8.3,"Overall",8.3,723626
+"468","North Dakota",2013,"ND","Chronic obstructive pulmonary disease prevalence","CrdPrev",5,"Female",5,723626
+"469","North Dakota",2013,"ND","Arthritis","CrdPrev",29.3,"Female",29.3,723626
+"470","North Dakota",2013,"ND","Arthritis","CrdPrev",26.1,"Overall",26.1,723626
+"471","North Dakota",2013,"ND","Arthritis","CrdPrev",22.9,"Male",22.9,723626
+"472","North Dakota",2013,"ND","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.8,"Overall",4.8,723626
+"473","North Dakota",2013,"ND","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.6,"Male",4.6,723626
+"474","North Dakota",2013,"ND","Asthma","CrdPrev",9.7,"Female",9.7,723626
+"475","Ohio",2013,"OH","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.9,"Female",8.9,11572232
+"476","Ohio",2013,"OH","Asthma","CrdPrev",9.7,"Overall",9.7,11572232
+"477","Ohio",2013,"OH","Arthritis","CrdPrev",33.9,"Female",33.9,11572232
+"478","Ohio",2013,"OH","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.7,"Male",7.7,11572232
+"479","Ohio",2013,"OH","Asthma","CrdPrev",6.8,"Male",6.8,11572232
+"480","Ohio",2013,"OH","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.3,"Overall",8.3,11572232
+"481","Ohio",2013,"OH","Arthritis","CrdPrev",25.5,"Male",25.5,11572232
+"482","Ohio",2013,"OH","Arthritis","CrdPrev",29.8,"Overall",29.8,11572232
+"483","Ohio",2013,"OH","Asthma","CrdPrev",12.4,"Female",12.4,11572232
+"484","Oklahoma",2013,"OK","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.7,"Female",8.7,3853405
+"485","Oklahoma",2013,"OK","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.9,"Male",6.9,3853405
+"486","Oklahoma",2013,"OK","Arthritis","CrdPrev",27.2,"Overall",27.2,3853405
+"487","Oklahoma",2013,"OK","Asthma","CrdPrev",10.9,"Female",10.9,3853405
+"488","Oklahoma",2013,"OK","Asthma","CrdPrev",7,"Male",7,3853405
+"489","Oklahoma",2013,"OK","Arthritis","CrdPrev",23.6,"Male",23.6,3853405
+"490","Oklahoma",2013,"OK","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.8,"Overall",7.8,3853405
+"491","Oklahoma",2013,"OK","Asthma","CrdPrev",9,"Overall",9,3853405
+"492","Oklahoma",2013,"OK","Arthritis","CrdPrev",30.8,"Female",30.8,3853405
+"493","Oregon",2013,"OR","Asthma","CrdPrev",7.9,"Male",7.9,3928030
+"494","Oregon",2013,"OR","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.5,"Overall",6.5,3928030
+"495","Oregon",2013,"OR","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.2,"Male",6.2,3928030
+"496","Oregon",2013,"OR","Asthma","CrdPrev",11.4,"Overall",11.4,3928030
+"497","Oregon",2013,"OR","Arthritis","CrdPrev",32.1,"Female",32.1,3928030
+"498","Oregon",2013,"OR","Asthma","CrdPrev",14.7,"Female",14.7,3928030
+"499","Oregon",2013,"OR","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.8,"Female",6.8,3928030
+"500","Oregon",2013,"OR","Arthritis","CrdPrev",27.8,"Overall",27.8,3928030
+"501","Oregon",2013,"OR","Arthritis","CrdPrev",23.3,"Male",23.3,3928030
+"502","Pennsylvania",2013,"PA","Asthma","CrdPrev",9.6,"Overall",9.6,12783536
+"503","Pennsylvania",2013,"PA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.9,"Male",6.9,12783536
+"504","Pennsylvania",2013,"PA","Arthritis","CrdPrev",25.1,"Male",25.1,12783536
+"505","Pennsylvania",2013,"PA","Arthritis","CrdPrev",29.8,"Overall",29.8,12783536
+"506","Pennsylvania",2013,"PA","Arthritis","CrdPrev",34.2,"Female",34.2,12783536
+"507","Pennsylvania",2013,"PA","Asthma","CrdPrev",6.3,"Male",6.3,12783536
+"508","Pennsylvania",2013,"PA","Asthma","CrdPrev",12.6,"Female",12.6,12783536
+"509","Pennsylvania",2013,"PA","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.1,"Overall",7.1,12783536
+"510","Pennsylvania",2013,"PA","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.4,"Female",7.4,12783536
+"511","Puerto Rico",2013,"PR","Arthritis","CrdPrev",23.3,"Overall",23.3,3593079
+"512","Puerto Rico",2013,"PR","Asthma","CrdPrev",13.2,"Female",13.2,3593079
+"513","Puerto Rico",2013,"PR","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.8,"Overall",3.8,3593079
+"514","Puerto Rico",2013,"PR","Arthritis","CrdPrev",29.5,"Female",29.5,3593079
+"515","Puerto Rico",2013,"PR","Arthritis","CrdPrev",16.4,"Male",16.4,3593079
+"516","Puerto Rico",2013,"PR","Asthma","CrdPrev",7,"Male",7,3593079
+"517","Puerto Rico",2013,"PR","Asthma","CrdPrev",10.3,"Overall",10.3,3593079
+"518","Puerto Rico",2013,"PR","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.4,"Female",4.4,3593079
+"519","Puerto Rico",2013,"PR","Chronic obstructive pulmonary disease prevalence","CrdPrev",3,"Male",3,3593079
+"520","Rhode Island",2013,"RI","Arthritis","CrdPrev",23.4,"Male",23.4,1052856
+"521","Rhode Island",2013,"RI","Asthma","CrdPrev",12,"Overall",12,1052856
+"522","Rhode Island",2013,"RI","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.9,"Female",7.9,1052856
+"523","Rhode Island",2013,"RI","Arthritis","CrdPrev",27.5,"Overall",27.5,1052856
+"524","Rhode Island",2013,"RI","Asthma","CrdPrev",14.9,"Female",14.9,1052856
+"525","Rhode Island",2013,"RI","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.4,"Overall",7.4,1052856
+"526","Rhode Island",2013,"RI","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.8,"Male",6.8,1052856
+"527","Rhode Island",2013,"RI","Arthritis","CrdPrev",31.1,"Female",31.1,1052856
+"528","Rhode Island",2013,"RI","Asthma","CrdPrev",8.7,"Male",8.7,1052856
+"529","South Carolina",2013,"SC","Asthma","CrdPrev",5.9,"Male",5.9,4768498
+"530","South Carolina",2013,"SC","Chronic obstructive pulmonary disease prevalence","CrdPrev",9.4,"Female",9.4,4768498
+"531","South Carolina",2013,"SC","Asthma","CrdPrev",10.8,"Female",10.8,4768498
+"532","South Carolina",2013,"SC","Arthritis","CrdPrev",26,"Male",26,4768498
+"533","South Carolina",2013,"SC","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.6,"Male",6.6,4768498
+"534","South Carolina",2013,"SC","Asthma","CrdPrev",8.4,"Overall",8.4,4768498
+"535","South Carolina",2013,"SC","Arthritis","CrdPrev",30.2,"Overall",30.2,4768498
+"536","South Carolina",2013,"SC","Arthritis","CrdPrev",34.2,"Female",34.2,4768498
+"537","South Carolina",2013,"SC","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.1,"Overall",8.1,4768498
+"538","South Dakota",2013,"SD","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.5,"Overall",4.5,845270
+"539","South Dakota",2013,"SD","Arthritis","CrdPrev",23.4,"Male",23.4,845270
+"540","South Dakota",2013,"SD","Asthma","CrdPrev",7.9,"Overall",7.9,845270
+"541","South Dakota",2013,"SD","Asthma","CrdPrev",8.7,"Female",8.7,845270
+"542","South Dakota",2013,"SD","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.6,"Male",4.6,845270
+"543","South Dakota",2013,"SD","Arthritis","CrdPrev",27.2,"Female",27.2,845270
+"544","South Dakota",2013,"SD","Arthritis","CrdPrev",25.3,"Overall",25.3,845270
+"545","South Dakota",2013,"SD","Asthma","CrdPrev",7.2,"Male",7.2,845270
+"546","South Dakota",2013,"SD","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.4,"Female",4.4,845270
+"547","Tennessee",2013,"TN","Arthritis","CrdPrev",21.6,"Male",21.6,6496130
+"548","Tennessee",2013,"TN","Arthritis","CrdPrev",30.9,"Female",30.9,6496130
+"549","Tennessee",2013,"TN","Asthma","CrdPrev",7.1,"Overall",7.1,6496130
+"550","Tennessee",2013,"TN","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.2,"Male",8.2,6496130
+"551","Tennessee",2013,"TN","Asthma","CrdPrev",10.3,"Female",10.3,6496130
+"552","Tennessee",2013,"TN","Chronic obstructive pulmonary disease prevalence","CrdPrev",10.7,"Female",10.7,6496130
+"553","Tennessee",2013,"TN","Arthritis","CrdPrev",26.4,"Overall",26.4,6496130
+"554","Tennessee",2013,"TN","Chronic obstructive pulmonary disease prevalence","CrdPrev",9.5,"Overall",9.5,6496130
+"555","Tennessee",2013,"TN","Asthma","CrdPrev",3.7,"Male",3.7,6496130
+"556","Texas",2013,"TX","Arthritis","CrdPrev",20.7,"Overall",20.7,26500674
+"557","Texas",2013,"TX","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.4,"Overall",5.4,26500674
+"558","Texas",2013,"TX","Asthma","CrdPrev",7.3,"Overall",7.3,26500674
+"559","Texas",2013,"TX","Arthritis","CrdPrev",16.8,"Male",16.8,26500674
+"560","Texas",2013,"TX","Asthma","CrdPrev",9.9,"Female",9.9,26500674
+"561","Texas",2013,"TX","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.1,"Female",6.1,26500674
+"562","Texas",2013,"TX","Asthma","CrdPrev",4.6,"Male",4.6,26500674
+"563","Texas",2013,"TX","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.7,"Male",4.7,26500674
+"564","Texas",2013,"TX","Arthritis","CrdPrev",24.5,"Female",24.5,26500674
+"574","Utah",2013,"UT","Chronic obstructive pulmonary disease prevalence","CrdPrev",4,"Overall",4,2903685
+"575","Utah",2013,"UT","Asthma","CrdPrev",9,"Overall",9,2903685
+"576","Utah",2013,"UT","Arthritis","CrdPrev",19.5,"Overall",19.5,2903685
+"577","Utah",2013,"UT","Arthritis","CrdPrev",22.9,"Female",22.9,2903685
+"578","Utah",2013,"UT","Asthma","CrdPrev",10.9,"Female",10.9,2903685
+"579","Utah",2013,"UT","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.4,"Male",3.4,2903685
+"580","Utah",2013,"UT","Asthma","CrdPrev",7.2,"Male",7.2,2903685
+"581","Utah",2013,"UT","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.5,"Female",4.5,2903685
+"582","Utah",2013,"UT","Arthritis","CrdPrev",16.1,"Male",16.1,2903685
+"583","Vermont",2013,"VT","Asthma","CrdPrev",11.3,"Overall",11.3,627129
+"584","Vermont",2013,"VT","Asthma","CrdPrev",8,"Male",8,627129
+"585","Vermont",2013,"VT","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.7,"Overall",5.7,627129
+"586","Vermont",2013,"VT","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.5,"Male",5.5,627129
+"587","Vermont",2013,"VT","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.8,"Female",5.8,627129
+"588","Vermont",2013,"VT","Arthritis","CrdPrev",27.8,"Overall",27.8,627129
+"589","Vermont",2013,"VT","Arthritis","CrdPrev",25.2,"Male",25.2,627129
+"590","Vermont",2013,"VT","Arthritis","CrdPrev",30.2,"Female",30.2,627129
+"591","Vermont",2013,"VT","Asthma","CrdPrev",14.4,"Female",14.4,627129
+"592","Virginia",2013,"VA","Asthma","CrdPrev",5.6,"Male",5.6,8267875
+"593","Virginia",2013,"VA","Asthma","CrdPrev",11.6,"Female",11.6,8267875
+"594","Virginia",2013,"VA","Arthritis","CrdPrev",21.2,"Male",21.2,8267875
+"595","Virginia",2013,"VA","Arthritis","CrdPrev",25,"Overall",25,8267875
+"596","Virginia",2013,"VA","Asthma","CrdPrev",8.7,"Overall",8.7,8267875
+"597","Virginia",2013,"VA","Arthritis","CrdPrev",28.6,"Female",28.6,8267875
+"598","Virginia",2013,"VA","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.1,"Female",8.1,8267875
+"599","Virginia",2013,"VA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5,"Male",5,8267875
+"600","Virginia",2013,"VA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.6,"Overall",6.6,8267875
+"601","Washington",2013,"WA","Arthritis","CrdPrev",25.4,"Overall",25.4,6973281
+"602","Washington",2013,"WA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.6,"Overall",5.6,6973281
+"603","Washington",2013,"WA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.2,"Female",6.2,6973281
+"604","Washington",2013,"WA","Asthma","CrdPrev",7.1,"Male",7.1,6973281
+"605","Washington",2013,"WA","Arthritis","CrdPrev",20.6,"Male",20.6,6973281
+"606","Washington",2013,"WA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.1,"Male",5.1,6973281
+"607","Washington",2013,"WA","Asthma","CrdPrev",9.9,"Overall",9.9,6973281
+"608","Washington",2013,"WA","Asthma","CrdPrev",12.7,"Female",12.7,6973281
+"609","Washington",2013,"WA","Arthritis","CrdPrev",30.2,"Female",30.2,6973281
+"610","West Virginia",2013,"WV","Chronic obstructive pulmonary disease prevalence","CrdPrev",10.6,"Overall",10.6,1852985
+"611","West Virginia",2013,"WV","Asthma","CrdPrev",5.5,"Male",5.5,1852985
+"612","West Virginia",2013,"WV","Asthma","CrdPrev",9,"Overall",9,1852985
+"613","West Virginia",2013,"WV","Chronic obstructive pulmonary disease prevalence","CrdPrev",9.1,"Male",9.1,1852985
+"614","West Virginia",2013,"WV","Arthritis","CrdPrev",36.2,"Overall",36.2,1852985
+"615","West Virginia",2013,"WV","Arthritis","CrdPrev",33.8,"Male",33.8,1852985
+"616","West Virginia",2013,"WV","Arthritis","CrdPrev",38.4,"Female",38.4,1852985
+"617","West Virginia",2013,"WV","Asthma","CrdPrev",12.4,"Female",12.4,1852985
+"618","West Virginia",2013,"WV","Chronic obstructive pulmonary disease prevalence","CrdPrev",12,"Female",12,1852985
+"619","Wisconsin",2013,"WI","Asthma","CrdPrev",13.1,"Female",13.1,5743653
+"620","Wisconsin",2013,"WI","Asthma","CrdPrev",10.4,"Overall",10.4,5743653
+"621","Wisconsin",2013,"WI","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.6,"Male",5.6,5743653
+"622","Wisconsin",2013,"WI","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.7,"Female",5.7,5743653
+"623","Wisconsin",2013,"WI","Arthritis","CrdPrev",28.7,"Female",28.7,5743653
+"624","Wisconsin",2013,"WI","Asthma","CrdPrev",7.6,"Male",7.6,5743653
+"625","Wisconsin",2013,"WI","Arthritis","CrdPrev",25.1,"Overall",25.1,5743653
+"626","Wisconsin",2013,"WI","Arthritis","CrdPrev",21.3,"Male",21.3,5743653
+"627","Wisconsin",2013,"WI","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.7,"Overall",5.7,5743653
+"628","Wyoming",2013,"WY","Arthritis","CrdPrev",25.1,"Overall",25.1,583131
+"629","Wyoming",2013,"WY","Arthritis","CrdPrev",23.7,"Male",23.7,583131
+"630","Wyoming",2013,"WY","Arthritis","CrdPrev",26.6,"Female",26.6,583131
+"631","Wyoming",2013,"WY","Asthma","CrdPrev",9.1,"Overall",9.1,583131
+"632","Wyoming",2013,"WY","Asthma","CrdPrev",7.3,"Male",7.3,583131
+"633","Wyoming",2013,"WY","Asthma","CrdPrev",11,"Female",11,583131
+"634","Wyoming",2013,"WY","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.1,"Overall",7.1,583131
+"635","Wyoming",2013,"WY","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.7,"Male",6.7,583131
+"636","Wyoming",2013,"WY","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.5,"Female",7.5,583131
+"637","Alabama",2014,"AL","Asthma","CrdPrev",9.5,"Overall",9.5,4846411
+"638","Alabama",2014,"AL","Arthritis","CrdPrev",38.2,"Female",38.2,4846411
+"639","Alabama",2014,"AL","Asthma","CrdPrev",6.1,"Male",6.1,4846411
+"640","Alabama",2014,"AL","Arthritis","CrdPrev",29.4,"Male",29.4,4846411
+"641","Alabama",2014,"AL","Chronic obstructive pulmonary disease prevalence","CrdPrev",11.6,"Female",11.6,4846411
+"642","Alabama",2014,"AL","Arthritis","CrdPrev",34,"Overall",34,4846411
+"643","Alabama",2014,"AL","Chronic obstructive pulmonary disease prevalence","CrdPrev",10.2,"Overall",10.2,4846411
+"644","Alabama",2014,"AL","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.6,"Male",8.6,4846411
+"645","Alabama",2014,"AL","Asthma","CrdPrev",12.7,"Female",12.7,4846411
+"646","Alaska",2014,"AK","Arthritis","CrdPrev",24.7,"Female",24.7,737046
+"647","Alaska",2014,"AK","Asthma","CrdPrev",11,"Female",11,737046
+"648","Alaska",2014,"AK","Asthma","CrdPrev",5.5,"Male",5.5,737046
+"649","Alaska",2014,"AK","Arthritis","CrdPrev",19.4,"Male",19.4,737046
+"650","Alaska",2014,"AK","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.4,"Overall",4.4,737046
+"651","Alaska",2014,"AK","Chronic obstructive pulmonary disease prevalence","CrdPrev",2.7,"Male",2.7,737046
+"652","Alaska",2014,"AK","Arthritis","CrdPrev",21.9,"Overall",21.9,737046
+"653","Alaska",2014,"AK","Asthma","CrdPrev",8.1,"Overall",8.1,737046
+"654","Alaska",2014,"AK","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.2,"Female",6.2,737046
+"655","Arizona",2014,"AZ","Arthritis","CrdPrev",28.9,"Female",28.9,6728783
+"656","Arizona",2014,"AZ","Arthritis","CrdPrev",20.7,"Male",20.7,6728783
+"657","Arizona",2014,"AZ","Asthma","CrdPrev",7.3,"Male",7.3,6728783
+"658","Arizona",2014,"AZ","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.7,"Female",7.7,6728783
+"659","Arizona",2014,"AZ","Asthma","CrdPrev",9.6,"Overall",9.6,6728783
+"660","Arizona",2014,"AZ","Arthritis","CrdPrev",24.9,"Overall",24.9,6728783
+"661","Arizona",2014,"AZ","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.9,"Overall",6.9,6728783
+"662","Arizona",2014,"AZ","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.1,"Male",6.1,6728783
+"663","Arizona",2014,"AZ","Asthma","CrdPrev",11.8,"Female",11.8,6728783
+"664","Arkansas",2014,"AR","Chronic obstructive pulmonary disease prevalence","CrdPrev",8,"Male",8,2966835
+"665","Arkansas",2014,"AR","Arthritis","CrdPrev",26,"Male",26,2966835
+"666","Arkansas",2014,"AR","Asthma","CrdPrev",10.6,"Female",10.6,2966835
+"667","Arkansas",2014,"AR","Arthritis","CrdPrev",30.4,"Overall",30.4,2966835
+"668","Arkansas",2014,"AR","Chronic obstructive pulmonary disease prevalence","CrdPrev",9,"Overall",9,2966835
+"669","Arkansas",2014,"AR","Arthritis","CrdPrev",34.6,"Female",34.6,2966835
+"670","Arkansas",2014,"AR","Chronic obstructive pulmonary disease prevalence","CrdPrev",10,"Female",10,2966835
+"671","Arkansas",2014,"AR","Asthma","CrdPrev",6.8,"Male",6.8,2966835
+"672","Arkansas",2014,"AR","Asthma","CrdPrev",8.8,"Overall",8.8,2966835
+"673","California",2014,"CA","Arthritis","CrdPrev",20.3,"Overall",20.3,38792291
+"674","California",2014,"CA","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.9,"Overall",4.9,38792291
+"675","California",2014,"CA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.5,"Female",5.5,38792291
+"676","California",2014,"CA","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.3,"Male",4.3,38792291
+"677","California",2014,"CA","Asthma","CrdPrev",10.6,"Female",10.6,38792291
+"678","California",2014,"CA","Asthma","CrdPrev",4.8,"Male",4.8,38792291
+"679","California",2014,"CA","Arthritis","CrdPrev",24.5,"Female",24.5,38792291
+"680","California",2014,"CA","Asthma","CrdPrev",7.8,"Overall",7.8,38792291
+"681","California",2014,"CA","Arthritis","CrdPrev",16.1,"Male",16.1,38792291
+"682","Colorado",2014,"CO","Arthritis","CrdPrev",24.9,"Female",24.9,5355588
+"683","Colorado",2014,"CO","Asthma","CrdPrev",8.4,"Overall",8.4,5355588
+"684","Colorado",2014,"CO","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.4,"Male",3.4,5355588
+"685","Colorado",2014,"CO","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.7,"Female",4.7,5355588
+"686","Colorado",2014,"CO","Asthma","CrdPrev",5.9,"Male",5.9,5355588
+"687","Colorado",2014,"CO","Arthritis","CrdPrev",22.8,"Overall",22.8,5355588
+"688","Colorado",2014,"CO","Arthritis","CrdPrev",20.7,"Male",20.7,5355588
+"689","Colorado",2014,"CO","Chronic obstructive pulmonary disease prevalence","CrdPrev",4,"Overall",4,5355588
+"690","Colorado",2014,"CO","Asthma","CrdPrev",10.9,"Female",10.9,5355588
+"691","Connecticut",2014,"CT","Arthritis","CrdPrev",24,"Overall",24,3594762
+"692","Connecticut",2014,"CT","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.3,"Male",4.3,3594762
+"693","Connecticut",2014,"CT","Arthritis","CrdPrev",29.1,"Female",29.1,3594762
+"694","Connecticut",2014,"CT","Asthma","CrdPrev",9.2,"Overall",9.2,3594762
+"695","Connecticut",2014,"CT","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.1,"Overall",5.1,3594762
+"696","Connecticut",2014,"CT","Arthritis","CrdPrev",18.5,"Male",18.5,3594762
+"697","Connecticut",2014,"CT","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.8,"Female",5.8,3594762
+"698","Connecticut",2014,"CT","Asthma","CrdPrev",12.1,"Female",12.1,3594762
+"699","Connecticut",2014,"CT","Asthma","CrdPrev",6,"Male",6,3594762
+"700","Delaware",2014,"DE","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.5,"Male",5.5,935968
+"701","Delaware",2014,"DE","Arthritis","CrdPrev",26.6,"Overall",26.6,935968
+"702","Delaware",2014,"DE","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.5,"Female",7.5,935968
+"703","Delaware",2014,"DE","Asthma","CrdPrev",11.8,"Female",11.8,935968
+"704","Delaware",2014,"DE","Asthma","CrdPrev",8.8,"Overall",8.8,935968
+"705","Delaware",2014,"DE","Arthritis","CrdPrev",22.8,"Male",22.8,935968
+"706","Delaware",2014,"DE","Asthma","CrdPrev",5.5,"Male",5.5,935968
+"707","Delaware",2014,"DE","Arthritis","CrdPrev",30.1,"Female",30.1,935968
+"708","Delaware",2014,"DE","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.5,"Overall",6.5,935968
+"709","District of Columbia",2014,"DC","Arthritis","CrdPrev",16.1,"Male",16.1,659836
+"710","District of Columbia",2014,"DC","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.1,"Female",6.1,659836
+"711","District of Columbia",2014,"DC","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.1,"Male",5.1,659836
+"712","District of Columbia",2014,"DC","Arthritis","CrdPrev",19.2,"Overall",19.2,659836
+"713","District of Columbia",2014,"DC","Arthritis","CrdPrev",21.9,"Female",21.9,659836
+"714","District of Columbia",2014,"DC","Asthma","CrdPrev",8.3,"Male",8.3,659836
+"715","District of Columbia",2014,"DC","Asthma","CrdPrev",11.5,"Overall",11.5,659836
+"716","District of Columbia",2014,"DC","Asthma","CrdPrev",14.3,"Female",14.3,659836
+"717","District of Columbia",2014,"DC","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.6,"Overall",5.6,659836
+"718","Florida",2014,"FL","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.6,"Overall",7.6,19905569
+"719","Florida",2014,"FL","Arthritis","CrdPrev",22.9,"Male",22.9,19905569
+"720","Florida",2014,"FL","Arthritis","CrdPrev",30.8,"Female",30.8,19905569
+"721","Florida",2014,"FL","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.8,"Female",8.8,19905569
+"722","Florida",2014,"FL","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.4,"Male",6.4,19905569
+"723","Florida",2014,"FL","Asthma","CrdPrev",5.3,"Male",5.3,19905569
+"724","Florida",2014,"FL","Asthma","CrdPrev",8,"Overall",8,19905569
+"725","Florida",2014,"FL","Arthritis","CrdPrev",27,"Overall",27,19905569
+"726","Florida",2014,"FL","Asthma","CrdPrev",10.6,"Female",10.6,19905569
+"727","Georgia",2014,"GA","Asthma","CrdPrev",11.1,"Female",11.1,10097132
+"728","Georgia",2014,"GA","Arthritis","CrdPrev",21.6,"Male",21.6,10097132
+"729","Georgia",2014,"GA","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.2,"Female",8.2,10097132
+"730","Georgia",2014,"GA","Asthma","CrdPrev",5.3,"Male",5.3,10097132
+"731","Georgia",2014,"GA","Arthritis","CrdPrev",25.2,"Overall",25.2,10097132
+"732","Georgia",2014,"GA","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.4,"Overall",7.4,10097132
+"733","Georgia",2014,"GA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.6,"Male",6.6,10097132
+"734","Georgia",2014,"GA","Arthritis","CrdPrev",28.6,"Female",28.6,10097132
+"735","Georgia",2014,"GA","Asthma","CrdPrev",8.3,"Overall",8.3,10097132
+"736","Hawaii",2014,"HI","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.9,"Female",3.9,1420257
+"737","Hawaii",2014,"HI","Asthma","CrdPrev",11.7,"Female",11.7,1420257
+"738","Hawaii",2014,"HI","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.7,"Male",3.7,1420257
+"739","Hawaii",2014,"HI","Asthma","CrdPrev",6.8,"Male",6.8,1420257
+"740","Hawaii",2014,"HI","Asthma","CrdPrev",9.2,"Overall",9.2,1420257
+"741","Hawaii",2014,"HI","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.8,"Overall",3.8,1420257
+"742","Hawaii",2014,"HI","Arthritis","CrdPrev",23.4,"Female",23.4,1420257
+"743","Hawaii",2014,"HI","Arthritis","CrdPrev",18.1,"Male",18.1,1420257
+"744","Hawaii",2014,"HI","Arthritis","CrdPrev",20.7,"Overall",20.7,1420257
+"745","Idaho",2014,"ID","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.2,"Female",5.2,1634806
+"746","Idaho",2014,"ID","Asthma","CrdPrev",10.7,"Female",10.7,1634806
+"747","Idaho",2014,"ID","Arthritis","CrdPrev",21.5,"Male",21.5,1634806
+"748","Idaho",2014,"ID","Asthma","CrdPrev",6.5,"Male",6.5,1634806
+"749","Idaho",2014,"ID","Arthritis","CrdPrev",24.8,"Overall",24.8,1634806
+"750","Idaho",2014,"ID","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.7,"Male",4.7,1634806
+"751","Idaho",2014,"ID","Asthma","CrdPrev",8.6,"Overall",8.6,1634806
+"752","Idaho",2014,"ID","Arthritis","CrdPrev",28,"Female",28,1634806
+"753","Idaho",2014,"ID","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.9,"Overall",4.9,1634806
+"754","Illinois",2014,"IL","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.8,"Overall",5.8,12882189
+"755","Illinois",2014,"IL","Asthma","CrdPrev",11.9,"Female",11.9,12882189
+"756","Illinois",2014,"IL","Chronic obstructive pulmonary disease prevalence","CrdPrev",5,"Male",5,12882189
+"757","Illinois",2014,"IL","Arthritis","CrdPrev",30.5,"Female",30.5,12882189
+"758","Illinois",2014,"IL","Arthritis","CrdPrev",25.1,"Overall",25.1,12882189
+"759","Illinois",2014,"IL","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.5,"Female",6.5,12882189
+"760","Illinois",2014,"IL","Asthma","CrdPrev",6.2,"Male",6.2,12882189
+"761","Illinois",2014,"IL","Arthritis","CrdPrev",19.2,"Male",19.2,12882189
+"762","Illinois",2014,"IL","Asthma","CrdPrev",9.1,"Overall",9.1,12882189
+"763","Indiana",2014,"IN","Chronic obstructive pulmonary disease prevalence","CrdPrev",10.3,"Female",10.3,6597880
+"764","Indiana",2014,"IN","Asthma","CrdPrev",10.7,"Overall",10.7,6597880
+"765","Indiana",2014,"IN","Asthma","CrdPrev",7.9,"Male",7.9,6597880
+"766","Indiana",2014,"IN","Arthritis","CrdPrev",24.3,"Male",24.3,6597880
+"767","Indiana",2014,"IN","Arthritis","CrdPrev",33.7,"Female",33.7,6597880
+"768","Indiana",2014,"IN","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.1,"Male",7.1,6597880
+"769","Indiana",2014,"IN","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.7,"Overall",8.7,6597880
+"770","Indiana",2014,"IN","Arthritis","CrdPrev",29.2,"Overall",29.2,6597880
+"771","Indiana",2014,"IN","Asthma","CrdPrev",13.3,"Female",13.3,6597880
+"772","Iowa",2014,"IA","Asthma","CrdPrev",6.9,"Male",6.9,3109481
+"773","Iowa",2014,"IA","Arthritis","CrdPrev",25.9,"Overall",25.9,3109481
+"774","Iowa",2014,"IA","Arthritis","CrdPrev",21.3,"Male",21.3,3109481
+"775","Iowa",2014,"IA","Asthma","CrdPrev",8.5,"Overall",8.5,3109481
+"776","Iowa",2014,"IA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.7,"Overall",5.7,3109481
+"777","Iowa",2014,"IA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.3,"Male",5.3,3109481
+"778","Iowa",2014,"IA","Arthritis","CrdPrev",30.5,"Female",30.5,3109481
+"779","Iowa",2014,"IA","Asthma","CrdPrev",10,"Female",10,3109481
+"780","Iowa",2014,"IA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.1,"Female",6.1,3109481
+"781","Kansas",2014,"KS","Asthma","CrdPrev",11.6,"Female",11.6,2902507
+"782","Kansas",2014,"KS","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.5,"Female",7.5,2902507
+"783","Kansas",2014,"KS","Asthma","CrdPrev",5.7,"Male",5.7,2902507
+"784","Kansas",2014,"KS","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.7,"Male",5.7,2902507
+"785","Kansas",2014,"KS","Arthritis","CrdPrev",29,"Female",29,2902507
+"786","Kansas",2014,"KS","Arthritis","CrdPrev",25.4,"Overall",25.4,2902507
+"787","Kansas",2014,"KS","Arthritis","CrdPrev",21.6,"Male",21.6,2902507
+"788","Kansas",2014,"KS","Asthma","CrdPrev",8.7,"Overall",8.7,2902507
+"789","Kansas",2014,"KS","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.6,"Overall",6.6,2902507
+"790","Kentucky",2014,"KY","Arthritis","CrdPrev",31,"Male",31,4412617
+"791","Kentucky",2014,"KY","Chronic obstructive pulmonary disease prevalence","CrdPrev",12.3,"Overall",12.3,4412617
+"792","Kentucky",2014,"KY","Chronic obstructive pulmonary disease prevalence","CrdPrev",11.9,"Male",11.9,4412617
+"793","Kentucky",2014,"KY","Arthritis","CrdPrev",33.9,"Overall",33.9,4412617
+"794","Kentucky",2014,"KY","Chronic obstructive pulmonary disease prevalence","CrdPrev",12.6,"Female",12.6,4412617
+"795","Kentucky",2014,"KY","Asthma","CrdPrev",14.7,"Female",14.7,4412617
+"796","Kentucky",2014,"KY","Asthma","CrdPrev",11.9,"Overall",11.9,4412617
+"797","Kentucky",2014,"KY","Asthma","CrdPrev",9,"Male",9,4412617
+"798","Kentucky",2014,"KY","Arthritis","CrdPrev",36.7,"Female",36.7,4412617
+"799","Louisiana",2014,"LA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.8,"Male",5.8,4648990
+"800","Louisiana",2014,"LA","Asthma","CrdPrev",5.8,"Male",5.8,4648990
+"801","Louisiana",2014,"LA","Arthritis","CrdPrev",31.1,"Female",31.1,4648990
+"802","Louisiana",2014,"LA","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.6,"Overall",7.6,4648990
+"803","Louisiana",2014,"LA","Asthma","CrdPrev",7.7,"Overall",7.7,4648990
+"804","Louisiana",2014,"LA","Chronic obstructive pulmonary disease prevalence","CrdPrev",9.2,"Female",9.2,4648990
+"805","Louisiana",2014,"LA","Arthritis","CrdPrev",22.8,"Male",22.8,4648990
+"806","Louisiana",2014,"LA","Asthma","CrdPrev",9.5,"Female",9.5,4648990
+"807","Louisiana",2014,"LA","Arthritis","CrdPrev",27.1,"Overall",27.1,4648990
+"808","Maine",2014,"ME","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.8,"Overall",7.8,1330256
+"809","Maine",2014,"ME","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.1,"Male",7.1,1330256
+"810","Maine",2014,"ME","Arthritis","CrdPrev",31.4,"Overall",31.4,1330256
+"811","Maine",2014,"ME","Arthritis","CrdPrev",35,"Female",35,1330256
+"812","Maine",2014,"ME","Asthma","CrdPrev",13.7,"Female",13.7,1330256
+"813","Maine",2014,"ME","Arthritis","CrdPrev",27.7,"Male",27.7,1330256
+"814","Maine",2014,"ME","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.4,"Female",8.4,1330256
+"815","Maine",2014,"ME","Asthma","CrdPrev",11.6,"Overall",11.6,1330256
+"816","Maine",2014,"ME","Asthma","CrdPrev",9.3,"Male",9.3,1330256
+"817","Maryland",2014,"MD","Asthma","CrdPrev",6,"Male",6,5975346
+"818","Maryland",2014,"MD","Arthritis","CrdPrev",21.1,"Male",21.1,5975346
+"819","Maryland",2014,"MD","Arthritis","CrdPrev",29.7,"Female",29.7,5975346
+"820","Maryland",2014,"MD","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.4,"Male",4.4,5975346
+"821","Maryland",2014,"MD","Arthritis","CrdPrev",25.6,"Overall",25.6,5975346
+"822","Maryland",2014,"MD","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.7,"Overall",5.7,5975346
+"823","Maryland",2014,"MD","Asthma","CrdPrev",10.9,"Female",10.9,5975346
+"824","Maryland",2014,"MD","Asthma","CrdPrev",8.5,"Overall",8.5,5975346
+"825","Maryland",2014,"MD","Chronic obstructive pulmonary disease prevalence","CrdPrev",7,"Female",7,5975346
+"826","Massachusetts",2014,"MA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.8,"Male",5.8,6755124
+"827","Massachusetts",2014,"MA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.5,"Overall",6.5,6755124
+"828","Massachusetts",2014,"MA","Asthma","CrdPrev",12,"Overall",12,6755124
+"829","Massachusetts",2014,"MA","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.2,"Female",7.2,6755124
+"830","Massachusetts",2014,"MA","Asthma","CrdPrev",15.5,"Female",15.5,6755124
+"831","Massachusetts",2014,"MA","Asthma","CrdPrev",8.2,"Male",8.2,6755124
+"832","Massachusetts",2014,"MA","Arthritis","CrdPrev",27.3,"Overall",27.3,6755124
+"833","Massachusetts",2014,"MA","Arthritis","CrdPrev",23.4,"Male",23.4,6755124
+"834","Massachusetts",2014,"MA","Arthritis","CrdPrev",31,"Female",31,6755124
+"835","Michigan",2014,"MI","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.6,"Male",7.6,9916306
+"836","Michigan",2014,"MI","Chronic obstructive pulmonary disease prevalence","CrdPrev",10,"Female",10,9916306
+"837","Michigan",2014,"MI","Arthritis","CrdPrev",28.1,"Male",28.1,9916306
+"838","Michigan",2014,"MI","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.8,"Overall",8.8,9916306
+"839","Michigan",2014,"MI","Asthma","CrdPrev",13.5,"Female",13.5,9916306
+"840","Michigan",2014,"MI","Asthma","CrdPrev",8.1,"Male",8.1,9916306
+"841","Michigan",2014,"MI","Arthritis","CrdPrev",35.5,"Female",35.5,9916306
+"842","Michigan",2014,"MI","Arthritis","CrdPrev",31.9,"Overall",31.9,9916306
+"843","Michigan",2014,"MI","Asthma","CrdPrev",10.9,"Overall",10.9,9916306
+"844","Minnesota",2014,"MN","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.7,"Male",3.7,5457125
+"845","Minnesota",2014,"MN","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.1,"Female",5.1,5457125
+"846","Minnesota",2014,"MN","Arthritis","CrdPrev",21.8,"Overall",21.8,5457125
+"847","Minnesota",2014,"MN","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.4,"Overall",4.4,5457125
+"848","Minnesota",2014,"MN","Asthma","CrdPrev",6.2,"Male",6.2,5457125
+"849","Minnesota",2014,"MN","Arthritis","CrdPrev",25.1,"Female",25.1,5457125
+"850","Minnesota",2014,"MN","Arthritis","CrdPrev",18.5,"Male",18.5,5457125
+"851","Minnesota",2014,"MN","Asthma","CrdPrev",10.5,"Female",10.5,5457125
+"852","Minnesota",2014,"MN","Asthma","CrdPrev",8.4,"Overall",8.4,5457125
+"853","Mississippi",2014,"MS","Arthritis","CrdPrev",25,"Male",25,2993443
+"854","Mississippi",2014,"MS","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.4,"Overall",7.4,2993443
+"855","Mississippi",2014,"MS","Asthma","CrdPrev",5.5,"Male",5.5,2993443
+"856","Mississippi",2014,"MS","Arthritis","CrdPrev",33.1,"Female",33.1,2993443
+"857","Mississippi",2014,"MS","Asthma","CrdPrev",7.4,"Overall",7.4,2993443
+"858","Mississippi",2014,"MS","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.3,"Female",8.3,2993443
+"859","Mississippi",2014,"MS","Asthma","CrdPrev",9.1,"Female",9.1,2993443
+"860","Mississippi",2014,"MS","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.4,"Male",6.4,2993443
+"861","Mississippi",2014,"MS","Arthritis","CrdPrev",29.2,"Overall",29.2,2993443
+"862","Missouri",2014,"MO","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.2,"Overall",8.2,6063827
+"863","Missouri",2014,"MO","Asthma","CrdPrev",7.3,"Male",7.3,6063827
+"864","Missouri",2014,"MO","Asthma","CrdPrev",9.7,"Overall",9.7,6063827
+"865","Missouri",2014,"MO","Chronic obstructive pulmonary disease prevalence","CrdPrev",9.2,"Female",9.2,6063827
+"866","Missouri",2014,"MO","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.1,"Male",7.1,6063827
+"867","Missouri",2014,"MO","Arthritis","CrdPrev",32.4,"Female",32.4,6063827
+"868","Missouri",2014,"MO","Asthma","CrdPrev",12,"Female",12,6063827
+"869","Missouri",2014,"MO","Arthritis","CrdPrev",23.3,"Male",23.3,6063827
+"870","Missouri",2014,"MO","Arthritis","CrdPrev",28,"Overall",28,6063827
+"871","Montana",2014,"MT","Arthritis","CrdPrev",29.9,"Female",29.9,1023252
+"872","Montana",2014,"MT","Asthma","CrdPrev",7.2,"Male",7.2,1023252
+"873","Montana",2014,"MT","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.8,"Overall",6.8,1023252
+"874","Montana",2014,"MT","Arthritis","CrdPrev",26,"Overall",26,1023252
+"875","Montana",2014,"MT","Arthritis","CrdPrev",22.2,"Male",22.2,1023252
+"876","Montana",2014,"MT","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.5,"Female",7.5,1023252
+"877","Montana",2014,"MT","Asthma","CrdPrev",11.9,"Female",11.9,1023252
+"878","Montana",2014,"MT","Asthma","CrdPrev",9.6,"Overall",9.6,1023252
+"879","Montana",2014,"MT","Chronic obstructive pulmonary disease prevalence","CrdPrev",6,"Male",6,1023252
+"880","Nebraska",2014,"NE","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.8,"Overall",5.8,1882980
+"881","Nebraska",2014,"NE","Asthma","CrdPrev",9.2,"Female",9.2,1882980
+"882","Nebraska",2014,"NE","Asthma","CrdPrev",6.2,"Male",6.2,1882980
+"883","Nebraska",2014,"NE","Arthritis","CrdPrev",24.6,"Overall",24.6,1882980
+"884","Nebraska",2014,"NE","Asthma","CrdPrev",7.7,"Overall",7.7,1882980
+"885","Nebraska",2014,"NE","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.5,"Male",5.5,1882980
+"886","Nebraska",2014,"NE","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.1,"Female",6.1,1882980
+"887","Nebraska",2014,"NE","Arthritis","CrdPrev",21.6,"Male",21.6,1882980
+"888","Nebraska",2014,"NE","Arthritis","CrdPrev",27.4,"Female",27.4,1882980
+"889","Nevada",2014,"NV","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.4,"Male",6.4,2838281
+"890","Nevada",2014,"NV","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.9,"Overall",6.9,2838281
+"891","Nevada",2014,"NV","Asthma","CrdPrev",9.3,"Female",9.3,2838281
+"892","Nevada",2014,"NV","Arthritis","CrdPrev",23.1,"Overall",23.1,2838281
+"893","Nevada",2014,"NV","Arthritis","CrdPrev",19.7,"Male",19.7,2838281
+"894","Nevada",2014,"NV","Arthritis","CrdPrev",26.5,"Female",26.5,2838281
+"895","Nevada",2014,"NV","Asthma","CrdPrev",8.1,"Overall",8.1,2838281
+"896","Nevada",2014,"NV","Asthma","CrdPrev",6.8,"Male",6.8,2838281
+"897","Nevada",2014,"NV","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.5,"Female",7.5,2838281
+"898","New Hampshire",2014,"NH","Arthritis","CrdPrev",23.2,"Male",23.2,1327996
+"899","New Hampshire",2014,"NH","Arthritis","CrdPrev",30.9,"Female",30.9,1327996
+"900","New Hampshire",2014,"NH","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.5,"Overall",6.5,1327996
+"901","New Hampshire",2014,"NH","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.2,"Male",6.2,1327996
+"902","New Hampshire",2014,"NH","Arthritis","CrdPrev",27.2,"Overall",27.2,1327996
+"903","New Hampshire",2014,"NH","Asthma","CrdPrev",13.7,"Female",13.7,1327996
+"904","New Hampshire",2014,"NH","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.8,"Female",6.8,1327996
+"905","New Hampshire",2014,"NH","Asthma","CrdPrev",10.2,"Overall",10.2,1327996
+"906","New Hampshire",2014,"NH","Asthma","CrdPrev",6.6,"Male",6.6,1327996
+"907","New Jersey",2014,"NJ","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.3,"Female",6.3,8938844
+"908","New Jersey",2014,"NJ","Asthma","CrdPrev",8.3,"Overall",8.3,8938844
+"909","New Jersey",2014,"NJ","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.6,"Overall",5.6,8938844
+"910","New Jersey",2014,"NJ","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.8,"Male",4.8,8938844
+"911","New Jersey",2014,"NJ","Arthritis","CrdPrev",19.3,"Male",19.3,8938844
+"912","New Jersey",2014,"NJ","Arthritis","CrdPrev",25.8,"Female",25.8,8938844
+"913","New Jersey",2014,"NJ","Asthma","CrdPrev",6.7,"Male",6.7,8938844
+"914","New Jersey",2014,"NJ","Asthma","CrdPrev",9.7,"Female",9.7,8938844
+"915","New Jersey",2014,"NJ","Arthritis","CrdPrev",22.7,"Overall",22.7,8938844
+"916","New Mexico",2014,"NM","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.4,"Female",6.4,2085567
+"917","New Mexico",2014,"NM","Asthma","CrdPrev",7.4,"Male",7.4,2085567
+"918","New Mexico",2014,"NM","Asthma","CrdPrev",12.2,"Female",12.2,2085567
+"919","New Mexico",2014,"NM","Asthma","CrdPrev",9.9,"Overall",9.9,2085567
+"920","New Mexico",2014,"NM","Arthritis","CrdPrev",25.8,"Overall",25.8,2085567
+"921","New Mexico",2014,"NM","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.7,"Overall",5.7,2085567
+"922","New Mexico",2014,"NM","Chronic obstructive pulmonary disease prevalence","CrdPrev",5,"Male",5,2085567
+"923","New Mexico",2014,"NM","Arthritis","CrdPrev",21.8,"Male",21.8,2085567
+"924","New Mexico",2014,"NM","Arthritis","CrdPrev",29.7,"Female",29.7,2085567
+"925","New York",2014,"NY","Arthritis","CrdPrev",24.2,"Overall",24.2,19748858
+"926","New York",2014,"NY","Arthritis","CrdPrev",20,"Male",20,19748858
+"927","New York",2014,"NY","Asthma","CrdPrev",8.7,"Male",8.7,19748858
+"928","New York",2014,"NY","Asthma","CrdPrev",12.5,"Female",12.5,19748858
+"929","New York",2014,"NY","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.8,"Overall",5.8,19748858
+"930","New York",2014,"NY","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.4,"Female",6.4,19748858
+"931","New York",2014,"NY","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.2,"Male",5.2,19748858
+"932","New York",2014,"NY","Arthritis","CrdPrev",27.9,"Female",27.9,19748858
+"933","New York",2014,"NY","Asthma","CrdPrev",10.7,"Overall",10.7,19748858
+"934","North Carolina",2014,"NC","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.4,"Male",7.4,9940387
+"935","North Carolina",2014,"NC","Arthritis","CrdPrev",27.7,"Overall",27.7,9940387
+"936","North Carolina",2014,"NC","Asthma","CrdPrev",9.7,"Female",9.7,9940387
+"937","North Carolina",2014,"NC","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.8,"Overall",7.8,9940387
+"938","North Carolina",2014,"NC","Arthritis","CrdPrev",31.5,"Female",31.5,9940387
+"939","North Carolina",2014,"NC","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.1,"Female",8.1,9940387
+"940","North Carolina",2014,"NC","Arthritis","CrdPrev",23.6,"Male",23.6,9940387
+"941","North Carolina",2014,"NC","Asthma","CrdPrev",5.6,"Male",5.6,9940387
+"942","North Carolina",2014,"NC","Asthma","CrdPrev",7.8,"Overall",7.8,9940387
+"943","North Dakota",2014,"ND","Asthma","CrdPrev",8.7,"Overall",8.7,740040
+"944","North Dakota",2014,"ND","Arthritis","CrdPrev",25,"Overall",25,740040
+"945","North Dakota",2014,"ND","Arthritis","CrdPrev",28.9,"Female",28.9,740040
+"946","North Dakota",2014,"ND","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.7,"Overall",4.7,740040
+"947","North Dakota",2014,"ND","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.9,"Female",4.9,740040
+"948","North Dakota",2014,"ND","Arthritis","CrdPrev",21.2,"Male",21.2,740040
+"949","North Dakota",2014,"ND","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.5,"Male",4.5,740040
+"950","North Dakota",2014,"ND","Asthma","CrdPrev",7.1,"Male",7.1,740040
+"951","North Dakota",2014,"ND","Asthma","CrdPrev",10.4,"Female",10.4,740040
+"952","Ohio",2014,"OH","Chronic obstructive pulmonary disease prevalence","CrdPrev",9.4,"Female",9.4,11596998
+"953","Ohio",2014,"OH","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.8,"Male",6.8,11596998
+"954","Ohio",2014,"OH","Arthritis","CrdPrev",34.6,"Female",34.6,11596998
+"955","Ohio",2014,"OH","Arthritis","CrdPrev",26.7,"Male",26.7,11596998
+"956","Ohio",2014,"OH","Asthma","CrdPrev",10.8,"Overall",10.8,11596998
+"957","Ohio",2014,"OH","Asthma","CrdPrev",7,"Male",7,11596998
+"958","Ohio",2014,"OH","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.2,"Overall",8.2,11596998
+"959","Ohio",2014,"OH","Asthma","CrdPrev",14.3,"Female",14.3,11596998
+"960","Ohio",2014,"OH","Arthritis","CrdPrev",30.8,"Overall",30.8,11596998
+"961","Oklahoma",2014,"OK","Chronic obstructive pulmonary disease prevalence","CrdPrev",8,"Overall",8,3879610
+"962","Oklahoma",2014,"OK","Chronic obstructive pulmonary disease prevalence","CrdPrev",9,"Female",9,3879610
+"963","Oklahoma",2014,"OK","Arthritis","CrdPrev",27.5,"Overall",27.5,3879610
+"964","Oklahoma",2014,"OK","Chronic obstructive pulmonary disease prevalence","CrdPrev",7,"Male",7,3879610
+"965","Oklahoma",2014,"OK","Asthma","CrdPrev",7.5,"Male",7.5,3879610
+"966","Oklahoma",2014,"OK","Arthritis","CrdPrev",23.3,"Male",23.3,3879610
+"967","Oklahoma",2014,"OK","Arthritis","CrdPrev",31.6,"Female",31.6,3879610
+"968","Oklahoma",2014,"OK","Asthma","CrdPrev",11.9,"Female",11.9,3879610
+"969","Oklahoma",2014,"OK","Asthma","CrdPrev",9.7,"Overall",9.7,3879610
+"970","Oregon",2014,"OR","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.7,"Overall",5.7,3971202
+"971","Oregon",2014,"OR","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.1,"Male",5.1,3971202
+"972","Oregon",2014,"OR","Asthma","CrdPrev",10.2,"Overall",10.2,3971202
+"973","Oregon",2014,"OR","Asthma","CrdPrev",7.8,"Male",7.8,3971202
+"974","Oregon",2014,"OR","Asthma","CrdPrev",12.5,"Female",12.5,3971202
+"975","Oregon",2014,"OR","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.2,"Female",6.2,3971202
+"976","Oregon",2014,"OR","Arthritis","CrdPrev",29.9,"Female",29.9,3971202
+"977","Oregon",2014,"OR","Arthritis","CrdPrev",22.1,"Male",22.1,3971202
+"978","Oregon",2014,"OR","Arthritis","CrdPrev",26.1,"Overall",26.1,3971202
+"979","Pennsylvania",2014,"PA","Asthma","CrdPrev",9.8,"Overall",9.8,12793767
+"980","Pennsylvania",2014,"PA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.8,"Male",5.8,12793767
+"981","Pennsylvania",2014,"PA","Arthritis","CrdPrev",35.6,"Female",35.6,12793767
+"982","Pennsylvania",2014,"PA","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.7,"Female",7.7,12793767
+"983","Pennsylvania",2014,"PA","Arthritis","CrdPrev",24.6,"Male",24.6,12793767
+"984","Pennsylvania",2014,"PA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.8,"Overall",6.8,12793767
+"985","Pennsylvania",2014,"PA","Asthma","CrdPrev",7.5,"Male",7.5,12793767
+"986","Pennsylvania",2014,"PA","Asthma","CrdPrev",11.9,"Female",11.9,12793767
+"987","Pennsylvania",2014,"PA","Arthritis","CrdPrev",30.3,"Overall",30.3,12793767
+"988","Puerto Rico",2014,"PR","Arthritis","CrdPrev",24.6,"Overall",24.6,3534888
+"989","Puerto Rico",2014,"PR","Asthma","CrdPrev",10.6,"Overall",10.6,3534888
+"990","Puerto Rico",2014,"PR","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.8,"Overall",3.8,3534888
+"991","Puerto Rico",2014,"PR","Asthma","CrdPrev",13.5,"Female",13.5,3534888
+"992","Puerto Rico",2014,"PR","Arthritis","CrdPrev",17.3,"Male",17.3,3534888
+"993","Puerto Rico",2014,"PR","Arthritis","CrdPrev",31,"Female",31,3534888
+"994","Puerto Rico",2014,"PR","Chronic obstructive pulmonary disease prevalence","CrdPrev",2.6,"Male",2.6,3534888
+"995","Puerto Rico",2014,"PR","Asthma","CrdPrev",7.3,"Male",7.3,3534888
+"996","Puerto Rico",2014,"PR","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.9,"Female",4.9,3534888
+"997","Rhode Island",2014,"RI","Arthritis","CrdPrev",23.5,"Male",23.5,1054907
+"998","Rhode Island",2014,"RI","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.7,"Male",4.7,1054907
+"999","Rhode Island",2014,"RI","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.7,"Female",6.7,1054907
+"1000","Rhode Island",2014,"RI","Arthritis","CrdPrev",27.4,"Overall",27.4,1054907
+"1001","Rhode Island",2014,"RI","Asthma","CrdPrev",10.8,"Overall",10.8,1054907
+"1002","Rhode Island",2014,"RI","Asthma","CrdPrev",7.7,"Male",7.7,1054907
+"1003","Rhode Island",2014,"RI","Asthma","CrdPrev",13.5,"Female",13.5,1054907
+"1004","Rhode Island",2014,"RI","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.7,"Overall",5.7,1054907
+"1005","Rhode Island",2014,"RI","Arthritis","CrdPrev",30.9,"Female",30.9,1054907
+"1006","South Carolina",2014,"SC","Asthma","CrdPrev",5.2,"Male",5.2,4829160
+"1007","South Carolina",2014,"SC","Asthma","CrdPrev",8.3,"Overall",8.3,4829160
+"1008","South Carolina",2014,"SC","Arthritis","CrdPrev",26.3,"Male",26.3,4829160
+"1009","South Carolina",2014,"SC","Chronic obstructive pulmonary disease prevalence","CrdPrev",7.6,"Overall",7.6,4829160
+"1010","South Carolina",2014,"SC","Chronic obstructive pulmonary disease prevalence","CrdPrev",9.1,"Female",9.1,4829160
+"1011","South Carolina",2014,"SC","Arthritis","CrdPrev",33.4,"Female",33.4,4829160
+"1012","South Carolina",2014,"SC","Chronic obstructive pulmonary disease prevalence","CrdPrev",6,"Male",6,4829160
+"1013","South Carolina",2014,"SC","Arthritis","CrdPrev",30,"Overall",30,4829160
+"1014","South Carolina",2014,"SC","Asthma","CrdPrev",11.2,"Female",11.2,4829160
+"1015","South Dakota",2014,"SD","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.8,"Male",4.8,853304
+"1016","South Dakota",2014,"SD","Asthma","CrdPrev",9.8,"Female",9.8,853304
+"1017","South Dakota",2014,"SD","Arthritis","CrdPrev",29,"Female",29,853304
+"1018","South Dakota",2014,"SD","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.6,"Overall",5.6,853304
+"1019","South Dakota",2014,"SD","Arthritis","CrdPrev",23,"Male",23,853304
+"1020","South Dakota",2014,"SD","Arthritis","CrdPrev",26,"Overall",26,853304
+"1021","South Dakota",2014,"SD","Asthma","CrdPrev",7.5,"Overall",7.5,853304
+"1022","South Dakota",2014,"SD","Asthma","CrdPrev",5.1,"Male",5.1,853304
+"1023","South Dakota",2014,"SD","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.3,"Female",6.3,853304
+"1024","Tennessee",2014,"TN","Asthma","CrdPrev",8.9,"Overall",8.9,6547779
+"1025","Tennessee",2014,"TN","Chronic obstructive pulmonary disease prevalence","CrdPrev",8.8,"Male",8.8,6547779
+"1026","Tennessee",2014,"TN","Chronic obstructive pulmonary disease prevalence","CrdPrev",12.4,"Female",12.4,6547779
+"1027","Tennessee",2014,"TN","Chronic obstructive pulmonary disease prevalence","CrdPrev",10.7,"Overall",10.7,6547779
+"1028","Tennessee",2014,"TN","Arthritis","CrdPrev",35.9,"Female",35.9,6547779
+"1029","Tennessee",2014,"TN","Arthritis","CrdPrev",32.6,"Overall",32.6,6547779
+"1030","Tennessee",2014,"TN","Arthritis","CrdPrev",29.1,"Male",29.1,6547779
+"1031","Tennessee",2014,"TN","Asthma","CrdPrev",11.7,"Female",11.7,6547779
+"1032","Tennessee",2014,"TN","Asthma","CrdPrev",5.9,"Male",5.9,6547779
+"1033","Texas",2014,"TX","Arthritis","CrdPrev",15.8,"Male",15.8,26979078
+"1034","Texas",2014,"TX","Asthma","CrdPrev",6.7,"Overall",6.7,26979078
+"1035","Texas",2014,"TX","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.3,"Overall",5.3,26979078
+"1036","Texas",2014,"TX","Arthritis","CrdPrev",19.4,"Overall",19.4,26979078
+"1037","Texas",2014,"TX","Asthma","CrdPrev",4.6,"Male",4.6,26979078
+"1038","Texas",2014,"TX","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.7,"Male",4.7,26979078
+"1039","Texas",2014,"TX","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.9,"Female",5.9,26979078
+"1040","Texas",2014,"TX","Asthma","CrdPrev",8.7,"Female",8.7,26979078
+"1041","Texas",2014,"TX","Arthritis","CrdPrev",23,"Female",23,26979078
+"1051","Utah",2014,"UT","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.1,"Female",4.1,2944498
+"1052","Utah",2014,"UT","Asthma","CrdPrev",10.5,"Female",10.5,2944498
+"1053","Utah",2014,"UT","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.1,"Male",3.1,2944498
+"1054","Utah",2014,"UT","Chronic obstructive pulmonary disease prevalence","CrdPrev",3.6,"Overall",3.6,2944498
+"1055","Utah",2014,"UT","Asthma","CrdPrev",6.9,"Male",6.9,2944498
+"1056","Utah",2014,"UT","Arthritis","CrdPrev",20.1,"Overall",20.1,2944498
+"1057","Utah",2014,"UT","Arthritis","CrdPrev",16.4,"Male",16.4,2944498
+"1058","Utah",2014,"UT","Arthritis","CrdPrev",23.7,"Female",23.7,2944498
+"1059","Utah",2014,"UT","Asthma","CrdPrev",8.7,"Overall",8.7,2944498
+"1060","Vermont",2014,"VT","Asthma","CrdPrev",11.3,"Overall",11.3,626767
+"1061","Vermont",2014,"VT","Asthma","CrdPrev",8,"Male",8,626767
+"1062","Vermont",2014,"VT","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.3,"Overall",6.3,626767
+"1063","Vermont",2014,"VT","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.9,"Male",5.9,626767
+"1064","Vermont",2014,"VT","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.7,"Female",6.7,626767
+"1065","Vermont",2014,"VT","Arthritis","CrdPrev",28,"Overall",28,626767
+"1066","Vermont",2014,"VT","Arthritis","CrdPrev",24,"Male",24,626767
+"1067","Vermont",2014,"VT","Arthritis","CrdPrev",31.7,"Female",31.7,626767
+"1068","Vermont",2014,"VT","Asthma","CrdPrev",14.4,"Female",14.4,626767
+"1069","Virginia",2014,"VA","Asthma","CrdPrev",6.2,"Male",6.2,8328098
+"1070","Virginia",2014,"VA","Arthritis","CrdPrev",22.4,"Male",22.4,8328098
+"1071","Virginia",2014,"VA","Arthritis","CrdPrev",29.7,"Female",29.7,8328098
+"1072","Virginia",2014,"VA","Arthritis","CrdPrev",26.2,"Overall",26.2,8328098
+"1073","Virginia",2014,"VA","Asthma","CrdPrev",8.6,"Overall",8.6,8328098
+"1074","Virginia",2014,"VA","Asthma","CrdPrev",10.9,"Female",10.9,8328098
+"1075","Virginia",2014,"VA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.4,"Overall",6.4,8328098
+"1076","Virginia",2014,"VA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.8,"Male",5.8,8328098
+"1077","Virginia",2014,"VA","Chronic obstructive pulmonary disease prevalence","CrdPrev",7,"Female",7,8328098
+"1078","Washington",2014,"WA","Arthritis","CrdPrev",25.7,"Overall",25.7,7063166
+"1079","Washington",2014,"WA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6,"Overall",6,7063166
+"1080","Washington",2014,"WA","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.5,"Male",5.5,7063166
+"1081","Washington",2014,"WA","Asthma","CrdPrev",9.3,"Overall",9.3,7063166
+"1082","Washington",2014,"WA","Arthritis","CrdPrev",21.3,"Male",21.3,7063166
+"1083","Washington",2014,"WA","Arthritis","CrdPrev",30,"Female",30,7063166
+"1084","Washington",2014,"WA","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.6,"Female",6.6,7063166
+"1085","Washington",2014,"WA","Asthma","CrdPrev",7.4,"Male",7.4,7063166
+"1086","Washington",2014,"WA","Asthma","CrdPrev",11.1,"Female",11.1,7063166
+"1087","West Virginia",2014,"WV","Asthma","CrdPrev",11,"Overall",11,1848751
+"1088","West Virginia",2014,"WV","Asthma","CrdPrev",7.5,"Male",7.5,1848751
+"1089","West Virginia",2014,"WV","Chronic obstructive pulmonary disease prevalence","CrdPrev",13.5,"Overall",13.5,1848751
+"1090","West Virginia",2014,"WV","Chronic obstructive pulmonary disease prevalence","CrdPrev",12.1,"Male",12.1,1848751
+"1091","West Virginia",2014,"WV","Arthritis","CrdPrev",40,"Overall",40,1848751
+"1092","West Virginia",2014,"WV","Arthritis","CrdPrev",36.2,"Male",36.2,1848751
+"1093","West Virginia",2014,"WV","Arthritis","CrdPrev",43.6,"Female",43.6,1848751
+"1094","West Virginia",2014,"WV","Asthma","CrdPrev",14.4,"Female",14.4,1848751
+"1095","West Virginia",2014,"WV","Chronic obstructive pulmonary disease prevalence","CrdPrev",14.8,"Female",14.8,1848751
+"1096","Wisconsin",2014,"WI","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.2,"Overall",5.2,5759432
+"1097","Wisconsin",2014,"WI","Asthma","CrdPrev",10.3,"Overall",10.3,5759432
+"1098","Wisconsin",2014,"WI","Asthma","CrdPrev",12.7,"Female",12.7,5759432
+"1099","Wisconsin",2014,"WI","Arthritis","CrdPrev",22.5,"Male",22.5,5759432
+"1100","Wisconsin",2014,"WI","Arthritis","CrdPrev",28.8,"Female",28.8,5759432
+"1101","Wisconsin",2014,"WI","Chronic obstructive pulmonary disease prevalence","CrdPrev",4.4,"Male",4.4,5759432
+"1102","Wisconsin",2014,"WI","Chronic obstructive pulmonary disease prevalence","CrdPrev",5.9,"Female",5.9,5759432
+"1103","Wisconsin",2014,"WI","Asthma","CrdPrev",7.8,"Male",7.8,5759432
+"1104","Wisconsin",2014,"WI","Arthritis","CrdPrev",25.7,"Overall",25.7,5759432
+"1105","Wyoming",2014,"WY","Arthritis","CrdPrev",25.6,"Overall",25.6,584304
+"1106","Wyoming",2014,"WY","Arthritis","CrdPrev",23.4,"Male",23.4,584304
+"1107","Wyoming",2014,"WY","Arthritis","CrdPrev",27.9,"Female",27.9,584304
+"1108","Wyoming",2014,"WY","Asthma","CrdPrev",8.3,"Overall",8.3,584304
+"1109","Wyoming",2014,"WY","Asthma","CrdPrev",6.3,"Male",6.3,584304
+"1110","Wyoming",2014,"WY","Asthma","CrdPrev",10.5,"Female",10.5,584304
+"1111","Wyoming",2014,"WY","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.7,"Overall",6.7,584304
+"1112","Wyoming",2014,"WY","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.5,"Male",6.5,584304
+"1113","Wyoming",2014,"WY","Chronic obstructive pulmonary disease prevalence","CrdPrev",6.8,"Female",6.8,584304

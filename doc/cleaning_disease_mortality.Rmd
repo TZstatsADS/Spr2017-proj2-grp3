@@ -31,7 +31,7 @@ library(dplyr)
 # load data and get diseases related to smoking
 cdi.raw <- read.csv("../data/CDI.csv")
 questions <- levels(cdi.raw$Question)
-mortality <- questions[c(116,117,118,119,120,121,122,40,164,165)]
+mortality <- questions[c(12,40,164,193,16,116,117,119,120,122)]
 
 # select columns needed
 cdi <- select(cdi.raw, YearStart,LocationAbbr, LocationDesc, Question, DataValueTypeID, DataValue, Stratification1)
@@ -39,23 +39,25 @@ cdi <- rename(cdi, year=YearStart, statesAbbr=LocationAbbr, states=LocationDesc,
 
 # rename the diseases with Abbr.
 cdi <- cdi %>%
-  mutate(disease = gsub('Mortality from cerebrovascular disease \\(stroke\\)','stroke', disease),
-         disease = gsub('Mortality from coronary heart disease','coronary heart disease', disease),
-         disease = gsub('Mortality from diseases of the heart','diseases of the heart', disease),
-         disease = gsub('Mortality from heart failure','heart failure', disease),
-         disease = gsub('Mortality from total cardiovascular disease','cardiovascular disease', disease),
-         disease = gsub('Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years', 'chronic obstructive pulmonary', disease))
+  mutate(disease = gsub('Mortality from cerebrovascular disease \\(stroke\\)','Cerebrovascular disease', disease),
+         disease = gsub('Mortality from coronary heart disease','Coronary heart disease', disease),
+         disease = gsub('Mortality from heart failure','Heart failure', disease),
+         disease = gsub('Mortality from total cardiovascular disease','Cardiovascular disease', disease),
+         disease = gsub('Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged >=45 years', 'Chronic obstructive pulmonary disease', disease),
+         disease = gsub('Arthritis among adults aged >= 18 years','Arthritis', disease),
+         disease = gsub('Current asthma prevalence among adults aged >= 18 years','Asthma', disease),
+         disease = gsub('Prevalence of chronic obstructive pulmonary disease among adults >= 18','Chronic obstructive pulmonary disease prevalence', disease))
     
 # filter the rows we need
 cdi.mort <- cdi %>%
-  filter(disease=='stroke'|disease=='coronary heart disease'| disease=='diseases of the heart'|
-         disease=='heart failure'| disease=='cardiovascular disease'|disease=='chronic obstructive pulmonary',
+  filter(disease=='Cerebrovascular disease'|disease=='Coronary heart disease'| 
+         disease=='Heart failure'| disease=='Cardiovascular disease'|disease=='Chronic obstructive pulmonary disease',
          datatype == "Nmbr")
 
 cdi.prev <- cdi %>%
-  filter(disease=="Current asthma prevalence among adults aged >= 18 years"|
-         disease=="Prevalence of chronic obstructive pulmonary disease among adults >= 18"|
-         disease=="Prevalence of chronic obstructive pulmonary disease among adults >= 45 years",
+  filter(disease=="Arthritis"|
+         disease=="Asthma"|
+         disease=="Chronic obstructive pulmonary disease prevalence",
          datatype == "CrdPrev")
 
 
@@ -85,7 +87,7 @@ pop <- rename(pop, states=NAME, population=POPESTIMATE2010, population=POPESTIMA
 pop <- pop[c(1,6:57), ]
 ```
 
-##Step 4: Merge two tables
+##Step 4: Merge the two tables
 ```{r, warning=FALSE, message=FALSE}
 # add population to cdi
 cdi_2010 <- filter(cdi.mort.gender,year==2010)
@@ -122,7 +124,19 @@ cdi.pop <- rbind(cdi.pop.2010, cdi.pop.2011, cdi.pop.2012, cdi.pop.2013, cdi.pop
 cdi.pop.prev <- rbind(cdi.pop.2010_prev, cdi.pop.2011_prev, cdi.pop.2012_prev, cdi.pop.2013_prev, cdi.pop.2014_prev)
 
 # add a new colum to cdi.pop: the ratio of death among population
-cdi.pop <- mutate(cdi.pop,
+
+cdi.pop.female <- cdi.pop %>%
+  filter(class=="Female") %>%
+  mutate(population = population * 0.50888) #adjust female population: Female: 50.888%
+  
+cdi.pop.male <- cdi.pop %>%  
+  filter(class=="Male") %>%
+  mutate(population = population * 0.49112) #adjust male population: Male: 49.112%
+
+cdi.pop.overall <- filter(cdi.pop, class=="Overall")
+
+cdi.pop <- rbind(cdi.pop.female, cdi.pop.male, cdi.pop.overall)
+cdi.pop.mort <- mutate(cdi.pop,
                        ratio = 100*deathpop/population)
 ```
 
@@ -131,10 +145,20 @@ cdi.pop <- mutate(cdi.pop,
 # We want to get the national mortality of different gender
 # but the raw data here only has the national mortality of overall population
 
-# remove the rows with "United States" in cdi.pop
+# remove the rows with "United States" in cdi.pop.mort and cdi.pop.prev
 # calculate the total national mortality according to gender
-cdi.pop.new <- cdi.pop[cdi.pop$states!="United States", ]
-national_mortality <- cdi.pop.new %>%
+cdi.mort.new <- cdi.pop.mort[cdi.pop.mort$states!="United States", ]
+cdi.prev.new <- cdi.pop.prev[cdi.pop.prev$states!="United States", ]
+national_mortality <- cdi.mort.new %>%
+  group_by(year, disease, class) %>%
+  select(deathpop, ratio) %>%
+  summarise(
+    deathtotal = sum(deathpop, na.rm=TRUE),
+    ratiototal = sum(ratio, na.rm=TRUE)
+  )
+
+# calculate the total national prevalence according to gender
+national_prevalence <- cdi.prev.new %>%
   group_by(year, disease, class) %>%
   select(deathpop, ratio) %>%
   summarise(
@@ -144,15 +168,18 @@ national_mortality <- cdi.pop.new %>%
 
 # write in csv file
 write.csv(national_mortality, file = "../output/national_mortality.csv")
+
+# write in csv file
+write.csv(national_prevalence, file = "../output/national_prevalence.csv")
 ```
 
 ##Step 5: Get and save state disease prevalence and mortality
 ```{r, warning=FALSE, message=FALSE}
-# get the clean state data with all info
-cdi.state <- rbind(cdi.pop, cdi.pop.prev)
+# save the cleaned state data with disease prevalence
+write.csv(cdi.prev.new,file = "../output/states prevalence.csv")
 
-# write in csv file
-write.csv(cdi.state,file = "../output/states disease prevalence and mortality.csv")
+# save the cleaned state data with mortality
+write.csv(cdi.mort.new, file = "../output/states mortality.csv")
 ```
 
 

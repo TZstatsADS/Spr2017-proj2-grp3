@@ -144,7 +144,7 @@ library(dplyr)</code></pre>
 <pre class="r"><code># load data and get diseases related to smoking
 cdi.raw &lt;- read.csv(&quot;../data/CDI.csv&quot;)
 questions &lt;- levels(cdi.raw$Question)
-mortality &lt;- questions[c(116,117,118,119,120,121,122,40,164,165)]
+mortality &lt;- questions[c(12,40,164,193,16,116,117,119,120,122)]
 
 # select columns needed
 cdi &lt;- select(cdi.raw, YearStart,LocationAbbr, LocationDesc, Question, DataValueTypeID, DataValue, Stratification1)
@@ -152,23 +152,25 @@ cdi &lt;- rename(cdi, year=YearStart, statesAbbr=LocationAbbr, states=LocationDe
 
 # rename the diseases with Abbr.
 cdi &lt;- cdi %&gt;%
-  mutate(disease = gsub('Mortality from cerebrovascular disease \\(stroke\\)','stroke', disease),
-         disease = gsub('Mortality from coronary heart disease','coronary heart disease', disease),
-         disease = gsub('Mortality from diseases of the heart','diseases of the heart', disease),
-         disease = gsub('Mortality from heart failure','heart failure', disease),
-         disease = gsub('Mortality from total cardiovascular disease','cardiovascular disease', disease),
-         disease = gsub('Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged &gt;=45 years', 'chronic obstructive pulmonary', disease))
+  mutate(disease = gsub('Mortality from cerebrovascular disease \\(stroke\\)','Cerebrovascular disease', disease),
+         disease = gsub('Mortality from coronary heart disease','Coronary heart disease', disease),
+         disease = gsub('Mortality from heart failure','Heart failure', disease),
+         disease = gsub('Mortality from total cardiovascular disease','Cardiovascular disease', disease),
+         disease = gsub('Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged &gt;=45 years', 'Chronic obstructive pulmonary disease', disease),
+         disease = gsub('Arthritis among adults aged &gt;= 18 years','Arthritis', disease),
+         disease = gsub('Current asthma prevalence among adults aged &gt;= 18 years','Asthma', disease),
+         disease = gsub('Prevalence of chronic obstructive pulmonary disease among adults &gt;= 18','Chronic obstructive pulmonary disease prevalence', disease))
     
 # filter the rows we need
 cdi.mort &lt;- cdi %&gt;%
-  filter(disease=='stroke'|disease=='coronary heart disease'| disease=='diseases of the heart'|
-         disease=='heart failure'| disease=='cardiovascular disease'|disease=='chronic obstructive pulmonary',
+  filter(disease=='Cerebrovascular disease'|disease=='Coronary heart disease'| 
+         disease=='Heart failure'| disease=='Cardiovascular disease'|disease=='Chronic obstructive pulmonary disease',
          datatype == &quot;Nmbr&quot;)
 
 cdi.prev &lt;- cdi %&gt;%
-  filter(disease==&quot;Current asthma prevalence among adults aged &gt;= 18 years&quot;|
-         disease==&quot;Prevalence of chronic obstructive pulmonary disease among adults &gt;= 18&quot;|
-         disease==&quot;Prevalence of chronic obstructive pulmonary disease among adults &gt;= 45 years&quot;,
+  filter(disease==&quot;Arthritis&quot;|
+         disease==&quot;Asthma&quot;|
+         disease==&quot;Chronic obstructive pulmonary disease prevalence&quot;,
          datatype == &quot;CrdPrev&quot;)
 
 
@@ -196,8 +198,8 @@ pop &lt;- rename(pop, states=NAME, population=POPESTIMATE2010, population=POPEST
               population=POPESTIMATE2013, population=POPESTIMATE2014)
 pop &lt;- pop[c(1,6:57), ]</code></pre>
 </div>
-<div id="step-4-merge-two-tables" class="section level2">
-<h2>Step 4: Merge two tables</h2>
+<div id="step-4-merge-the-two-tables" class="section level2">
+<h2>Step 4: Merge the two tables</h2>
 <pre class="r"><code># add population to cdi
 cdi_2010 &lt;- filter(cdi.mort.gender,year==2010)
 cdi_2010_prev &lt;- filter(cdi.prev.gender,year==2010)
@@ -233,7 +235,19 @@ cdi.pop &lt;- rbind(cdi.pop.2010, cdi.pop.2011, cdi.pop.2012, cdi.pop.2013, cdi.
 cdi.pop.prev &lt;- rbind(cdi.pop.2010_prev, cdi.pop.2011_prev, cdi.pop.2012_prev, cdi.pop.2013_prev, cdi.pop.2014_prev)
 
 # add a new colum to cdi.pop: the ratio of death among population
-cdi.pop &lt;- mutate(cdi.pop,
+
+cdi.pop.female &lt;- cdi.pop %&gt;%
+  filter(class==&quot;Female&quot;) %&gt;%
+  mutate(population = population * 0.50888) #adjust female population: Female: 50.888%
+  
+cdi.pop.male &lt;- cdi.pop %&gt;%  
+  filter(class==&quot;Male&quot;) %&gt;%
+  mutate(population = population * 0.49112) #adjust male population: Male: 49.112%
+
+cdi.pop.overall &lt;- filter(cdi.pop, class==&quot;Overall&quot;)
+
+cdi.pop &lt;- rbind(cdi.pop.female, cdi.pop.male, cdi.pop.overall)
+cdi.pop.mort &lt;- mutate(cdi.pop,
                        ratio = 100*deathpop/population)</code></pre>
 </div>
 <div id="step-5-get-and-save-national-mortality-in-terms-of-gender" class="section level2">
@@ -241,10 +255,20 @@ cdi.pop &lt;- mutate(cdi.pop,
 <pre class="r"><code># We want to get the national mortality of different gender
 # but the raw data here only has the national mortality of overall population
 
-# remove the rows with &quot;United States&quot; in cdi.pop
+# remove the rows with &quot;United States&quot; in cdi.pop.mort and cdi.pop.prev
 # calculate the total national mortality according to gender
-cdi.pop.new &lt;- cdi.pop[cdi.pop$states!=&quot;United States&quot;, ]
-national_mortality &lt;- cdi.pop.new %&gt;%
+cdi.mort.new &lt;- cdi.pop.mort[cdi.pop.mort$states!=&quot;United States&quot;, ]
+cdi.prev.new &lt;- cdi.pop.prev[cdi.pop.prev$states!=&quot;United States&quot;, ]
+national_mortality &lt;- cdi.mort.new %&gt;%
+  group_by(year, disease, class) %&gt;%
+  select(deathpop, ratio) %&gt;%
+  summarise(
+    deathtotal = sum(deathpop, na.rm=TRUE),
+    ratiototal = sum(ratio, na.rm=TRUE)
+  )
+
+# calculate the total national prevalence according to gender
+national_prevalence &lt;- cdi.prev.new %&gt;%
   group_by(year, disease, class) %&gt;%
   select(deathpop, ratio) %&gt;%
   summarise(
@@ -253,15 +277,18 @@ national_mortality &lt;- cdi.pop.new %&gt;%
   )
 
 # write in csv file
-write.csv(national_mortality, file = &quot;../output/national_mortality.csv&quot;)</code></pre>
+write.csv(national_mortality, file = &quot;../output/national_mortality.csv&quot;)
+
+# write in csv file
+write.csv(national_prevalence, file = &quot;../output/national_prevalence.csv&quot;)</code></pre>
 </div>
 <div id="step-5-get-and-save-state-disease-prevalence-and-mortality" class="section level2">
 <h2>Step 5: Get and save state disease prevalence and mortality</h2>
-<pre class="r"><code># get the clean state data with all info
-cdi.state &lt;- rbind(cdi.pop, cdi.pop.prev)
+<pre class="r"><code># save the cleaned state data with disease prevalence
+write.csv(cdi.prev.new,file = &quot;../output/states prevalence.csv&quot;)
 
-# write in csv file
-write.csv(cdi.state,file = &quot;../output/states disease prevalence and mortality.csv&quot;)</code></pre>
+# save the cleaned state data with mortality
+write.csv(cdi.mort.new, file = &quot;../output/states mortality.csv&quot;)</code></pre>
 </div>
 
 
