@@ -150,38 +150,37 @@ mortality &lt;- questions[c(116,117,118,119,120,121,122,40,164,165)]
 cdi &lt;- select(cdi.raw, YearStart,LocationAbbr, LocationDesc, Question, DataValueTypeID, DataValue, Stratification1)
 cdi &lt;- rename(cdi, year=YearStart, statesAbbr=LocationAbbr, states=LocationDesc, disease=Question, datatype=DataValueTypeID, deathpop=DataValue, class=Stratification1)
 
-stroke &lt;- filter(cdi, disease==&quot;Mortality from cerebrovascular disease (stroke)&quot;, datatype == &quot;Nmbr&quot;)
-coronary_heart_disease &lt;- filter(cdi, disease==&quot;Mortality from coronary heart disease&quot;, datatype == &quot;Nmbr&quot;)
-diseases_of_the_heart &lt;- filter(cdi, disease==&quot;Mortality from diseases of the heart&quot;, datatype == &quot;Nmbr&quot;)
-heart_failure &lt;- filter(cdi, disease==&quot;Mortality from heart failure&quot;, datatype == &quot;Nmbr&quot;)
-cardiovascular_disease &lt;- filter(cdi, disease==&quot;Mortality from total cardiovascular disease&quot;, datatype == &quot;Nmbr&quot;)
-pulmonary  &lt;- filter(cdi, 
-                     disease==&quot;Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged &gt;=45 years&quot;,
-                     datatype == &quot;Nmbr&quot;)
-asthma &lt;- filter(cdi, disease==&quot;Current asthma prevalence among adults aged &gt;= 18 years&quot;, datatype == &quot;CrdPrev&quot;)
-pre_pulmonary_18 &lt;- filter(cdi, disease==&quot;Prevalence of chronic obstructive pulmonary disease among adults &gt;= 18&quot;, datatype == &quot;CrdPrev&quot;)
-pre_pulmonary_45 &lt;- filter(cdi, disease==&quot;Prevalence of chronic obstructive pulmonary disease among adults &gt;= 45 years&quot;, datatype == &quot;CrdPrev&quot;)
+# rename the diseases with Abbr.
+cdi &lt;- cdi %&gt;%
+  mutate(disease = gsub('Mortality from cerebrovascular disease \\(stroke\\)','stroke', disease),
+         disease = gsub('Mortality from coronary heart disease','coronary heart disease', disease),
+         disease = gsub('Mortality from diseases of the heart','diseases of the heart', disease),
+         disease = gsub('Mortality from heart failure','heart failure', disease),
+         disease = gsub('Mortality from total cardiovascular disease','cardiovascular disease', disease),
+         disease = gsub('Mortality with chronic obstructive pulmonary disease as underlying or contributing cause among adults aged &gt;=45 years', 'chronic obstructive pulmonary', disease))
+    
+# filter the rows we need
+cdi.mort &lt;- cdi %&gt;%
+  filter(disease=='stroke'|disease=='coronary heart disease'| disease=='diseases of the heart'|
+         disease=='heart failure'| disease=='cardiovascular disease'|disease=='chronic obstructive pulmonary',
+         datatype == &quot;Nmbr&quot;)
+
+cdi.prev &lt;- cdi %&gt;%
+  filter(disease==&quot;Current asthma prevalence among adults aged &gt;= 18 years&quot;|
+         disease==&quot;Prevalence of chronic obstructive pulmonary disease among adults &gt;= 18&quot;|
+         disease==&quot;Prevalence of chronic obstructive pulmonary disease among adults &gt;= 45 years&quot;,
+         datatype == &quot;CrdPrev&quot;)
+
 
 # unfactorize the deathpop 
 as.numeric.factor &lt;- function(x) {as.numeric(levels(x))[x]}
-asthma$deathpop &lt;- as.numeric.factor(asthma$deathpop)
-pre_pulmonary_18$deathpop &lt;- as.numeric.factor(pre_pulmonary_18$deathpop)
-pre_pulmonary_45$deathpop &lt;- as.numeric.factor(pre_pulmonary_45$deathpop)
+cdi.prev$deathpop &lt;- as.numeric.factor(cdi.prev$deathpop)
 
-# add new column ratio to asthma, pre_pulmonary_18, pre_pulmonary_45
-asthma.new &lt;- mutate(asthma, 
+# add new column ratio to cdi.prev
+cdi.prev &lt;- mutate(cdi.prev, 
                      ratio=deathpop)
-pre_pulmonary_18_new &lt;- mutate(pre_pulmonary_18, 
-                               ratio=deathpop)
-pre_pulmonary_45_new &lt;- mutate(pre_pulmonary_45, 
-                               ratio=deathpop)
 
-# all-related diseases in one dataframe
-cdi.mort &lt;- rbind(stroke, coronary_heart_disease, diseases_of_the_heart,
-                 heart_failure, cardiovascular_disease, pulmonary)
-cdi.prev &lt;- rbind(asthma.new, pre_pulmonary_18_new, pre_pulmonary_45_new)
-
-# unfactorize the deathpop in cdi.new
+# unfactorize the deathpop in cdi.mort
 cdi.mort$deathpop &lt;- as.numeric.factor(cdi.mort$deathpop)
 
 # filter the dataframe by class

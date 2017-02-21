@@ -23,7 +23,6 @@ library(reshape2)
 # load data
 mortality_nation <- read.csv("../output/national_mortality.csv")
 mortality_nation <- mortality_nation %>%
-  mutate(disease = gsub('Mortality (from|with) ','', disease)) %>%
   rename(percentage=ratiototal)
 
 shinyServer(function(input, output){
@@ -40,7 +39,7 @@ shinyServer(function(input, output){
                 DiseaseName,
                 multiple = TRUE,
                 selectize = TRUE,
-                selected = "cerebrovascular disease (stroke)") #default value
+                selected = "stroke") #default value
   })
   
   # gender type list
