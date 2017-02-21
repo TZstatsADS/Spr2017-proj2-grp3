@@ -19,13 +19,7 @@ library(tidyr)
 
 
 # load data
-mortality_states <- read.csv("../output/states disease prevalence and mortality.csv")
-mortality <- filter(mortality_states, states != "United States",
-                    disease != "Prevalence of chronic obstructive pulmonary disease among adults >= 18",
-                    disease != "Current asthma prevalence among adults aged >= 18 years",
-                    disease != "Prevalence of chronic obstructive pulmonary disease among adults >= 45 years")
-
-mortality <- mortality %>% mutate(disease = gsub('Mortality (from|with) ','', disease))
+mortality <- read.csv("../output/states mortality.csv")
 
 shinyServer(function(input, output){
   
