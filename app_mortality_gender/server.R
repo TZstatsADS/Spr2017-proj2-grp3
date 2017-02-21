@@ -1,5 +1,5 @@
 # Install and load packages
-packages.used=c("shiny", "ggplot2", "dplyr", "purrr", "tidyr")
+packages.used=c("shiny", "ggplot2", "dplyr", "purrr", "tidyr", "plotly", "reshape2")
 
 # check packages that need to be installed.
 packages.needed=setdiff(packages.used, 
@@ -15,11 +15,16 @@ library(dplyr)
 library(ggplot2)
 library(purrr)
 library(tidyr)
+library(plotly)
+library(reshape2)
 
 
 
 # load data
 mortality_nation <- read.csv("../output/national_mortality.csv")
+mortality_nation <- mortality_nation %>%
+  mutate(disease = gsub('Mortality (from|with) ','', disease)) %>%
+  rename(percentage=ratiototal)
 
 shinyServer(function(input, output){
   
@@ -31,11 +36,11 @@ shinyServer(function(input, output){
   
   # disease name list
   output$DiseaseSelector <- renderUI({
-    selectInput('disease', label = 'Diseases',
+    selectInput('disease', label = 'Disease',
                 DiseaseName,
                 multiple = TRUE,
                 selectize = TRUE,
-                selected = "Mortality from cerebrovascular disease (stroke)") #default value
+                selected = "cerebrovascular disease (stroke)") #default value
   })
   
   # gender type list
@@ -69,7 +74,8 @@ shinyServer(function(input, output){
   mortalityDF <- reactive({
     mortality_nation %>%
       filter(disease %in% SelectedDisease()) %>%
-      filter(class %in% SelectedGender())
+      filter(class %in% SelectedGender()) %>%
+      select(year, disease, class, percentage)
     })
   
   output$ff <- renderPrint({
@@ -79,15 +85,15 @@ shinyServer(function(input, output){
   
   
   ############PLOT#########
-  output$RegPlot<-renderPlot({
+  output$RegPlot<-renderPlotly({
     #check if city and month are not null
     if ((length(SelectedDisease())>0) & (length(SelectedGender())>0)){
-      g <- ggplot(mortalityDF(),
-                  aes(x=year, y=ratiototal, col=factor(class))) +
+      
+      p <- ggplot(mortalityDF(), aes(x=year, y=percentage,color=factor(class)))+
         labs(x="Year", y="Mortality rate") +
         facet_wrap(~disease, ncol = 2) + scale_color_discrete(name="Gender")
-      g <- g + geom_point(size=3) + geom_line(size=1) 
-      g
+      p <- p + geom_point(size=2) + geom_line(size=0.5) 
+      p <- ggplotly(p)
     } 
   })    
 })     

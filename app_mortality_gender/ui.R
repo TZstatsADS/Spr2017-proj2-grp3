@@ -2,6 +2,7 @@
 library(shiny)
 library(ggplot2)
 library(dplyr)
+library(plotly)
 
 # Define UI
 shinyUI(fluidPage(
@@ -24,7 +25,7 @@ shinyUI(fluidPage(
     
     #Main Panel contains the plot/s
     mainPanel(
-      plotOutput("RegPlot")
+      plotlyOutput("RegPlot")
       # verbatimTextOutput("ff")
     )
   )    
