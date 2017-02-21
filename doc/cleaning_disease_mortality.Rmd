@@ -57,11 +57,11 @@ pre_pulmonary_45$deathpop <- as.numeric.factor(pre_pulmonary_45$deathpop)
 
 # add new column ratio to asthma, pre_pulmonary_18, pre_pulmonary_45
 asthma.new <- mutate(asthma, 
-                     ratio=deathpop/100)
+                     ratio=deathpop)
 pre_pulmonary_18_new <- mutate(pre_pulmonary_18, 
-                               ratio=deathpop/100)
+                               ratio=deathpop)
 pre_pulmonary_45_new <- mutate(pre_pulmonary_45, 
-                               ratio=deathpop/100)
+                               ratio=deathpop)
 
 # all-related diseases in one dataframe
 cdi.mort <- rbind(stroke, coronary_heart_disease, diseases_of_the_heart,
@@ -124,7 +124,7 @@ cdi.pop.prev <- rbind(cdi.pop.2010_prev, cdi.pop.2011_prev, cdi.pop.2012_prev, c
 
 # add a new colum to cdi.pop: the ratio of death among population
 cdi.pop <- mutate(cdi.pop,
-                       ratio = deathpop/population)
+                       ratio = 100*deathpop/population)
 ```
 
 ##Step 5: Get and save national mortality in terms of gender
