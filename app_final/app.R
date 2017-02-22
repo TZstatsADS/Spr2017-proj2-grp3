@@ -2,7 +2,8 @@
 
 #### Install Libraries ####
 packages.used=c("shiny", "shinydashboard", "ggplot2", "dplyr",
-                "purr", "tidyr", "plotly", "reshape2", "RColorBrewer")
+                "purr", "tidyr", "plotly", "reshape2", "RColorBrewer",
+                "rgdal")
 # Check packages taht need to be installed
 packages.needed=setdiff(packages.used, 
                         intersect(installed.packages()[,1], 
@@ -23,18 +24,20 @@ library(tidyr)
 library(plotly)
 library(reshape2)
 library(RColorBrewer)
+library(rgdal)
 
 source("./lib/helper_functions.R")
 
-#Relative Data path
-#Test - to remove
-library(maps)
-library(mapproj)
-source("./lib/helpers.R")
-counties <- readRDS("./data/counties.rds")
-
-
 #### One time Computations ####
+# First Row: Map
+sta <- read.csv("./output/smokers_proportion.csv",as.is=T)
+states <- readOGR("./doc/cb_2013_us_state_20m.shp",
+                  layer = "cb_2013_us_state_20m", verbose = FALSE) # map
+mor <- read.csv("./output/states mortality.csv")
+pre <- read.csv("./output/states prevalence.csv")
+df <- states_coordinates(states)
+
+
 # Second Row: Advertising data
 advertising <- read.csv("./output/advertising.csv", stringsAsFactors = FALSE, sep=",")
 advertising <- advertising[!advertising$media=="Total",]
@@ -43,17 +46,10 @@ advertising <- advertising %>%
   summarize(spendings = sum(spendings))
 
 # Third Row: Mortality & Gender
-mortality_nation <- read.csv("./output/national_mortality.csv")
-mortality_nation <- mortality_nation %>%
-  rename(percentage=ratiototal)
+
 
 # Fourth Row: Mortality & Gender
-mortality_states <- read.csv("./output/states disease prevalence and mortality.csv")
-mortality <- filter(mortality_states, states != "United States",
-                    disease != "Prevalence of chronic obstructive pulmonary disease among adults >= 18",
-                    disease != "Current asthma prevalence among adults aged >= 18 years",
-                    disease != "Prevalence of chronic obstructive pulmonary disease among adults >= 45 years")
-mortality <- mortality %>% mutate(disease = gsub('Mortality (from|with) ','', disease))
+
 
 #### Header of the Dashboard ####
 header <- dashboardHeader(
@@ -64,14 +60,15 @@ header <- dashboardHeader(
 #### Body of the Dashboard ####
 body <- dashboardBody(
   
+  ## First Row: Map
   fluidRow(
     tabBox(
       title = "",
-      width = 9,
-      height = 400,
+      width = 8,
+      height = 600,
       tabPanel(
         title = "Map",
-        plotOutput("map2", height = 300)
+        leafletOutput("map", height = 550)
       ),
       tabPanel(
         title = "Analysis"
@@ -81,16 +78,33 @@ body <- dashboardBody(
       )
     ),
     box(
-     title = "Legend", width = 3, height = 400, status="primary", solidHeader = TRUE,
-     sliderInput("year", label = h5("Year"),
-                 min = 2010, max = 2014, value = 2012, 
-                 step = 1, ticks = FALSE, sep=""),
-     selectInput("select", label = h5("Disease or Mortality Reason"), 
-                 choices = list("Choice 1" = 1, "Choice 2" = 2, "Choice 3" = 3), 
-                 selected = 1)
+      title = "Legend", width = 4, height = 600, status="warning", solidHeader = TRUE,
+      sliderInput("year", label = h4("Year"),
+                  min = 2010, max = 2014, value = 2012, 
+                  step = 1, ticks = FALSE, sep=""),
+      selectInput("gender", label = h4("Gender"), 
+                  choices = list("Overall"= "Overall", "Male"="Male", "Female"= "Female"), 
+                  selected = 1),
+      radioButtons("cate", label = h4("Category"),
+                   choices = list("Mortality of Disease"="Mortality",
+                                  "Disease"="Prevalence"),
+                   inline = T),
+      selectInput("prevalence",label = h4("Disease"),
+                  choices = list("Chronic obstructive pulmonary disease prevalence"="Chronic obstructive pulmonary disease prevalence",
+                                 "Arthritis"="Arthritis",
+                                 "Asthma"="Asthma"),
+                  selected=1),
+      selectInput("mortality",label = h4("Mortality Reason"),
+                  choices = list("Heart failure"="Heart failure",
+                                 "Chronic obstructive pulmonary disease"="Chronic obstructive pulmonary disease",
+                                 "Coronary heart disease"="Coronary heart disease",
+                                 "Cerebrovascular disease"="Cerebrovascular disease",
+                                 "Cardiovascular disease"="Cardiovascular disease"),
+                  selected=1)
     )
   ),
   
+  ## Second Row: Commercial Spendings
   fluidRow(
     tabBox(
       title = "Commercial Spendings",
@@ -143,6 +157,7 @@ body <- dashboardBody(
     )
   ),
   
+  ## Third Row: 
   fluidRow(
     tabBox(
       title = "Mortality Rate - Gender Comparison",
@@ -152,17 +167,11 @@ body <- dashboardBody(
       tabPanel(
         title = "Histogram",
         box(
-          helpText("Mortality Rate (Prevalence): Gender Comparison (2010-2014)"),
-          width = 3,
-          helpText("Select one or more diseases:"),
-          uiOutput("DiseaseSelector"),
-          helpText("Select one or more genders:"),
-          uiOutput("GenderSelector")
+
           ),
         box(
-          width = 9,
-          plotlyOutput("RegPlot",
-                       height = 400)
+
+
           )
       ),
       tabPanel(
@@ -174,6 +183,7 @@ body <- dashboardBody(
     )
   ),
   
+  ## Fourth Row:
   fluidRow(
     tabBox(
       title = "Mortality Rate - Gender Comparison",
@@ -183,17 +193,10 @@ body <- dashboardBody(
       tabPanel(
         title = "Histogram",
         box(
-          helpText("Mortality Rate Boxplot: 2010-2014"),
-          width = 3,
-          helpText("Select the year:"),
-          uiOutput("YearSelector2"),
-          helpText("Select one or more gender:"),
-          uiOutput("GenderSelector2")
+          
         ),
         box(
-          width = 9,
-          plotlyOutput("RegPlot2",
-                       height = 400)
+
         )
       ),
       tabPanel(
@@ -202,16 +205,6 @@ body <- dashboardBody(
       tabPanel(
         title = "Methodology and Sources"
       )
-    )
-  ),
-  
-  #TEST
-  fluidRow(
-    box(title="TEST2",
-        h3("Year Slider"),
-        textOutput("year_value"),
-        h3("List"),
-        verbatimTextOutput("value")
     )
   )
   
@@ -228,10 +221,117 @@ ui <- dashboardPage(
 #### Server ####
 server <- function(input, output) { 
   
-  # Year Selection
+  #### FIRST ROW: MAP
+  # Get the inputs
   output$year_value <- renderPrint({ input$year })
-  # Disease Selection
   output$value <- renderPrint({ input$select })
+  output$mortality <- renderPrint({ input$mortality })
+  output$cate <- renderPrint({ input$cate })
+  output$prevalence <- renderPrint({ input$pervalence })
+  output$map <- renderLeaflet({
+    if (input$cate=="Mortality") {  
+      ds <- mor
+      point <- ds[ds$disease==input$mortality & ds$year==input$year & ds$class==input$gender,c("statesAbbr","ratio")]
+      point$statesAbbr <- as.character(point$statesAbbr)
+      for (i in 1:52) {
+        if(sum(df$name[i]==point$statesAbbr)==1) {
+          df[i,"ratio"] <- point[point$statesAbbr==df$name[i],"ratio"]
+        } else {
+            df[i,"ratio"] <-0
+        }
+      }
+      df$radius <- rank(df$ratio)*20/52+5
+      df[df$ratio==0,]$radius <- 0
+      legend_t<-paste0(round(quantile(df$ratio)[-1]*100,2),"% -- ",c("25 Percentile","50 Percentile","75 Percentile","100 Percentile"))
+      legend_size <- quantile(df$radius)[-1]
+      color<-rep("black",4)
+    } else { 
+        if(input$year==2010 | input$year==2011) {
+          df$radius<-0
+          legend_t<-NULL
+          legend_size<-NULL
+          color<- NULL
+        } else { 
+            if(input$year==2012 & (input$gender=="Female" | input$gender=="Male")) {
+              df$radius <- 0
+              legend_t <- NULL
+              legend_size <- NULL
+              color <- NULL
+            } else {
+                ds<-pre
+                point <- ds[ds$disease==input$prevalence & ds$year==input$year & ds$class==input$gender,c("statesAbbr","ratio")]
+                point$statesAbbr <- as.character(point$statesAbbr)
+                for (i in 1:52) {
+                  if(sum(df$name[i]==point$statesAbbr)==1) {
+                    df[i,"ratio"] <- point[point$statesAbbr==df$name[i],"ratio"]
+                  } else {
+                      df[i,"ratio"] <-0
+                    }
+                }
+                df$radius <- rank(df$ratio)*20/52+5
+                if (sum(df$ratio==0)!=0) {
+                  df[df$ratio==0,]$radius <- 0
+                  }
+                  legend_t <- paste0(round(quantile(df$ratio)[-1],2),"% -- ",c("25 Percentile","50 Percentile","75 Percentile","100 Percentile"))
+                  legend_size <- quantile(df$radius)[-1]
+                  color <- rep("black",4)
+              }
+            }
+    }
+    
+    # Shade of map
+    sta1 <- sta[sta$YEAR==input$year & sta$LocationDesc!="Guam"& sta$Gender==input$gender & sta$LocationDesc!="Virgin Islands",]
+    var <- sta1$Data_Value
+    max <- ceiling(max(var)/10)*10
+    min <- floor(min(var)/10)*10
+    var <- pmax(var, min)
+    var <- pmin(var, max)
+    inc <- (max - min) / 4
+    legend.text <- c(paste0(min, " % or less"),
+                     paste0(min + inc, " %"),
+                     paste0(min + 2 * inc, " %"),
+                     paste0(min + 3 * inc, " %"),
+                     paste0(max, " % or more"))
+    shades <- colorRampPalette(c("#fee6ce", "#ff5300"))(100)
+    percents <- as.integer(cut(var, 100, 
+                               include.lowest = TRUE, ordered = TRUE))
+    fills <- shades[percents]
+    s <- as.character(states$STUSPS)
+    order <- rep(NA,length(fills))
+    for (i in 1:length(s)){
+      order[i] <- which(as.character(sta1$LocationAbbr)==s[i])
+    }
+    fills1 <- fills[order]
+    dv <- paste(sta1$LocationDesc[order], "<br/>","Consumption:",as.character(sta1$Data_Value[order]),"%")
+    clb <- data.frame("name"=sta1$LocationAbbr[order],"consumption"=sta1$Data_Value[order])
+    clb$name <- as.character(clb$name)
+    df$name <- as.character(df$name)
+    for (i in 1:nrow(clb)) {
+      if (sum(clb$name[i]==df$name)==1) {
+        clb$ratio[i] <- df[which(df$name==clb$name[i]),"ratio"]
+      } else {clb$ratio[i]<-NULL}
+      
+    }  
+    clb$ratio<- round(clb$ratio*100,2)
+    
+
+    leaflet(states) %>% 
+      addTiles() %>% 
+      addPolygons(
+        stroke = FALSE, fillOpacity = 0.6, smoothFactor = 0.5,
+        color = fills1,
+        popup=paste(dv,"<br/>","Ratio:",clb$ratio,"%")) %>%
+      addCircleMarkers(lat=df$lat, lng=df$long, color="red", 
+                       radius=df$radius,stroke=F,fillOpacity = 1) %>%
+      addLegend(
+        position = 'bottomright',
+        colors = shades[c(1, 25, 50, 75, 100)],
+        labels = legend.text, opacity = 1,
+        title = 'Smokers Proportion'
+      ) %>%
+      setView(lng=-97,lat=40,zoom=4)
+    
+  })
   
   #### SECOND ROW: COMMERCIAL SPENDINGS
   # Histogram Total Commercial Spendings
@@ -244,119 +344,7 @@ server <- function(input, output) {
   })
 
   #### THIRD ROW: 
-  # Read the disease name & Gender Name
-  DiseaseName <- unique(mortality_nation$disease)
-  GenderType <- unique(mortality_nation$class)
-  
-  # Disease name list
-  output$DiseaseSelector <- renderUI({
-    selectInput('disease', label = 'Disease',
-                DiseaseName,
-                multiple = TRUE,
-                selectize = TRUE,
-                selected = "stroke") #default value
-  })
-  # Gender type list
-  output$GenderSelector <- renderUI({
-    selectInput('class', label = 'Gender',
-                GenderType,
-                multiple = TRUE,
-                selectize = TRUE,
-                selected = "Overall") #default value
-  })
-  
-  # Get the selected disease & Selected Gender
-  SelectedDisease <- reactive({
-    if (is.null(input$disease) || length(input$disease)==0)
-      return()
-    as.vector(input$disease)
-  })
-  SelectedGender <- reactive({
-    if (is.null(input$class) || length(input$class)==0)
-      return()
-    as.vector(input$class)
-  })
-  
-  # Filter data according to the selected disease and gender
-  mortalityDF <- reactive({
-    mortality_nation %>%
-      filter(disease %in% SelectedDisease()) %>%
-      filter(class %in% SelectedGender()) %>%
-      select(year, disease, class, percentage)
-  })
-  
-  output$ff <- renderPrint({
-    names(mortalityDF())
-  })
 
-  output$RegPlot<-renderPlotly({
-    if ((length(SelectedDisease())>0) & (length(SelectedGender())>0)){
-      p <- ggplot(mortalityDF(), aes(x=year, y=percentage,color=factor(class)))+
-        labs(x="Year", y="Mortality rate") +
-        facet_wrap(~disease, ncol = 2) + scale_color_discrete(name="Gender")
-      p <- p + geom_point(size=2) + geom_line(size=0.5) 
-      p <- ggplotly(p)
-    } 
-  }) 
-  
-  #### FOURTH ROW:
-  # Read year and gender type
-  YearName <- unique(mortality$year)
-  GenderType <- unique(mortality$class)
-  
-  # Year name list
-  output$YearSelector2 <- renderUI({
-    selectInput('year2', label = 'Year',
-                YearName,
-                multiple = FALSE,
-                selectize = TRUE,
-                selected = 2010) #default value
-  })
-  
-  # Gender type list
-  output$GenderSelector2 <- renderUI({
-    selectInput('class2', label = 'Gender',
-                GenderType,
-                multiple = TRUE,
-                selectize = TRUE,
-                selected = "Overall") #default value
-  })
-
-  # Get selected year and selected gender
-  SelectedYear2 <- reactive({
-    if (is.null(input$year2) || length(input$year2)==0)
-      return()
-    as.vector(input$year2)
-  })
-  SelectedGender2 <- reactive({
-    if (is.null(input$class2) || length(input$class2)==0)
-      return()
-    as.vector(input$class2)
-  })
-  
-  # Filter the data according to the selected states, disease and gender
-  mortalityDF2 <- reactive({
-    mortality %>%
-      filter(year %in% SelectedYear2()) %>%
-      filter(class %in% SelectedGender2()) %>%
-      rename(percentage = ratio) %>%
-      select(year, disease, states, class, percentage)
-  })
-
-  # Plot
-  output$RegPlot2<-renderPlotly({
-    if (length(SelectedYear2())>0 & length(SelectedGender2())>0){
-      p <- plot_ly(mortalityDF2(),x=~disease, y=~percentage, color=~class, 
-                   type="box", boxpoints = "all", jitter = 0.3) %>%
-        layout(title="Death Percentage from All States")
-      p
-    } 
-  })    
-  
-  #### TEST
-  output$map2 <- renderPlot({
-    percent_map(counties$white, "darkgreen", "% White")
-  })
 }
 
 #### Loading App ####
