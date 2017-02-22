@@ -2,7 +2,7 @@
 
 #### Install Libraries ####
 packages.used=c("shiny", "shinydashboard", "ggplot2", "dplyr",
-                "purr", "tidyr", "plotly", "reshape2")
+                "purr", "tidyr", "plotly", "reshape2", "RColorBrewer")
 # Check packages taht need to be installed
 packages.needed=setdiff(packages.used, 
                         intersect(installed.packages()[,1], 
@@ -22,6 +22,7 @@ library(purrr)
 library(tidyr)
 library(plotly)
 library(reshape2)
+library(RColorBrewer)
 
 source("./lib/helper_functions.R")
 
@@ -31,6 +32,7 @@ library(maps)
 library(mapproj)
 source("./lib/helpers.R")
 counties <- readRDS("./data/counties.rds")
+
 
 #### One time Computations ####
 # Second Row: Advertising data
@@ -96,7 +98,7 @@ body <- dashboardBody(
       selected = "Total",
       width = 12,
       tabPanel("Total", 
-               plotOutput("hist_advertising_total", 
+               plotlyOutput("hist_advertising_total", 
                           height= 420)
                ),
       
@@ -125,7 +127,7 @@ body <- dashboardBody(
                  width = 4
                ),
                box(
-                 plotOutput("hist_advertising_media", 
+                 plotlyOutput("hist_advertising_media", 
                             height= 400),
                  width = 8
                )
@@ -233,15 +235,11 @@ server <- function(input, output) {
   
   #### SECOND ROW: COMMERCIAL SPENDINGS
   # Histogram Total Commercial Spendings
-  output$hist_advertising_total <- renderPlot({
-    ggplot(advertising, aes(x=advertising$year, y=advertising$spendings/1000, fill=advertising$media)) +
-    geom_bar(stat="identity") +
-    xlab("Year") + 
-    ylab("Spendings on advertising (in thousands)") +
-      scale_fill_discrete(name = "Media")
+  output$hist_advertising_total <- renderPlotly({
+    hist_advertising_total()
   })
   # Histogram Total Commercial Spendings per media
-  output$hist_advertising_media <- renderPlot({
+  output$hist_advertising_media <- renderPlotly({
     hist_advertising_media(input$media)
   })
 
@@ -363,3 +361,4 @@ server <- function(input, output) {
 
 #### Loading App ####
 shinyApp(ui, server)
+
