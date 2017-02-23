@@ -26,7 +26,8 @@ library(reshape2)
 library(RColorBrewer)
 library(rgdal)
 
-source("./lib/helper_functions.R")
+source("./lib/helper_functions_plots.R")
+source("./lib/helper_functions_computations.R")
 
 #### One time Computations ####
 # First Row: Map
@@ -36,7 +37,6 @@ states <- readOGR("./doc/cb_2013_us_state_20m.shp",
 mor <- read.csv("./output/states mortality.csv")
 pre <- read.csv("./output/states prevalence.csv")
 df <- states_coordinates(states)
-
 
 # Second Row: Advertising data
 advertising <- read.csv("./output/advertising.csv", stringsAsFactors = FALSE, sep=",")
@@ -65,10 +65,10 @@ body <- dashboardBody(
     tabBox(
       title = "",
       width = 8,
-      height = 600,
+      height = 550,
       tabPanel(
         title = "Map",
-        leafletOutput("map", height = 550)
+        leafletOutput("map", height = 490)
       ),
       tabPanel(
         title = "Analysis"
@@ -78,29 +78,29 @@ body <- dashboardBody(
       )
     ),
     box(
-      title = "Legend", width = 4, height = 600, status="warning", solidHeader = TRUE,
+      title = "Legend", width = 4, height = 550, status="warning", solidHeader = TRUE,
       sliderInput("year", label = h4("Year"),
                   min = 2010, max = 2014, value = 2012, 
                   step = 1, ticks = FALSE, sep=""),
       selectInput("gender", label = h4("Gender"), 
                   choices = list("Overall"= "Overall", "Male"="Male", "Female"= "Female"), 
-                  selected = 1),
+                  selected = "Overall"),
       radioButtons("cate", label = h4("Category"),
-                   choices = list("Mortality of Disease"="Mortality",
+                   choices = list("Mortality Reason"="Mortality",
                                   "Disease"="Prevalence"),
                    inline = T),
       selectInput("prevalence",label = h4("Disease"),
                   choices = list("Chronic obstructive pulmonary disease prevalence"="Chronic obstructive pulmonary disease prevalence",
                                  "Arthritis"="Arthritis",
                                  "Asthma"="Asthma"),
-                  selected=1),
+                  selected="Asthma"),
       selectInput("mortality",label = h4("Mortality Reason"),
                   choices = list("Heart failure"="Heart failure",
                                  "Chronic obstructive pulmonary disease"="Chronic obstructive pulmonary disease",
                                  "Coronary heart disease"="Coronary heart disease",
                                  "Cerebrovascular disease"="Cerebrovascular disease",
                                  "Cardiovascular disease"="Cardiovascular disease"),
-                  selected=1)
+                  selected="Heart failure")
     )
   ),
   
@@ -222,115 +222,9 @@ ui <- dashboardPage(
 server <- function(input, output) { 
   
   #### FIRST ROW: MAP
-  # Get the inputs
-  output$year_value <- renderPrint({ input$year })
-  output$value <- renderPrint({ input$select })
-  output$mortality <- renderPrint({ input$mortality })
-  output$cate <- renderPrint({ input$cate })
-  output$prevalence <- renderPrint({ input$pervalence })
   output$map <- renderLeaflet({
-    if (input$cate=="Mortality") {  
-      ds <- mor
-      point <- ds[ds$disease==input$mortality & ds$year==input$year & ds$class==input$gender,c("statesAbbr","ratio")]
-      point$statesAbbr <- as.character(point$statesAbbr)
-      for (i in 1:52) {
-        if(sum(df$name[i]==point$statesAbbr)==1) {
-          df[i,"ratio"] <- point[point$statesAbbr==df$name[i],"ratio"]
-        } else {
-            df[i,"ratio"] <-0
-        }
-      }
-      df$radius <- rank(df$ratio)*20/52+5
-      df[df$ratio==0,]$radius <- 0
-      legend_t<-paste0(round(quantile(df$ratio)[-1]*100,2),"% -- ",c("25 Percentile","50 Percentile","75 Percentile","100 Percentile"))
-      legend_size <- quantile(df$radius)[-1]
-      color<-rep("black",4)
-    } else { 
-        if(input$year==2010 | input$year==2011) {
-          df$radius<-0
-          legend_t<-NULL
-          legend_size<-NULL
-          color<- NULL
-        } else { 
-            if(input$year==2012 & (input$gender=="Female" | input$gender=="Male")) {
-              df$radius <- 0
-              legend_t <- NULL
-              legend_size <- NULL
-              color <- NULL
-            } else {
-                ds<-pre
-                point <- ds[ds$disease==input$prevalence & ds$year==input$year & ds$class==input$gender,c("statesAbbr","ratio")]
-                point$statesAbbr <- as.character(point$statesAbbr)
-                for (i in 1:52) {
-                  if(sum(df$name[i]==point$statesAbbr)==1) {
-                    df[i,"ratio"] <- point[point$statesAbbr==df$name[i],"ratio"]
-                  } else {
-                      df[i,"ratio"] <-0
-                    }
-                }
-                df$radius <- rank(df$ratio)*20/52+5
-                if (sum(df$ratio==0)!=0) {
-                  df[df$ratio==0,]$radius <- 0
-                  }
-                  legend_t <- paste0(round(quantile(df$ratio)[-1],2),"% -- ",c("25 Percentile","50 Percentile","75 Percentile","100 Percentile"))
-                  legend_size <- quantile(df$radius)[-1]
-                  color <- rep("black",4)
-              }
-            }
-    }
-    
-    # Shade of map
-    sta1 <- sta[sta$YEAR==input$year & sta$LocationDesc!="Guam"& sta$Gender==input$gender & sta$LocationDesc!="Virgin Islands",]
-    var <- sta1$Data_Value
-    max <- ceiling(max(var)/10)*10
-    min <- floor(min(var)/10)*10
-    var <- pmax(var, min)
-    var <- pmin(var, max)
-    inc <- (max - min) / 4
-    legend.text <- c(paste0(min, " % or less"),
-                     paste0(min + inc, " %"),
-                     paste0(min + 2 * inc, " %"),
-                     paste0(min + 3 * inc, " %"),
-                     paste0(max, " % or more"))
-    shades <- colorRampPalette(c("#fee6ce", "#ff5300"))(100)
-    percents <- as.integer(cut(var, 100, 
-                               include.lowest = TRUE, ordered = TRUE))
-    fills <- shades[percents]
-    s <- as.character(states$STUSPS)
-    order <- rep(NA,length(fills))
-    for (i in 1:length(s)){
-      order[i] <- which(as.character(sta1$LocationAbbr)==s[i])
-    }
-    fills1 <- fills[order]
-    dv <- paste(sta1$LocationDesc[order], "<br/>","Consumption:",as.character(sta1$Data_Value[order]),"%")
-    clb <- data.frame("name"=sta1$LocationAbbr[order],"consumption"=sta1$Data_Value[order])
-    clb$name <- as.character(clb$name)
-    df$name <- as.character(df$name)
-    for (i in 1:nrow(clb)) {
-      if (sum(clb$name[i]==df$name)==1) {
-        clb$ratio[i] <- df[which(df$name==clb$name[i]),"ratio"]
-      } else {clb$ratio[i]<-NULL}
-      
-    }  
-    clb$ratio<- round(clb$ratio*100,2)
-    
-
-    leaflet(states) %>% 
-      addTiles() %>% 
-      addPolygons(
-        stroke = FALSE, fillOpacity = 0.6, smoothFactor = 0.5,
-        color = fills1,
-        popup=paste(dv,"<br/>","Ratio:",clb$ratio,"%")) %>%
-      addCircleMarkers(lat=df$lat, lng=df$long, color="red", 
-                       radius=df$radius,stroke=F,fillOpacity = 1) %>%
-      addLegend(
-        position = 'bottomright',
-        colors = shades[c(1, 25, 50, 75, 100)],
-        labels = legend.text, opacity = 1,
-        title = 'Smokers Proportion'
-      ) %>%
-      setView(lng=-97,lat=40,zoom=4)
-    
+    map_leaflet(input$cate, input$mortality, input$year, input$gender, input$prevalence,
+                df, mor, pre, sta, states )
   })
   
   #### SECOND ROW: COMMERCIAL SPENDINGS
@@ -345,6 +239,8 @@ server <- function(input, output) {
 
   #### THIRD ROW: 
 
+  #### FOURTH ROW:
+  
 }
 
 #### Loading App ####

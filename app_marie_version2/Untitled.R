@@ -38,16 +38,15 @@ p = ggplotly(g)
 p <- plot_ly() %>%
   add_bars(advertising, x=advertising$year, y=advertising$spendings, 
            color=advertising$media, colors="Accent") %>%
-  add_trace(x =consumption$year, 
-                y =consumption$percentage, type="scatter", 
+  add_trace(x =consumption$year,
+                y =consumption$percentage, type="scatter",
                 mode = "line", yaxis="y2") %>%
   layout(barmode = "stack", 
          title="Title",
          xaxis=list(title="Year"), 
          yaxis=list(title="Spendings (in thousands)"),
          yaxis2=ay)
-p
-%>% add_trace(x =consumption$year, y =consumption$percentage, type="scatter", mode = "line", yaxis="y2")
+p %>% add_trace(x =consumption$year, y =consumption$percentage, type="scatter", mode = "line", yaxis="y2")
 
 
 
@@ -57,3 +56,38 @@ ay <- list(
   side = "right",
   title = "second y axis"
 )
+
+
+
+consumption <- read.csv("./data/consumption_tobacco_us.csv", sep=";")
+
+ay <- list(
+  tickfont = list(color = "black"),
+  overlaying = "y",
+  side = "right",
+  title = "Tobacco Consumption (%)",
+  range=c(0,80)
+)
+
+p <- plot_ly() %>%
+  add_bars(advertising, x=advertising$year, y=advertising$spendings, 
+           color=advertising$media, colors="Accent") %>%
+  add_trace(x =consumption$year,
+            y =consumption$percentage, type="scatter", 
+            mode="line", yaxis="y2",
+            name="Tobacco Consumption", line=list(color="black")) %>%
+  layout(barmode = "stack", 
+         title="",
+         xaxis=list(title="Year"), 
+         yaxis=list(title="Spendings (in $)"),
+         yaxis2=ay,
+         legend = list(orientation='h'))
+
+
+g <- ggplot(df, aes(x=df$year, y=df$spendings/1000)) +
+  geom_bar(stat="identity") +
+  geom_line(consumption, aes(year, percentage)) +
+  xlab("Year") +
+  ylab("Spendings on advertising (in thousands of $)")
+g
+
