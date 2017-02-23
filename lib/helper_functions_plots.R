@@ -113,15 +113,13 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
   clb <- data.frame("name"=sta1$LocationAbbr[order],"consumption"=sta1$Data_Value[order])
   clb$name <- as.character(clb$name)
   df$name <- as.character(df$name)   
-  if ((year == 2010 | year == 2011) & cate == "Disease")  { 
-    clb$ratio = "NA"
-  } else {for (i in 1:nrow(clb)) {
+  for (i in 1:nrow(clb)) {
       if (sum(clb$name[i]==df$name)==1) {
         clb$ratio[i] <- df[which(df$name==clb$name[i]),"ratio"]
       } else {clb$ratio[i]<-NULL}
      }  
-    clb$ratio<- round(clb$ratio,2)
-         }
+  clb$ratio<- round(clb$ratio,2)
+     
   
   dv<-paste( "Consumption:",as.character(sta1$Data_Value[order]),"%")
   dv1<-paste("Ratio:",clb$ratio,"%")
