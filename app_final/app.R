@@ -183,21 +183,27 @@ body <- dashboardBody(
   fluidRow(
     tabBox(
       title = "Gender Comparison",
-      height = 500,
+      height = 550,
       selected = "Mortality",
       width = 12,
       tabPanel(
         title = "Mortality",
         box(
           width = 9,
-          plotlyOutput("RegPlot.m.g", height=420)
+          plotlyOutput("RegPlot.m.g", height=470)
           ),
         box( 
           width = 3,
           helpText("Select the year:"),
           uiOutput("YearSelector.m.g"),
           helpText("Select one or more gender:"),
-          uiOutput("GenderSelector.m.g")
+          uiOutput("GenderSelector.m.g"),
+          strong("Mortality Reasons:"),
+          div("A: Cerebrovascular disease"),
+          div("B: Chronic obstructive pulmonary disease"),
+          div("C: Cardiovascular disease"),
+          div("D: Coronary heart disease"),
+          div("E: Heart failure")
           )
       ),
       tabPanel(
@@ -212,6 +218,10 @@ body <- dashboardBody(
           uiOutput("YearSelector.p.g"),
           helpText("Select one or more gender:"),
           uiOutput("GenderSelector.p.g"),
+          strong("Diseases"),
+          div("B: Chronic obstructive pulmonary disease"),
+          div("F: Asthma"),
+          div("G: Arthrisis"),
           helpText("Note: For year 2012, there is no data for specific gender.")
          )
       ),
@@ -347,7 +357,14 @@ server <- function(input, output) {
       p <- plot_ly(mortalityDF.m.g(),x=~disease, y=~percentage, color=~class, 
                    type="box", boxpoints = "all", jitter = 0.3) %>%
         layout(title="Mortality due to specific diseases linked to Tobacco",
-               xaxis=list(title="Diseases"), 
+               xaxis=list(title="Mortality Reason",
+                          tickmode="array",
+                          tickvals=c("Cardiovascular disease",
+                                     "Cerebrovascular disease",
+                                     "Chronic obstructive pulmonary disease",
+                                     "Coronary heart disease",
+                                     "Heart failure"),
+                          ticktext=c("C","A","B","D","E")), 
                yaxis=list(title="Mortality rate (%)"))
       p
     } 
@@ -398,7 +415,12 @@ server <- function(input, output) {
       p <- plot_ly(prevalenceDF.p.g(),x=~disease, y=~percentage, color=~class,
                    type="box", boxpoints = "all", jitter = 0.3) %>%
         layout(title="Prevalence for Diseases linked to Tobacco",
-               xaxis=list(title="Diseases"), 
+               xaxis=list(title="Diseases",
+                          tickmode="array",
+                          tickvals=c("Chronic obstructive pulmonary disease prevalence",
+                                     "Asthma",
+                                     "Arthritis"),
+                          ticktext=c("B","F","G")), 
                yaxis=list(title="Prevalence (%)"))
       p
     }
