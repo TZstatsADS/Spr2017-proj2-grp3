@@ -50,7 +50,8 @@ advertising <- advertising %>%
 
 # Third Row: Mortality & Gender
 mortality <- read.csv("../output/states mortality.csv")
-prevalence <- read.csv("../output/states prevalence.csv")
+prevalence <- read.csv("../output/states prevalence.csv") %>%
+  filter(year!=2012)
 smoker <- read.csv("../output/smokers_proportion.csv") %>% 
   filter(YEAR!=2015) %>%
   select(YEAR, LocationDesc, Data_Value, Gender) %>%
@@ -185,8 +186,22 @@ body <- dashboardBody(
     tabBox(
       title = "Gender Comparison",
       height = 550,
-      selected = "Mortality",
+      selected = "Consumption",
       width = 12,
+      tabPanel(
+        title = "Consumption",
+        box(
+          width = 9,
+          plotlyOutput("RegPlot.c.g")
+        ),
+        box(
+          width = 3,
+          helpText("Select the year:"),
+          uiOutput("YearSelector.c.g"),
+          helpText("Select one or more gender:"),
+          uiOutput("GenderSelector.c.g")
+        )
+      ),
       tabPanel(
         title = "Mortality",
         box(
@@ -222,23 +237,8 @@ body <- dashboardBody(
           strong("Diseases"),
           div("B: Chronic obstructive pulmonary disease"),
           div("F: Asthma"),
-          div("G: Arthrisis"),
-          helpText("Note: For year 2012, there is no data for specific gender.")
+          div("G: Arthrisis")
          )
-      ),
-      tabPanel(
-        title = "Consumption",
-        box(
-          width = 9,
-          plotlyOutput("RegPlot.c.g")
-        ),
-        box(
-          width = 3,
-          helpText("Select the year:"),
-          uiOutput("YearSelector.c.g"),
-          helpText("Select one or more gender:"),
-          uiOutput("GenderSelector.c.g")
-        )
       ),
       tabPanel(
         title = "Methodology and Sources"
@@ -313,7 +313,7 @@ server <- function(input, output) {
   })
 
   #### THIRD ROW: Gender Comparison
-  ## First Tab: Mortality
+  ## Second Tab: Mortality
   # Read year name & gender type
   YearName.m.g <- unique(mortality$year)
   GenderType.m.g <- unique(mortality$class)
@@ -330,7 +330,7 @@ server <- function(input, output) {
                 GenderType.m.g,
                 multiple = TRUE,
                 selectize = TRUE,
-                selected = "Overall") #default value
+                selected = c("Female","Male")) #default value
   })
   # Get selected year & selected gender
   SelectedYear.m.g <- reactive({
@@ -359,19 +359,25 @@ server <- function(input, output) {
                    type="box", boxpoints = "all", jitter = 0.3) %>%
         layout(title="Mortality due to specific diseases linked to Tobacco",
                xaxis=list(title="Mortality Reason",
+                          categoryorder="array",
+                          categoryarray=list("Cerebrovascular disease",
+                                             "Chronic obstructive pulmonary disease",
+                                             "Cardiovascular disease",
+                                             "Coronary heart disease",
+                                             "Heart failure"),
                           tickmode="array",
-                          tickvals=c("Cardiovascular disease",
+                          tickvals=list("Cardiovascular disease",
                                      "Cerebrovascular disease",
                                      "Chronic obstructive pulmonary disease",
                                      "Coronary heart disease",
                                      "Heart failure"),
-                          ticktext=c("C","A","B","D","E")),
+                          ticktext=list("C","A","B","D","E")),
                yaxis=list(title="Mortality rate (%)"))
     }
     p
   })
    
-  ## Second Tab: Prevalence
+  ## Third Tab: Prevalence
   # Read year name & gender type
   YearName.p.g <- unique(prevalence$year)
   GenderType.p.g <- unique(prevalence$class)
@@ -381,14 +387,14 @@ server <- function(input, output) {
                 YearName.p.g,
                 multiple = FALSE,
                 selectize = TRUE,
-                selected = 2012) #default value
+                selected = 2013) #default value
   })
   output$GenderSelector.p.g <- renderUI({
     selectInput('gender.p.g', label = 'Gender',
                 GenderType.p.g,
                 multiple = TRUE,
                 selectize = TRUE,
-                selected = "Overall") #default value
+                selected = c("Female","Male")) #default value
   })
   # Get selected year and gender
   SelectedYear.p.g <- reactive({

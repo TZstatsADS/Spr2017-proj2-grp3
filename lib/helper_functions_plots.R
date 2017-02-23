@@ -2,11 +2,12 @@
  
 hist_advertising_media <- function(selected_media, advertising) {
   df <- advertising[advertising$media==selected_media,]
-  g <- ggplot(df, aes(x=df$year, y=df$spendings/1000)) +
-     geom_bar(stat="identity") +
+  g <- ggplot(df, aes(x=df$year, y=df$spendings/1000, fill="#FA8258")) +
+     geom_bar(stat="identity", color="#F5BCA9") +
      xlab("Year") +
      ylab("Spendings (in thousands of $)") +
-      labs(title="Commercial Spendings on Tobacco")
+      labs(title="Commercial Spendings on Tobacco") +
+    theme(legend.position="none")
   p = ggplotly(g)
   return(p)
 }
@@ -98,7 +99,7 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
                    paste0(min + 3 * inc, " %"),
                    paste0(max, " % or more"))
   #shades <- colorRampPalette(c("#fee6ce", "#ff5300"))(100)
-  shades <- colorRampPalette(c("#c0c0f8", "#09094f"))(100)
+  shades <- colorRampPalette(c("#EFEFFB", "#0101DF"))(100)
   percents <- as.integer(cut(var, 100, 
                              include.lowest = TRUE, ordered = TRUE))
   fills <- shades[percents]
