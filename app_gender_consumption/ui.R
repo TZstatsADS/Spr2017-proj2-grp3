@@ -10,7 +10,7 @@ shinyUI(fluidPage(
   # Application title
   titlePanel("Smoker proportion Boxplot: 2010-2014"),
   
-  # Sidebar with controls to select diseases and gender
+  # Sidebar with controls to select year and gender
   sidebarLayout(
     
     sidebarPanel(
