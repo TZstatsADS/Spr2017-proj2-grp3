@@ -36,20 +36,19 @@ body <- dashboardBody(
                    choices = list("Mortality of Disease"="Mortality",
                                   "Disease"="Prevalence"),
                    inline = T),
+      selectInput("mortality",label = h3("Mortality of Disease"),
+                   choices = list("Heart failure"="Heart failure",
+                                                  "Chronic obstructive pulmonary disease"="Chronic obstructive pulmonary disease",
+                                                  "Coronary heart disease"="Coronary heart disease",
+                                                  "Cerebrovascular disease"="Cerebrovascular disease",
+                                                  "Cardiovascular disease"="Cardiovascular disease"),
+                                   selected = 1),
       selectInput("prevalence",label = h3("Disease"),
                   choices = list("Chronic obstructive pulmonary disease prevalence"="Chronic obstructive pulmonary disease prevalence",
-                                 "Arthritis"="Arthritis",
-                                 "Asthma"="Asthma"),
-                  selected=1),
-      selectInput("mortality",label = h3("Mortality of Disease"),
-                  choices = list("Heart failure"="Heart failure",
-                                 "Chronic obstructive pulmonary disease"="Chronic obstructive pulmonary disease",
-                                 "Coronary heart disease"="Coronary heart disease",
-                                 "Cerebrovascular disease"="Cerebrovascular disease",
-                                 "Cardiovascular disease"="Cardiovascular disease"),
-                  selected=1)
-    )
-  ),
+                                                  "Arthritis"="Arthritis",
+                                                  "Asthma"="Asthma"),
+                                   selected=1)
+  )),
   
   fluidRow(
     tabBox(
@@ -195,6 +194,8 @@ server <- function(input, output) {
     }
     fills1<-fills[order]
     dv<-paste(sta1$LocationDesc[order], "<br/>","Consumption:",as.character(sta1$Data_Value[order]),"%")
+    
+ if ((input$year == 2010 | input$year == 2011) & input$cate == "Disease")  { 
     clb <- data.frame("name"=sta1$LocationAbbr[order],"consumption"=sta1$Data_Value[order])
     clb$name <- as.character(clb$name)
     df$name <- as.character(df$name)
@@ -205,7 +206,7 @@ server <- function(input, output) {
       
     }  
     clb$ratio<- round(clb$ratio*100,2)
-    
+ } else {clb$ratio = "NA"}
     
 
   
