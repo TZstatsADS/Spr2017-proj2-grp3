@@ -8,18 +8,16 @@ library(plotly)
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Mortality Rate Boxplot: 2010-2014"),
+  titlePanel("Death-Consumption Relationship: 2010-2014"),
   
-  # Sidebar with controls to select year and gender
+  # Sidebar with controls to select year
   sidebarLayout(
     
     sidebarPanel(
       
       helpText("Select the year:"),
-      uiOutput("YearSelector"),
-      
-      helpText("Select one or more gender:"),
-      uiOutput("GenderSelector")
+      uiOutput("YearSelector")
+  
     ),
     
     

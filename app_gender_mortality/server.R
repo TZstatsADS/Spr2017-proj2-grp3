@@ -65,7 +65,7 @@ shinyServer(function(input, output){
     as.vector(input$class)
   })
   
-  #filter the data according to the selected states, disease and gender
+  #filter the data according to the selected year and gender
   mortalityDF <- reactive({
     mortality %>%
       filter(year %in% SelectedYear()) %>%
