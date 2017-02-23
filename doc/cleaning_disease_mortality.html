@@ -250,8 +250,8 @@ cdi.pop &lt;- rbind(cdi.pop.female, cdi.pop.male, cdi.pop.overall)
 cdi.pop.mort &lt;- mutate(cdi.pop,
                        ratio = 100*deathpop/population)</code></pre>
 </div>
-<div id="step-5-get-and-save-national-mortality-in-terms-of-gender" class="section level2">
-<h2>Step 5: Get and save national mortality in terms of gender</h2>
+<div id="step-5-get-and-save-national-mortality-and-prevalence-in-terms-of-gender" class="section level2">
+<h2>Step 5: Get and save national mortality and prevalence in terms of gender</h2>
 <pre class="r"><code># We want to get the national mortality of different gender
 # but the raw data here only has the national mortality of overall population
 
@@ -259,6 +259,7 @@ cdi.pop.mort &lt;- mutate(cdi.pop,
 # calculate the total national mortality according to gender
 cdi.mort.new &lt;- cdi.pop.mort[cdi.pop.mort$states!=&quot;United States&quot;, ]
 cdi.prev.new &lt;- cdi.pop.prev[cdi.pop.prev$states!=&quot;United States&quot;, ]
+
 national_mortality &lt;- cdi.mort.new %&gt;%
   group_by(year, disease, class) %&gt;%
   select(deathpop, ratio) %&gt;%

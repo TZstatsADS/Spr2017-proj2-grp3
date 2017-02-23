@@ -140,7 +140,7 @@ cdi.pop.mort <- mutate(cdi.pop,
                        ratio = 100*deathpop/population)
 ```
 
-##Step 5: Get and save national mortality in terms of gender
+##Step 5: Get and save national mortality and prevalence in terms of gender
 ```{r, warning=FALSE, message=FALSE}
 # We want to get the national mortality of different gender
 # but the raw data here only has the national mortality of overall population
@@ -149,6 +149,7 @@ cdi.pop.mort <- mutate(cdi.pop,
 # calculate the total national mortality according to gender
 cdi.mort.new <- cdi.pop.mort[cdi.pop.mort$states!="United States", ]
 cdi.prev.new <- cdi.pop.prev[cdi.pop.prev$states!="United States", ]
+
 national_mortality <- cdi.mort.new %>%
   group_by(year, disease, class) %>%
   select(deathpop, ratio) %>%
