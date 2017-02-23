@@ -132,7 +132,7 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
   leaflet(states) %>% 
     addTiles() %>% 
     addPolygons(
-      stroke = FALSE, fillOpacity = 0.8, smoothFactor = 0.5,
+      stroke = FALSE, fillOpacity = 1, smoothFactor = 0.5,
       color = fills1,
       label= labels, labelOptions = labelOptions(
         style = list("font-weight" = "normal", padding = "3px 8px"),
