@@ -352,9 +352,9 @@ server <- function(input, output) {
   })
   # Plot
   output$RegPlot.m.g<-renderPlotly({
-    # Check if city and month are not null
+    p <- ggplotly(plotly_empty())
     if (length(SelectedYear.m.g())>0 & length(SelectedGender.m.g())>0){
-      p <- plot_ly(mortalityDF.m.g(),x=~disease, y=~percentage, color=~class, 
+      p <- plot_ly(mortalityDF.m.g(),x=~disease, y=~percentage, color=~class,
                    type="box", boxpoints = "all", jitter = 0.3) %>%
         layout(title="Mortality due to specific diseases linked to Tobacco",
                xaxis=list(title="Mortality Reason",
@@ -364,12 +364,12 @@ server <- function(input, output) {
                                      "Chronic obstructive pulmonary disease",
                                      "Coronary heart disease",
                                      "Heart failure"),
-                          ticktext=c("C","A","B","D","E")), 
+                          ticktext=c("C","A","B","D","E")),
                yaxis=list(title="Mortality rate (%)"))
-      p
-    } 
-  })    
-  
+    }
+    p
+  })
+   
   ## Second Tab: Prevalence
   # Read year name & gender type
   YearName.p.g <- unique(prevalence$year)
@@ -408,10 +408,10 @@ server <- function(input, output) {
       rename(percentage = ratio) %>%
       select(year, disease, states, class, percentage)
   })
-  # plot
+  # Plot
   output$RegPlot.p.g <- renderPlotly({
-    #check if city and month are not null
-    if (length(SelectedYear.p.g())>0 & length(SelectedGender.p.g())>0){
+    p <- ggplotly(plotly_empty())
+    if (length(SelectedGender.p.g())>0){
       p <- plot_ly(prevalenceDF.p.g(),x=~disease, y=~percentage, color=~class,
                    type="box", boxpoints = "all", jitter = 0.3) %>%
         layout(title="Prevalence for Diseases linked to Tobacco",
@@ -422,8 +422,8 @@ server <- function(input, output) {
                                      "Arthritis"),
                           ticktext=c("B","F","G")), 
                yaxis=list(title="Prevalence (%)"))
-      p
-    }
+    } 
+    p
   })
   
   ## Consumption
@@ -464,14 +464,14 @@ server <- function(input, output) {
   })
   # Plot
   output$RegPlot.c.g <- renderPlotly({
-    #check if city and month are not null
+    p <- ggplotly(plotly_empty())
     if (length(SelectedYear.c.g())>0 & length(SelectedGender.c.g())>0){
       p <- plot_ly(smokerDF(),y=~Percentage, color=~Gender, 
                    type="box", boxpoints = "all", jitter = 0.3) %>%
         layout(title="Proportion of Smokers",
                yaxis=list(title="Proportion of Smokers (%)"))
-      p
     } 
+    p
   })    
   
   #### FOURTH ROW:
@@ -500,7 +500,7 @@ server <- function(input, output) {
   })
   # Plot
   output$RegPlot.m.s <- renderPlotly({
-    #check if city and month are not null
+    p <- ggplotly(plotly_empty())
     if (length(SelectedYear.m.s())>0){
       p <- plot_ly((mort_conspDF()),x=~smoker_percentage, color=I("black")) %>%
         add_markers(y = ~avg_death_percentage, text = mort_conspDF()$states, showlegend = FALSE) %>%
@@ -517,8 +517,8 @@ server <- function(input, output) {
                yaxis = list(title = 'Average Mortality Rate of Diseases linked to Tobacco'),
                legend = list(x = 0.80, y = 0.90),
                title="Relation between Death & Consumption for All States")
-      p
     } 
+    p
   })
   ##Prevalence
   # Read the year name
@@ -545,7 +545,7 @@ server <- function(input, output) {
   })
   # Plot
   output$RegPlot.p.s <- renderPlotly({
-    #check if city and month are not null
+    p <- ggplotly(plotly_empty())
     if (length(SelectedYear.p.s())>0){
       p <- plot_ly((prev_conspDF()),x=~smoker_percentage, color=I("black")) %>%
         add_markers(y = ~avg_prev_percentage, text = prev_conspDF()$states, showlegend = FALSE) %>%
@@ -562,8 +562,8 @@ server <- function(input, output) {
                yaxis = list(title = 'Prevalence Percentage'),
                legend = list(x = 0.80, y = 0.90),
                title="Disease Prevalence-Consumption Relationship of All States")
-      p
     } 
+    p
   })    
   
 }
