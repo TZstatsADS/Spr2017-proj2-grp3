@@ -35,7 +35,7 @@ source("../lib/helper_functions_computations.R")
 #### One time Computations ####
 # First Row: Map
 sta <- read.csv("../output/smokers_proportion.csv",as.is=T)
-states <- readOGR("../doc/cb_2013_us_state_20m.shp",
+states <- readOGR("../output/cb_2013_us_state_20m.shp",
                   layer = "cb_2013_us_state_20m", verbose = FALSE) # map
 mor <- read.csv("../output/states mortality.csv")
 pre <- read.csv("../output/states prevalence.csv")
