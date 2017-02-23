@@ -5,7 +5,8 @@ hist_advertising_media <- function(selected_media) {
   g <- ggplot(df, aes(x=df$year, y=df$spendings/1000)) +
      geom_bar(stat="identity") +
      xlab("Year") +
-     ylab("Spendings on advertising (in thousands of $)")
+     ylab("Spendings (in thousands of $)") +
+      labs(title="Commercial Spendings on Tobacco")
   p = ggplotly(g)
   return(p)
 }
@@ -14,7 +15,7 @@ hist_advertising_total <- function(){
   p <- plot_ly(advertising, x=~year, y=~spendings, color=~media, colors="Accent") %>%
     add_bars() %>%
     layout(barmode = "stack",
-           title="Title",
+           title="Commercial Spendings on Tobacco per year",
            xaxis=list(title="Year"),
            yaxis=list(title="Spendings (in $)"))
 
@@ -107,18 +108,7 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
     order[i] <- which(as.character(sta1$LocationAbbr)==s[i])
   }
   fills1 <- fills[order]
-  dv <- paste(sta1$LocationDesc[order], "<br/>","Consumption:",as.character(sta1$Data_Value[order]),"%")
-  # clb <- data.frame("name"=sta1$LocationAbbr[order],"consumption"=sta1$Data_Value[order])
-  # clb$name <- as.character(clb$name)
-  # df$name <- as.character(df$name)
-  # for (i in 1:nrow(clb)) {
-  #   if (sum(clb$name[i]==df$name)==1) {
-  #     clb$ratio[i] <- df[which(df$name==clb$name[i]),"ratio"]
-  #   } else {clb$ratio[i]<-NULL}
-  #   
-  # }  
-  # clb$ratio<- round(clb$ratio*100,2)
-  
+ 
   clb <- data.frame("name"=sta1$LocationAbbr[order],"consumption"=sta1$Data_Value[order])
   clb$name <- as.character(clb$name)
   df$name <- as.character(df$name)   
@@ -132,12 +122,22 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
     clb$ratio<- round(clb$ratio*100,2)
   } else {clb$ratio = "NA"}
   
+  dv<-paste( "Consumption:",as.character(sta1$Data_Value[order]),"%")
+  dv1<-paste("Ratio:",clb$ratio,"%")
+  labels <- sprintf(
+    "<strong>%s</strong><br/>%s <br/>%s",
+    sta1$LocationDesc[order],dv, dv1
+  ) %>% lapply(htmltools::HTML)
+  
   leaflet(states) %>% 
     addTiles() %>% 
     addPolygons(
       stroke = FALSE, fillOpacity = 0.8, smoothFactor = 0.5,
       color = fills1,
-      popup=paste(dv,"<br/>","Ratio:",clb$ratio,"%")) %>%
+      label= labels, labelOptions = labelOptions(
+        style = list("font-weight" = "normal", padding = "3px 8px"),
+        textsize = "15px",
+        direction = "auto"))%>%
     addCircleMarkers(lat=df$lat, lng=df$long, color="red", 
                      radius=df$radius,stroke=F,fillOpacity = 0.8) %>%
     addLegend(

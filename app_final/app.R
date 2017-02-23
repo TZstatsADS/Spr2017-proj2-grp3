@@ -3,7 +3,7 @@
 #### Install Libraries ####
 packages.used=c("shiny", "shinydashboard", "ggplot2", "dplyr",
                 "purr", "tidyr", "plotly", "reshape2", "RColorBrewer",
-                "rgdal")
+                "rgdal", "broom", "htmltools")
 # Check packages taht need to be installed
 packages.needed=setdiff(packages.used, 
                         intersect(installed.packages()[,1], 
@@ -25,47 +25,49 @@ library(plotly)
 library(reshape2)
 library(RColorBrewer)
 library(rgdal)
+library(broom)
+library(htmltools)
 
-source("./lib/helper_functions_plots.R")
-source("./lib/helper_functions_computations.R")
+source("../lib/helper_functions_plots.R")
+source("../lib/helper_functions_computations.R")
 
 #### One time Computations ####
 # First Row: Map
-sta <- read.csv("./output/smokers_proportion.csv",as.is=T)
-states <- readOGR("./doc/cb_2013_us_state_20m.shp",
+sta <- read.csv("../output/smokers_proportion.csv",as.is=T)
+states <- readOGR("../doc/cb_2013_us_state_20m.shp",
                   layer = "cb_2013_us_state_20m", verbose = FALSE) # map
-mor <- read.csv("./output/states mortality.csv")
-pre <- read.csv("./output/states prevalence.csv")
+mor <- read.csv("../output/states mortality.csv")
+pre <- read.csv("../output/states prevalence.csv")
 df <- states_coordinates(states)
 
 # Second Row: Advertising data
-advertising <- read.csv("./output/advertising.csv", stringsAsFactors = FALSE, sep=",")
+advertising <- read.csv("../output/advertising.csv", stringsAsFactors = FALSE, sep=",")
 advertising <- advertising[!advertising$media=="Total",]
 advertising <- advertising %>%
   group_by(year, media) %>%
   summarize(spendings = sum(spendings))
 
 # Third Row: Mortality & Gender
-mortality <- read.csv("./output/states mortality.csv")
-prevalence <- read.csv("./output/states prevalence.csv")
-smoker <- read.csv("./output/smokers_proportion.csv") %>% 
+mortality <- read.csv("../output/states mortality.csv")
+prevalence <- read.csv("../output/states prevalence.csv")
+smoker <- read.csv("../output/smokers_proportion.csv") %>% 
   filter(YEAR!=2015) %>%
   select(YEAR, LocationDesc, Data_Value, Gender) %>%
   rename(Year=YEAR, States=LocationDesc, Percentage=Data_Value)
 
 # Fourth Row: Mortality & Gender
-mortality_avg <- read.csv("./output/states mortality.csv") %>%
+mortality_avg <- read.csv("../output/states mortality.csv") %>%
   filter(class=="Overall") %>%
   rename(death_percentage = ratio) %>%
   group_by(states) %>%
   mutate(avg_death_percentage = mean(death_percentage, na.rm=TRUE)) %>%
   distinct(year,avg_death_percentage)
-consumption <- read.csv("./output/smokers_proportion.csv") %>% 
+consumption <- read.csv("../output/smokers_proportion.csv") %>% 
   filter(YEAR != 2015, Gender=="Overall") %>%
   rename(year=YEAR, states=LocationDesc, smoker_percentage = Data_Value)
 mortality_consumption <- left_join(mortality_avg, consumption) %>% select(year, states, avg_death_percentage, smoker_percentage)
 
-prevalence_avg <- read.csv("./output/states prevalence.csv") %>%
+prevalence_avg <- read.csv("../output/states prevalence.csv") %>%
   filter(class=="Overall") %>%
   rename(prevalence_percentage = ratio) %>%
   group_by(states) %>%
@@ -162,12 +164,12 @@ body <- dashboardBody(
                                             ),
                              
                              selected = 1),
-                 width = 4
+                 width = 3
                ),
                box(
                  plotlyOutput("hist_advertising_media", 
                             height= 400),
-                 width = 8
+                 width = 9
                )
                ),
       tabPanel("Methodology and Sources", 
@@ -187,11 +189,11 @@ body <- dashboardBody(
       tabPanel(
         title = "Mortality",
         box(
-          width = 8,
+          width = 9,
           plotlyOutput("RegPlot.m.g", height=420)
           ),
         box( 
-          width = 4,
+          width = 3,
           helpText("Select the year:"),
           uiOutput("YearSelector.m.g"),
           helpText("Select one or more gender:"),
@@ -201,11 +203,11 @@ body <- dashboardBody(
       tabPanel(
         title = "Prevalence",
         box(
-          width = 8,
+          width = 9,
           plotlyOutput("RegPlot.p.g")
         ),
         box( 
-          width = 4,
+          width = 3,
           helpText("Select the year:"),
           uiOutput("YearSelector.p.g"),
           helpText("Select one or more gender:"),
@@ -216,11 +218,11 @@ body <- dashboardBody(
       tabPanel(
         title = "Consumption",
         box(
-          width = 8,
+          width = 9,
           plotlyOutput("RegPlot.c.g")
         ),
         box(
-          width = 4,
+          width = 3,
           helpText("Select the year:"),
           uiOutput("YearSelector.c.g"),
           helpText("Select one or more gender:"),
