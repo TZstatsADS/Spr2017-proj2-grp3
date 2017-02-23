@@ -41,23 +41,7 @@ mor <- read.csv("../output/states mortality.csv")
 pre <- read.csv("../output/states prevalence.csv")
 df <- states_coordinates(states)
 
-# Second Row: Advertising data
-advertising <- read.csv("../output/advertising.csv", stringsAsFactors = FALSE, sep=",")
-advertising <- advertising[!advertising$media=="Total",]
-advertising <- advertising %>%
-  group_by(year, media) %>%
-  summarize(spendings = sum(spendings))
-
-# Third Row: Mortality & Gender
-mortality <- read.csv("../output/states mortality.csv")
-prevalence <- read.csv("../output/states prevalence.csv") %>%
-  filter(year!=2012)
-smoker <- read.csv("../output/smokers_proportion.csv") %>% 
-  filter(YEAR!=2015) %>%
-  select(YEAR, LocationDesc, Data_Value, Gender) %>%
-  rename(Year=YEAR, States=LocationDesc, Percentage=Data_Value)
-
-# Fourth Row: Mortality & Gender
+# Second Row: States Comparison
 mortality_avg <- read.csv("../output/states mortality.csv") %>%
   filter(class=="Overall") %>%
   rename(death_percentage = ratio) %>%
@@ -78,6 +62,21 @@ prevalence_avg <- read.csv("../output/states prevalence.csv") %>%
 prevalence_consumption <- left_join(prevalence_avg, consumption) %>% 
   select(year, states, avg_prev_percentage, smoker_percentage)
 
+# Third Row: Mortality & Gender
+mortality <- read.csv("../output/states mortality.csv")
+prevalence <- read.csv("../output/states prevalence.csv") %>%
+  filter(year!=2012)
+smoker <- read.csv("../output/smokers_proportion.csv") %>% 
+  filter(YEAR!=2015) %>%
+  select(YEAR, LocationDesc, Data_Value, Gender) %>%
+  rename(Year=YEAR, States=LocationDesc, Percentage=Data_Value)
+
+# Fourth Row: Advertising data
+advertising <- read.csv("../output/advertising.csv", stringsAsFactors = FALSE, sep=",")
+advertising <- advertising[!advertising$media=="Total",]
+advertising <- advertising %>%
+  group_by(year, media) %>%
+  summarize(spendings = sum(spendings))
 
 #### Header of the Dashboard ####
 header <- dashboardHeader(
@@ -132,7 +131,109 @@ body <- dashboardBody(
     )
   ),
   
-  ## Second Row: Commercial Spendings
+  ## Second Row:
+  fluidRow(
+    tabBox(
+      title = "States Comparison",
+      height = 500,
+      selected = "Mortality",
+      width = 12,
+      tabPanel(
+        title = "Mortality",
+        box(
+          width = 9,
+          plotlyOutput("RegPlot.m.s")
+        ),
+        box(
+          width = 3,
+          helpText("Select the year:"),
+          uiOutput("YearSelector.m.s")
+        )
+      ),
+      tabPanel(
+        title = "Prevalence",
+        box(
+          width = 9,
+          plotlyOutput("RegPlot.p.s")
+        ),
+        box(
+          width = 3,
+          helpText("Select the year:"),
+          uiOutput("YearSelector.p.s")
+        )
+      ),
+      tabPanel(
+        title = "Methodology and Sources"
+      )
+    )
+  ),
+  
+  ## Third Row: Gender Analysis
+  fluidRow(
+    tabBox(
+      title = "Gender Comparison",
+      height = 550,
+      selected = "Consumption",
+      width = 12,
+      tabPanel(
+        title = "Consumption",
+        box(
+          width = 9,
+          plotlyOutput("RegPlot.c.g")
+        ),
+        box(
+          width = 3,
+          helpText("Select the year:"),
+          uiOutput("YearSelector.c.g"),
+          helpText("Select one or more gender:"),
+          uiOutput("GenderSelector.c.g")
+        )
+      ),
+      tabPanel(
+        title = "Mortality",
+        box(
+          width = 9,
+          plotlyOutput("RegPlot.m.g", height=470)
+        ),
+        box( 
+          width = 3,
+          helpText("Select the year:"),
+          uiOutput("YearSelector.m.g"),
+          helpText("Select one or more gender:"),
+          uiOutput("GenderSelector.m.g"),
+          strong("Mortality Reasons:"),
+          div("A: Cerebrovascular disease"),
+          div("B: Chronic obstructive pulmonary disease"),
+          div("C: Cardiovascular disease"),
+          div("D: Coronary heart disease"),
+          div("E: Heart failure")
+        )
+      ),
+      tabPanel(
+        title = "Prevalence",
+        box(
+          width = 9,
+          plotlyOutput("RegPlot.p.g")
+        ),
+        box( 
+          width = 3,
+          helpText("Select the year:"),
+          uiOutput("YearSelector.p.g"),
+          helpText("Select one or more gender:"),
+          uiOutput("GenderSelector.p.g"),
+          strong("Diseases"),
+          div("B: Chronic obstructive pulmonary disease"),
+          div("F: Asthma"),
+          div("G: Arthrisis")
+        )
+      ),
+      tabPanel(
+        title = "Methodology and Sources"
+      )
+    )
+  ),
+  
+  ## Fourth Row: Commercial Spendings
   fluidRow(
     tabBox(
       title = "Commercial Spendings",
@@ -179,108 +280,6 @@ body <- dashboardBody(
                Missing Values are due to privacy.
                ")
     )
-  ),
-  
-  ## Third Row: Gender Analysis
-  fluidRow(
-    tabBox(
-      title = "Gender Comparison",
-      height = 550,
-      selected = "Consumption",
-      width = 12,
-      tabPanel(
-        title = "Consumption",
-        box(
-          width = 9,
-          plotlyOutput("RegPlot.c.g")
-        ),
-        box(
-          width = 3,
-          helpText("Select the year:"),
-          uiOutput("YearSelector.c.g"),
-          helpText("Select one or more gender:"),
-          uiOutput("GenderSelector.c.g")
-        )
-      ),
-      tabPanel(
-        title = "Mortality",
-        box(
-          width = 9,
-          plotlyOutput("RegPlot.m.g", height=470)
-          ),
-        box( 
-          width = 3,
-          helpText("Select the year:"),
-          uiOutput("YearSelector.m.g"),
-          helpText("Select one or more gender:"),
-          uiOutput("GenderSelector.m.g"),
-          strong("Mortality Reasons:"),
-          div("A: Cerebrovascular disease"),
-          div("B: Chronic obstructive pulmonary disease"),
-          div("C: Cardiovascular disease"),
-          div("D: Coronary heart disease"),
-          div("E: Heart failure")
-          )
-      ),
-      tabPanel(
-        title = "Prevalence",
-        box(
-          width = 9,
-          plotlyOutput("RegPlot.p.g")
-        ),
-        box( 
-          width = 3,
-          helpText("Select the year:"),
-          uiOutput("YearSelector.p.g"),
-          helpText("Select one or more gender:"),
-          uiOutput("GenderSelector.p.g"),
-          strong("Diseases"),
-          div("B: Chronic obstructive pulmonary disease"),
-          div("F: Asthma"),
-          div("G: Arthrisis")
-         )
-      ),
-      tabPanel(
-        title = "Methodology and Sources"
-      )
-    )
-  ),
-  
-  ## Fourth Row:
-  fluidRow(
-    tabBox(
-      title = "States Comparison",
-      height = 500,
-      selected = "Mortality",
-      width = 12,
-      tabPanel(
-        title = "Mortality",
-        box(
-          width = 9,
-          plotlyOutput("RegPlot.m.s")
-        ),
-        box(
-          width = 3,
-          helpText("Select the year:"),
-          uiOutput("YearSelector.m.s")
-        )
-      ),
-      tabPanel(
-        title = "Prevalence",
-        box(
-          width = 9,
-          plotlyOutput("RegPlot.p.s")
-        ),
-        box(
-          width = 3,
-          helpText("Select the year:"),
-          uiOutput("YearSelector.p.s")
-        )
-      ),
-      tabPanel(
-        title = "Methodology and Sources"
-      )
-    )
   )
   
 )
@@ -302,186 +301,7 @@ server <- function(input, output) {
                 df, mor, pre, sta, states )
   })
   
-  #### SECOND ROW: COMMERCIAL SPENDINGS
-  # Histogram Total Commercial Spendings
-  output$hist_advertising_total <- renderPlotly({
-    hist_advertising_total(advertising)
-  })
-  # Histogram Total Commercial Spendings per media
-  output$hist_advertising_media <- renderPlotly({
-    hist_advertising_media(input$media, advertising)
-  })
-
-  #### THIRD ROW: Gender Comparison
-  ## Second Tab: Mortality
-  # Read year name & gender type
-  YearName.m.g <- unique(mortality$year)
-  GenderType.m.g <- unique(mortality$class)
-  # Year & Gender name list
-  output$YearSelector.m.g <- renderUI({
-    selectInput('year.m.g', label = 'Year',
-                YearName.m.g,
-                multiple = FALSE,
-                selectize = TRUE,
-                selected = 2010) #default value
-  })
-  output$GenderSelector.m.g <- renderUI({
-    selectInput('gender.m.g', label = 'Gender',
-                GenderType.m.g,
-                multiple = TRUE,
-                selectize = TRUE,
-                selected = c("Female","Male")) #default value
-  })
-  # Get selected year & selected gender
-  SelectedYear.m.g <- reactive({
-    if (is.null(input$year.m.g) || length(input$year.m.g)==0)
-      return()
-    as.vector(input$year.m.g)
-  })
-  SelectedGender.m.g <- reactive({
-    if (is.null(input$gender.m.g) || length(input$gender.m.g)==0)
-      return()
-    as.vector(input$gender.m.g)
-  })
-  # Filter data according to the selected year and gender
-  mortalityDF.m.g <- reactive({
-    mortality %>%
-      filter(year %in% SelectedYear.m.g()) %>%
-      filter(class %in% SelectedGender.m.g()) %>%
-      rename(percentage = ratio) %>%
-      select(year, disease, states, class, percentage)
-  })
-  # Plot
-  output$RegPlot.m.g<-renderPlotly({
-    p <- ggplotly(plotly_empty())
-    if (length(SelectedYear.m.g())>0 & length(SelectedGender.m.g())>0){
-      p <- plot_ly(mortalityDF.m.g(),x=~disease, y=~percentage, color=~class,
-                   type="box", boxpoints = "all", jitter = 0.3) %>%
-        layout(title="Mortality due to specific diseases linked to Tobacco",
-               xaxis=list(title="Mortality Reason",
-                          categoryorder="array",
-                          categoryarray=list("Cerebrovascular disease",
-                                             "Chronic obstructive pulmonary disease",
-                                             "Cardiovascular disease",
-                                             "Coronary heart disease",
-                                             "Heart failure"),
-                          tickmode="array",
-                          tickvals=list("Cardiovascular disease",
-                                     "Cerebrovascular disease",
-                                     "Chronic obstructive pulmonary disease",
-                                     "Coronary heart disease",
-                                     "Heart failure"),
-                          ticktext=list("C","A","B","D","E")),
-               yaxis=list(title="Mortality rate (%)"))
-    }
-    p
-  })
-   
-  ## Third Tab: Prevalence
-  # Read year name & gender type
-  YearName.p.g <- unique(prevalence$year)
-  GenderType.p.g <- unique(prevalence$class)
-  # Year & Gender name list
-  output$YearSelector.p.g <- renderUI({
-    selectInput('year.p.g', label = 'Year',
-                YearName.p.g,
-                multiple = FALSE,
-                selectize = TRUE,
-                selected = 2013) #default value
-  })
-  output$GenderSelector.p.g <- renderUI({
-    selectInput('gender.p.g', label = 'Gender',
-                GenderType.p.g,
-                multiple = TRUE,
-                selectize = TRUE,
-                selected = c("Female","Male")) #default value
-  })
-  # Get selected year and gender
-  SelectedYear.p.g <- reactive({
-    if (is.null(input$year.p.g) || length(input$year.p.g)==0)
-      return()
-    as.vector(input$year.p.g)
-  })
-  SelectedGender.p.g <- reactive({
-    if (is.null(input$gender.p.g) || length(input$gender.p.g)==0)
-      return()
-    as.vector(input$gender.p.g)
-  })
-  # Filter the data according to the selected states, disease and gender
-  prevalenceDF.p.g <- reactive({
-    prevalence %>%
-      filter(year %in% SelectedYear.p.g()) %>%
-      filter(class %in% SelectedGender.p.g()) %>%
-      rename(percentage = ratio) %>%
-      select(year, disease, states, class, percentage)
-  })
-  # Plot
-  output$RegPlot.p.g <- renderPlotly({
-    p <- ggplotly(plotly_empty())
-    if (length(SelectedGender.p.g())>0){
-      p <- plot_ly(prevalenceDF.p.g(),x=~disease, y=~percentage, color=~class,
-                   type="box", boxpoints = "all", jitter = 0.3) %>%
-        layout(title="Prevalence for Diseases linked to Tobacco",
-               xaxis=list(title="Diseases",
-                          tickmode="array",
-                          tickvals=c("Chronic obstructive pulmonary disease prevalence",
-                                     "Asthma",
-                                     "Arthritis"),
-                          ticktext=c("B","F","G")), 
-               yaxis=list(title="Prevalence (%)"))
-    } 
-    p
-  })
-  
-  ## Consumption
-  # Read year name & Gender Type
-  YearName.c.g <- c(2010,2011,2012,2013,2014)
-  GenderType.c.g <- unique(smoker$Gender)
-  # Year name list & Gender type list
-  output$YearSelector.c.g <- renderUI({
-    selectInput('year.c.g', label = 'Year',
-                YearName.c.g,
-                multiple = FALSE,
-                selectize = TRUE,
-                selected = 2010) #default value
-  })
-  output$GenderSelector.c.g <- renderUI({
-    selectInput('gender.c.g', label = 'Gender',
-                GenderType.c.g,
-                multiple = TRUE,
-                selectize = TRUE,
-                selected = c("Female","Male")) #default value
-  })
-  # Get selected year & selected gender
-  SelectedYear.c.g <- reactive({
-    if (is.null(input$year.c.g) || length(input$year.c.g)==0)
-      return()
-    as.vector(input$year.c.g)
-  })
-  SelectedGender.c.g <- reactive({
-    if (is.null(input$gender.c.g) || length(input$gender.c.g)==0)
-      return()
-    as.vector(input$gender.c.g)
-  })
-  # Filter data according to the selected year and gender
-  smokerDF <- reactive({
-    smoker %>%
-      filter(Year %in% SelectedYear.c.g()) %>%
-      filter(Gender %in% SelectedGender.c.g()) 
-  })
-  # Plot
-  output$RegPlot.c.g <- renderPlotly({
-    p <- ggplotly(plotly_empty())
-    if (length(SelectedYear.c.g())>0 & length(SelectedGender.c.g())>0){
-      p <- plot_ly(smokerDF(),y=~Percentage, color=~Gender, 
-                   type="box", boxpoints = "all", jitter = 0.3) %>%
-        layout(title="Proportion of Smokers",
-               yaxis=list(title="Proportion of Smokers (%)"))
-    } 
-    p
-  })    
-  
-  #### FOURTH ROW:
+  #### SECOND ROW: STATES COMPARISON
   ##Mortality
   # Read year name
   YearName.m.s <- unique(mortality_consumption$year)
@@ -572,6 +392,183 @@ server <- function(input, output) {
     } 
     p
   })    
+  
+  #### THIRD ROW: Gender Comparison
+  ## Second Tab: Mortality
+  # Read year name & gender type
+  YearName.m.g <- unique(mortality$year)
+  GenderType.m.g <- unique(mortality$class)
+  # Year & Gender name list
+  output$YearSelector.m.g <- renderUI({
+    selectInput('year.m.g', label = 'Year',
+                YearName.m.g,
+                multiple = FALSE,
+                selectize = TRUE,
+                selected = 2010) #default value
+  })
+  output$GenderSelector.m.g <- renderUI({
+    selectInput('gender.m.g', label = 'Gender',
+                GenderType.m.g,
+                multiple = TRUE,
+                selectize = TRUE,
+                selected = c("Female","Male")) #default value
+  })
+  # Get selected year & selected gender
+  SelectedYear.m.g <- reactive({
+    if (is.null(input$year.m.g) || length(input$year.m.g)==0)
+      return()
+    as.vector(input$year.m.g)
+  })
+  SelectedGender.m.g <- reactive({
+    if (is.null(input$gender.m.g) || length(input$gender.m.g)==0)
+      return()
+    as.vector(input$gender.m.g)
+  })
+  # Filter data according to the selected year and gender
+  mortalityDF.m.g <- reactive({
+    mortality %>%
+      filter(year %in% SelectedYear.m.g()) %>%
+      filter(class %in% SelectedGender.m.g()) %>%
+      rename(percentage = ratio) %>%
+      select(year, disease, states, class, percentage)
+  })
+  # Plot
+  output$RegPlot.m.g<-renderPlotly({
+    p <- ggplotly(plotly_empty())
+    if (length(SelectedYear.m.g())>0 & length(SelectedGender.m.g())>0){
+      p <- plot_ly(mortalityDF.m.g(),x=~disease, y=~percentage, color=~class,
+                   type="box", boxpoints = "all", jitter = 0.3) %>%
+        layout(title="Mortality due to specific diseases linked to Tobacco",
+               xaxis=list(title="Mortality Reason",
+                          categoryorder="array",
+                          categoryarray=list("Cerebrovascular disease",
+                                             "Chronic obstructive pulmonary disease",
+                                             "Cardiovascular disease",
+                                             "Coronary heart disease",
+                                             "Heart failure"),
+                          tickmode="array",
+                          tickvals=list("Cardiovascular disease",
+                                     "Cerebrovascular disease",
+                                     "Chronic obstructive pulmonary disease",
+                                     "Coronary heart disease",
+                                     "Heart failure"),
+                          ticktext=list("C","A","B","D","E")),
+               yaxis=list(title="Mortality rate (%)"))
+    }
+    p
+  })
+  ## Third Tab: Prevalence
+  # Read year name & gender type
+  YearName.p.g <- unique(prevalence$year)
+  GenderType.p.g <- unique(prevalence$class)
+  # Year & Gender name list
+  output$YearSelector.p.g <- renderUI({
+    selectInput('year.p.g', label = 'Year',
+                YearName.p.g,
+                multiple = FALSE,
+                selectize = TRUE,
+                selected = 2013) #default value
+  })
+  output$GenderSelector.p.g <- renderUI({
+    selectInput('gender.p.g', label = 'Gender',
+                GenderType.p.g,
+                multiple = TRUE,
+                selectize = TRUE,
+                selected = c("Female","Male")) #default value
+  })
+  # Get selected year and gender
+  SelectedYear.p.g <- reactive({
+    if (is.null(input$year.p.g) || length(input$year.p.g)==0)
+      return()
+    as.vector(input$year.p.g)
+  })
+  SelectedGender.p.g <- reactive({
+    if (is.null(input$gender.p.g) || length(input$gender.p.g)==0)
+      return()
+    as.vector(input$gender.p.g)
+  })
+  # Filter the data according to the selected states, disease and gender
+  prevalenceDF.p.g <- reactive({
+    prevalence %>%
+      filter(year %in% SelectedYear.p.g()) %>%
+      filter(class %in% SelectedGender.p.g()) %>%
+      rename(percentage = ratio) %>%
+      select(year, disease, states, class, percentage)
+  })
+  # Plot
+  output$RegPlot.p.g <- renderPlotly({
+    p <- ggplotly(plotly_empty())
+    if (length(SelectedGender.p.g())>0){
+      p <- plot_ly(prevalenceDF.p.g(),x=~disease, y=~percentage, color=~class,
+                   type="box", boxpoints = "all", jitter = 0.3) %>%
+        layout(title="Prevalence for Diseases linked to Tobacco",
+               xaxis=list(title="Diseases",
+                          tickmode="array",
+                          tickvals=c("Chronic obstructive pulmonary disease prevalence",
+                                     "Asthma",
+                                     "Arthritis"),
+                          ticktext=c("B","F","G")), 
+               yaxis=list(title="Prevalence (%)"))
+    } 
+    p
+  })
+  ## Consumption
+  # Read year name & Gender Type
+  YearName.c.g <- c(2010,2011,2012,2013,2014)
+  GenderType.c.g <- unique(smoker$Gender)
+  # Year name list & Gender type list
+  output$YearSelector.c.g <- renderUI({
+    selectInput('year.c.g', label = 'Year',
+                YearName.c.g,
+                multiple = FALSE,
+                selectize = TRUE,
+                selected = 2010) #default value
+  })
+  output$GenderSelector.c.g <- renderUI({
+    selectInput('gender.c.g', label = 'Gender',
+                GenderType.c.g,
+                multiple = TRUE,
+                selectize = TRUE,
+                selected = c("Female","Male")) #default value
+  })
+  # Get selected year & selected gender
+  SelectedYear.c.g <- reactive({
+    if (is.null(input$year.c.g) || length(input$year.c.g)==0)
+      return()
+    as.vector(input$year.c.g)
+  })
+  SelectedGender.c.g <- reactive({
+    if (is.null(input$gender.c.g) || length(input$gender.c.g)==0)
+      return()
+    as.vector(input$gender.c.g)
+  })
+  # Filter data according to the selected year and gender
+  smokerDF <- reactive({
+    smoker %>%
+      filter(Year %in% SelectedYear.c.g()) %>%
+      filter(Gender %in% SelectedGender.c.g()) 
+  })
+  # Plot
+  output$RegPlot.c.g <- renderPlotly({
+    p <- ggplotly(plotly_empty())
+    if (length(SelectedYear.c.g())>0 & length(SelectedGender.c.g())>0){
+      p <- plot_ly(smokerDF(),y=~Percentage, color=~Gender, 
+                   type="box", boxpoints = "all", jitter = 0.3) %>%
+        layout(title="Proportion of Smokers",
+               yaxis=list(title="Proportion of Smokers (%)"))
+    } 
+    p
+  }) 
+  
+  #### FOURTH ROW: COMMERCIAL SPENDINGS
+  # Histogram Total Commercial Spendings
+  output$hist_advertising_total <- renderPlotly({
+    hist_advertising_total(advertising)
+  })
+  # Histogram Total Commercial Spendings per media
+  output$hist_advertising_media <- renderPlotly({
+    hist_advertising_media(input$media, advertising)
+  })
   
 }
 
