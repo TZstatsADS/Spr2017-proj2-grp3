@@ -304,11 +304,11 @@ server <- function(input, output) {
   #### SECOND ROW: COMMERCIAL SPENDINGS
   # Histogram Total Commercial Spendings
   output$hist_advertising_total <- renderPlotly({
-    hist_advertising_total()
+    hist_advertising_total(advertising)
   })
   # Histogram Total Commercial Spendings per media
   output$hist_advertising_media <- renderPlotly({
-    hist_advertising_media(input$media)
+    hist_advertising_media(input$media, advertising)
   })
 
   #### THIRD ROW: Gender Comparison

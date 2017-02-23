@@ -1,6 +1,6 @@
 
  
-hist_advertising_media <- function(selected_media) {
+hist_advertising_media <- function(selected_media, advertising) {
   df <- advertising[advertising$media==selected_media,]
   g <- ggplot(df, aes(x=df$year, y=df$spendings/1000)) +
      geom_bar(stat="identity") +
@@ -11,7 +11,7 @@ hist_advertising_media <- function(selected_media) {
   return(p)
 }
 
-hist_advertising_total <- function(){
+hist_advertising_total <- function(advertising){
   p <- plot_ly(advertising, x=~year, y=~spendings, color=~media, colors="Accent") %>%
     add_bars() %>%
     layout(barmode = "stack",
