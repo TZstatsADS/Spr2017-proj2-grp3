@@ -196,11 +196,12 @@ server <- function(input, output) {
     }
     fills1<-fills[order]
     dv<-paste(sta1$LocationDesc[order], "<br/>","Consumption:",as.character(sta1$Data_Value[order]),"%")
+
     
+clb <- data.frame("name"=sta1$LocationAbbr[order],"consumption"=sta1$Data_Value[order])
+clb$name <- as.character(clb$name)
+df$name <- as.character(df$name)   
  if ((input$year == 2010 | input$year == 2011) & input$cate == "Disease")  { 
-    clb <- data.frame("name"=sta1$LocationAbbr[order],"consumption"=sta1$Data_Value[order])
-    clb$name <- as.character(clb$name)
-    df$name <- as.character(df$name)
     for (i in 1:nrow(clb)) {
       if (sum(clb$name[i]==df$name)==1) {
         clb$ratio[i] <- df[which(df$name==clb$name[i]),"ratio"]
