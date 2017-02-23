@@ -3,13 +3,14 @@ library(shinydashboard)
 library(ggplot2)
 library(leaflet)
 library(rgdal)
+library(htmltools)
 
 ## Load dataset
-sta<-read.csv("./output/smokers_proportion.csv",as.is=T)
-states <- readOGR("./doc/cb_2013_us_state_20m.shp",
+sta<-read.csv("../output/smokers_proportion.csv",as.is=T)
+states <- readOGR("../doc/cb_2013_us_state_20m.shp",
                   layer = "cb_2013_us_state_20m", verbose = FALSE)
-mor <- read.csv("./output/states mortality.csv")
-pre <- read.csv("./output/states prevalence.csv")
+mor <- read.csv("../output/states mortality.csv")
+pre <- read.csv("../output/states prevalence.csv")
 
 ## layout
 header <- dashboardHeader(
@@ -195,7 +196,7 @@ server <- function(input, output) {
       order[i]<-which(as.character(sta1$LocationAbbr)==s[i])
     }
     fills1<-fills[order]
-    dv<-paste(sta1$LocationDesc[order], "<br/>","Consumption:",as.character(sta1$Data_Value[order]),"%")
+    
 
     
 clb <- data.frame("name"=sta1$LocationAbbr[order],"consumption"=sta1$Data_Value[order])
@@ -212,14 +213,22 @@ df$name <- as.character(df$name)
  } else {clb$ratio = "NA"}
     
 
+  dv<-paste( "Consumption:",as.character(sta1$Data_Value[order]),"%")
+  dv1<-paste("Ratio:",clb$ratio,"%")
+  labels <- sprintf(
+  "<strong>%s</strong><br/>%s <br/>%s",
+  sta1$LocationDesc[order],dv, dv1
+  ) %>% lapply(htmltools::HTML)
   
-   
-    
   leaflet(states) %>% addTiles() %>% 
     addPolygons(
       stroke = FALSE, fillOpacity = 0.6, smoothFactor = 0.5,
       color = fills1,
-      popup=paste(dv,"<br/>","Ratio:",clb$ratio,"%"))%>%
+      label= labels, labelOptions = labelOptions(
+        style = list("font-weight" = "normal", padding = "3px 8px"),
+        textsize = "15px",
+        direction = "auto"))%>%
+    
     addCircleMarkers(lat=df$lat,lng=df$long,color="red",radius=df$radius,stroke=F,fillOpacity = 1) %>%
     addLegend(
       position = 'bottomright',
