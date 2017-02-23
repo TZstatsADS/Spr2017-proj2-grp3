@@ -3,7 +3,7 @@
 #### Install Libraries ####
 packages.used=c("shiny", "shinydashboard", "ggplot2", "dplyr",
                 "purr", "tidyr", "plotly", "reshape2", "RColorBrewer",
-                "rgdal", "broom", "htmltools")
+                "rgdal", "broom", "htmltools", "leaflet")
 # Check packages taht need to be installed
 packages.needed=setdiff(packages.used, 
                         intersect(installed.packages()[,1], 
@@ -27,6 +27,7 @@ library(RColorBrewer)
 library(rgdal)
 library(broom)
 library(htmltools)
+library(leaflet)
 
 source("../lib/helper_functions_plots.R")
 source("../lib/helper_functions_computations.R")
@@ -93,7 +94,7 @@ body <- dashboardBody(
       width = 8,
       height = 550,
       tabPanel(
-        title = "Map",
+        title = "Tobacco Map",
         leafletOutput("map", height = 490)
       ),
       tabPanel(
