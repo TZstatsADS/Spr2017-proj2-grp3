@@ -46,9 +46,33 @@ advertising <- advertising %>%
   summarize(spendings = sum(spendings))
 
 # Third Row: Mortality & Gender
-
+mortality <- read.csv("./output/states mortality.csv")
+prevalence <- read.csv("./output/states prevalence.csv")
+smoker <- read.csv("./output/smokers_proportion.csv") %>% 
+  filter(YEAR!=2015) %>%
+  select(YEAR, LocationDesc, Data_Value, Gender) %>%
+  rename(Year=YEAR, States=LocationDesc, Percentage=Data_Value)
 
 # Fourth Row: Mortality & Gender
+mortality_avg <- read.csv("./output/states mortality.csv") %>%
+  filter(class=="Overall") %>%
+  rename(death_percentage = ratio) %>%
+  group_by(states) %>%
+  mutate(avg_death_percentage = mean(death_percentage, na.rm=TRUE)) %>%
+  distinct(year,avg_death_percentage)
+consumption <- read.csv("./output/smokers_proportion.csv") %>% 
+  filter(YEAR != 2015, Gender=="Overall") %>%
+  rename(year=YEAR, states=LocationDesc, smoker_percentage = Data_Value)
+mortality_consumption <- left_join(mortality_avg, consumption) %>% select(year, states, avg_death_percentage, smoker_percentage)
+
+prevalence_avg <- read.csv("./output/states prevalence.csv") %>%
+  filter(class=="Overall") %>%
+  rename(prevalence_percentage = ratio) %>%
+  group_by(states) %>%
+  mutate(avg_prev_percentage = mean(prevalence_percentage, na.rm=TRUE)) %>%
+  distinct(year,avg_prev_percentage)
+prevalence_consumption <- left_join(prevalence_avg, consumption) %>% 
+  select(year, states, avg_prev_percentage, smoker_percentage)
 
 
 #### Header of the Dashboard ####
@@ -71,14 +95,11 @@ body <- dashboardBody(
         leafletOutput("map", height = 490)
       ),
       tabPanel(
-        title = "Analysis"
-      ),
-      tabPanel(
         title = "Methodology and Sources"
       )
     ),
     box(
-      title = "Legend", width = 4, height = 550, status="warning", solidHeader = TRUE,
+      title = "Legend", width = 4, height = 550, status="primary", solidHeader = TRUE,
       sliderInput("year", label = h4("Year"),
                   min = 2010, max = 2014, value = 2012, 
                   step = 1, ticks = FALSE, sep=""),
@@ -149,10 +170,6 @@ body <- dashboardBody(
                  width = 8
                )
                ),
-      tabPanel("Analysis", 
-               "Promotional Allowances spendings has decreased.
-               Missing Values are due to privacy.
-               "),
       tabPanel("Methodology and Sources", 
                "Promotional Allowances spendings has decreased.
                Missing Values are due to privacy.
@@ -160,25 +177,55 @@ body <- dashboardBody(
     )
   ),
   
-  ## Third Row: 
+  ## Third Row: Gender Analysis
   fluidRow(
     tabBox(
-      title = "Mortality Rate - Gender Comparison",
+      title = "Gender Comparison",
       height = 500,
-      selected = "Histogram",
+      selected = "Mortality",
       width = 12,
       tabPanel(
-        title = "Histogram",
+        title = "Mortality",
         box(
-
+          width = 8,
+          plotlyOutput("RegPlot.m.g", height=420)
           ),
-        box(
-
-
+        box( 
+          width = 4,
+          helpText("Select the year:"),
+          uiOutput("YearSelector.m.g"),
+          helpText("Select one or more gender:"),
+          uiOutput("GenderSelector.m.g")
           )
       ),
       tabPanel(
-        title = "Analysis"
+        title = "Prevalence",
+        box(
+          width = 8,
+          plotlyOutput("RegPlot.p.g")
+        ),
+        box( 
+          width = 4,
+          helpText("Select the year:"),
+          uiOutput("YearSelector.p.g"),
+          helpText("Select one or more gender:"),
+          uiOutput("GenderSelector.p.g"),
+          helpText("Note: For year 2012, there is no data for specific gender.")
+         )
+      ),
+      tabPanel(
+        title = "Consumption",
+        box(
+          width = 8,
+          plotlyOutput("RegPlot.c.g")
+        ),
+        box(
+          width = 4,
+          helpText("Select the year:"),
+          uiOutput("YearSelector.c.g"),
+          helpText("Select one or more gender:"),
+          uiOutput("GenderSelector.c.g")
+        )
       ),
       tabPanel(
         title = "Methodology and Sources"
@@ -189,21 +236,33 @@ body <- dashboardBody(
   ## Fourth Row:
   fluidRow(
     tabBox(
-      title = "Mortality Rate - Gender Comparison",
+      title = "States Comparison",
       height = 500,
-      selected = "Histogram",
+      selected = "Mortality",
       width = 12,
       tabPanel(
-        title = "Histogram",
+        title = "Mortality",
         box(
-          
+          width = 9,
+          plotlyOutput("RegPlot.m.s")
         ),
         box(
-
+          width = 3,
+          helpText("Select the year:"),
+          uiOutput("YearSelector.m.s")
         )
       ),
       tabPanel(
-        title = "Analysis"
+        title = "Prevalence",
+        box(
+          width = 9,
+          plotlyOutput("RegPlot.p.s")
+        ),
+        box(
+          width = 3,
+          helpText("Select the year:"),
+          uiOutput("YearSelector.p.s")
+        )
       ),
       tabPanel(
         title = "Methodology and Sources"
@@ -240,9 +299,248 @@ server <- function(input, output) {
     hist_advertising_media(input$media)
   })
 
-  #### THIRD ROW: 
-
+  #### THIRD ROW: Gender Comparison
+  ## First Tab: Mortality
+  # Read year name & gender type
+  YearName.m.g <- unique(mortality$year)
+  GenderType.m.g <- unique(mortality$class)
+  # Year & Gender name list
+  output$YearSelector.m.g <- renderUI({
+    selectInput('year.m.g', label = 'Year',
+                YearName.m.g,
+                multiple = FALSE,
+                selectize = TRUE,
+                selected = 2010) #default value
+  })
+  output$GenderSelector.m.g <- renderUI({
+    selectInput('gender.m.g', label = 'Gender',
+                GenderType.m.g,
+                multiple = TRUE,
+                selectize = TRUE,
+                selected = "Overall") #default value
+  })
+  # Get selected year & selected gender
+  SelectedYear.m.g <- reactive({
+    if (is.null(input$year.m.g) || length(input$year.m.g)==0)
+      return()
+    as.vector(input$year.m.g)
+  })
+  SelectedGender.m.g <- reactive({
+    if (is.null(input$gender.m.g) || length(input$gender.m.g)==0)
+      return()
+    as.vector(input$gender.m.g)
+  })
+  # Filter data according to the selected year and gender
+  mortalityDF.m.g <- reactive({
+    mortality %>%
+      filter(year %in% SelectedYear.m.g()) %>%
+      filter(class %in% SelectedGender.m.g()) %>%
+      rename(percentage = ratio) %>%
+      select(year, disease, states, class, percentage)
+  })
+  # Plot
+  output$RegPlot.m.g<-renderPlotly({
+    # Check if city and month are not null
+    if (length(SelectedYear.m.g())>0 & length(SelectedGender.m.g())>0){
+      p <- plot_ly(mortalityDF.m.g(),x=~disease, y=~percentage, color=~class, 
+                   type="box", boxpoints = "all", jitter = 0.3) %>%
+        layout(title="Mortality due to specific diseases linked to Tobacco",
+               xaxis=list(title="Diseases"), 
+               yaxis=list(title="Mortality rate (%)"))
+      p
+    } 
+  })    
+  
+  ## Second Tab: Prevalence
+  # Read year name & gender type
+  YearName.p.g <- unique(prevalence$year)
+  GenderType.p.g <- unique(prevalence$class)
+  # Year & Gender name list
+  output$YearSelector.p.g <- renderUI({
+    selectInput('year.p.g', label = 'Year',
+                YearName.p.g,
+                multiple = FALSE,
+                selectize = TRUE,
+                selected = 2012) #default value
+  })
+  output$GenderSelector.p.g <- renderUI({
+    selectInput('gender.p.g', label = 'Gender',
+                GenderType.p.g,
+                multiple = TRUE,
+                selectize = TRUE,
+                selected = "Overall") #default value
+  })
+  # Get selected year and gender
+  SelectedYear.p.g <- reactive({
+    if (is.null(input$year.p.g) || length(input$year.p.g)==0)
+      return()
+    as.vector(input$year.p.g)
+  })
+  SelectedGender.p.g <- reactive({
+    if (is.null(input$gender.p.g) || length(input$gender.p.g)==0)
+      return()
+    as.vector(input$gender.p.g)
+  })
+  # Filter the data according to the selected states, disease and gender
+  prevalenceDF.p.g <- reactive({
+    prevalence %>%
+      filter(year %in% SelectedYear.p.g()) %>%
+      filter(class %in% SelectedGender.p.g()) %>%
+      rename(percentage = ratio) %>%
+      select(year, disease, states, class, percentage)
+  })
+  # plot
+  output$RegPlot.p.g <- renderPlotly({
+    #check if city and month are not null
+    if (length(SelectedYear.p.g())>0 & length(SelectedGender.p.g())>0){
+      p <- plot_ly(prevalenceDF.p.g(),x=~disease, y=~percentage, color=~class,
+                   type="box", boxpoints = "all", jitter = 0.3) %>%
+        layout(title="Prevalence for Diseases linked to Tobacco",
+               xaxis=list(title="Diseases"), 
+               yaxis=list(title="Prevalence (%)"))
+      p
+    }
+  })
+  
+  ## Consumption
+  # Read year name & Gender Type
+  YearName.c.g <- c(2010,2011,2012,2013,2014)
+  GenderType.c.g <- unique(smoker$Gender)
+  # Year name list & Gender type list
+  output$YearSelector.c.g <- renderUI({
+    selectInput('year.c.g', label = 'Year',
+                YearName.c.g,
+                multiple = FALSE,
+                selectize = TRUE,
+                selected = 2010) #default value
+  })
+  output$GenderSelector.c.g <- renderUI({
+    selectInput('gender.c.g', label = 'Gender',
+                GenderType.c.g,
+                multiple = TRUE,
+                selectize = TRUE,
+                selected = c("Female","Male")) #default value
+  })
+  # Get selected year & selected gender
+  SelectedYear.c.g <- reactive({
+    if (is.null(input$year.c.g) || length(input$year.c.g)==0)
+      return()
+    as.vector(input$year.c.g)
+  })
+  SelectedGender.c.g <- reactive({
+    if (is.null(input$gender.c.g) || length(input$gender.c.g)==0)
+      return()
+    as.vector(input$gender.c.g)
+  })
+  # Filter data according to the selected year and gender
+  smokerDF <- reactive({
+    smoker %>%
+      filter(Year %in% SelectedYear.c.g()) %>%
+      filter(Gender %in% SelectedGender.c.g()) 
+  })
+  # Plot
+  output$RegPlot.c.g <- renderPlotly({
+    #check if city and month are not null
+    if (length(SelectedYear.c.g())>0 & length(SelectedGender.c.g())>0){
+      p <- plot_ly(smokerDF(),y=~Percentage, color=~Gender, 
+                   type="box", boxpoints = "all", jitter = 0.3) %>%
+        layout(title="Proportion of Smokers",
+               yaxis=list(title="Proportion of Smokers (%)"))
+      p
+    } 
+  })    
+  
   #### FOURTH ROW:
+  ##Mortality
+  # Read year name
+  YearName.m.s <- unique(mortality_consumption$year)
+  # Year name list
+  output$YearSelector.m.s <- renderUI({
+    selectInput('year.m.s', label = 'Year',
+                YearName.m.s,
+                multiple = FALSE,
+                selectize = TRUE,
+                selected = 2010) #default value
+  })
+  # Get selected year
+  SelectedYear.m.s <- reactive({
+    if (is.null(input$year.m.s) || length(input$year.m.s)==0)
+      return()
+    as.vector(input$year.m.s)
+  })
+  # Filter the data according to the selected year
+  mort_conspDF <- reactive({
+    mortality_consumption %>%
+      filter(year %in% SelectedYear.m.s()) %>%
+      as.data.frame()
+  })
+  # Plot
+  output$RegPlot.m.s <- renderPlotly({
+    #check if city and month are not null
+    if (length(SelectedYear.m.s())>0){
+      p <- plot_ly((mort_conspDF()),x=~smoker_percentage, color=I("black")) %>%
+        add_markers(y = ~avg_death_percentage, text = mort_conspDF()$states, showlegend = FALSE) %>%
+        add_lines(y = ~fitted(loess(avg_death_percentage~smoker_percentage)),
+                  line = list(color = 'rgba(7, 164, 181, 1)'),
+                  name = "Loess Smoother") %>%
+        add_ribbons(data = augment(loess(avg_death_percentage~smoker_percentage,data = mort_conspDF())),
+                    ymin = ~.fitted - 1.96 * .se.fit,
+                    ymax = ~.fitted + 1.96 * .se.fit,
+                    line = list(color = 'rgba(7, 164, 181, 0.05)'),
+                    fillcolor = 'rgba(7, 164, 181, 0.2)',
+                    name = "Standard Error") %>%
+        layout(xaxis = list(title = 'Proportion of Smokers (%)'),
+               yaxis = list(title = 'Average Mortality Rate of Diseases linked to Tobacco'),
+               legend = list(x = 0.80, y = 0.90),
+               title="Relation between Death & Consumption for All States")
+      p
+    } 
+  })
+  ##Prevalence
+  # Read the year name
+  YearName.p.s <- unique(prevalence_consumption$year)
+  # Year name list
+  output$YearSelector.p.s <- renderUI({
+    selectInput('year.p.s', label = 'Year',
+                YearName.p.s,
+                multiple = FALSE,
+                selectize = TRUE,
+                selected = 2012) #default value
+  })
+  # Get selected year
+  SelectedYear.p.s <- reactive({
+    if (is.null(input$year.p.s) || length(input$year.p.s)==0)
+      return()
+    as.vector(input$year.p.s)
+  })
+  # Filter data according to the selected year
+  prev_conspDF <- reactive({
+    prevalence_consumption %>%
+      filter(year %in% SelectedYear.p.s()) %>%
+      as.data.frame()
+  })
+  # Plot
+  output$RegPlot.p.s <- renderPlotly({
+    #check if city and month are not null
+    if (length(SelectedYear.p.s())>0){
+      p <- plot_ly((prev_conspDF()),x=~smoker_percentage, color=I("black")) %>%
+        add_markers(y = ~avg_prev_percentage, text = prev_conspDF()$states, showlegend = FALSE) %>%
+        add_lines(y = ~fitted(loess(avg_prev_percentage~smoker_percentage)),
+                  line = list(color = 'rgba(7, 164, 181, 1)'),
+                  name = "Loess Smoother") %>%
+        add_ribbons(data = augment(loess(avg_prev_percentage~smoker_percentage,data = prev_conspDF())),
+                    ymin = ~.fitted - 1.96 * .se.fit,
+                    ymax = ~.fitted + 1.96 * .se.fit,
+                    line = list(color = 'rgba(7, 164, 181, 0.05)'),
+                    fillcolor = 'rgba(7, 164, 181, 0.2)',
+                    name = "Standard Error") %>%
+        layout(xaxis = list(title = 'Smoker Proportion'),
+               yaxis = list(title = 'Prevalence Percentage'),
+               legend = list(x = 0.80, y = 0.90),
+               title="Disease Prevalence-Consumption Relationship of All States")
+      p
+    } 
+  })    
   
 }
 

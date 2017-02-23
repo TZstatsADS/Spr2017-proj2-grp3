@@ -96,7 +96,8 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
                    paste0(min + 2 * inc, " %"),
                    paste0(min + 3 * inc, " %"),
                    paste0(max, " % or more"))
-  shades <- colorRampPalette(c("#fee6ce", "#ff5300"))(100)
+  #shades <- colorRampPalette(c("#fee6ce", "#ff5300"))(100)
+  shades <- colorRampPalette(c("#c0c0f8", "#09094f"))(100)
   percents <- as.integer(cut(var, 100, 
                              include.lowest = TRUE, ordered = TRUE))
   fills <- shades[percents]
@@ -107,28 +108,40 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
   }
   fills1 <- fills[order]
   dv <- paste(sta1$LocationDesc[order], "<br/>","Consumption:",as.character(sta1$Data_Value[order]),"%")
+  # clb <- data.frame("name"=sta1$LocationAbbr[order],"consumption"=sta1$Data_Value[order])
+  # clb$name <- as.character(clb$name)
+  # df$name <- as.character(df$name)
+  # for (i in 1:nrow(clb)) {
+  #   if (sum(clb$name[i]==df$name)==1) {
+  #     clb$ratio[i] <- df[which(df$name==clb$name[i]),"ratio"]
+  #   } else {clb$ratio[i]<-NULL}
+  #   
+  # }  
+  # clb$ratio<- round(clb$ratio*100,2)
+  
   clb <- data.frame("name"=sta1$LocationAbbr[order],"consumption"=sta1$Data_Value[order])
   clb$name <- as.character(clb$name)
-  df$name <- as.character(df$name)
-  for (i in 1:nrow(clb)) {
-    if (sum(clb$name[i]==df$name)==1) {
-      clb$ratio[i] <- df[which(df$name==clb$name[i]),"ratio"]
-    } else {clb$ratio[i]<-NULL}
-    
-  }  
-  clb$ratio<- round(clb$ratio*100,2)
-  
+  df$name <- as.character(df$name)   
+  if ((year == 2010 | year == 2011) & cate == "Disease")  { 
+    for (i in 1:nrow(clb)) {
+      if (sum(clb$name[i]==df$name)==1) {
+        clb$ratio[i] <- df[which(df$name==clb$name[i]),"ratio"]
+      } else {clb$ratio[i]<-NULL}
+      
+    }  
+    clb$ratio<- round(clb$ratio*100,2)
+  } else {clb$ratio = "NA"}
   
   leaflet(states) %>% 
     addTiles() %>% 
     addPolygons(
-      stroke = FALSE, fillOpacity = 0.6, smoothFactor = 0.5,
+      stroke = FALSE, fillOpacity = 0.8, smoothFactor = 0.5,
       color = fills1,
       popup=paste(dv,"<br/>","Ratio:",clb$ratio,"%")) %>%
     addCircleMarkers(lat=df$lat, lng=df$long, color="red", 
-                     radius=df$radius,stroke=F,fillOpacity = 1) %>%
+                     radius=df$radius,stroke=F,fillOpacity = 0.8) %>%
     addLegend(
-      position = 'bottomright',
+      position = 'topright',
       colors = shades[c(1, 25, 50, 75, 100)],
       labels = legend.text, opacity = 1,
       title = 'Smokers Proportion'
