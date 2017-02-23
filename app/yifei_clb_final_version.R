@@ -36,18 +36,20 @@ body <- dashboardBody(
                    choices = list("Mortality of Disease"="Mortality",
                                   "Disease"="Prevalence"),
                    inline = T),
-      selectInput("mortality",label = h3("Mortality of Disease"),
+      conditionalPanel("input.cate=='Mortality'",
+        selectInput("mortality",label = h3("Mortality of Disease"),
                    choices = list("Heart failure"="Heart failure",
                                                   "Chronic obstructive pulmonary disease"="Chronic obstructive pulmonary disease",
                                                   "Coronary heart disease"="Coronary heart disease",
                                                   "Cerebrovascular disease"="Cerebrovascular disease",
                                                   "Cardiovascular disease"="Cardiovascular disease"),
-                                   selected = 1),
-      selectInput("prevalence",label = h3("Disease"),
+                                   selected = 1)),
+      conditionalPanel("input.cate=='Prevalence'",
+        selectInput("prevalence",label = h3("Disease"),
                   choices = list("Chronic obstructive pulmonary disease prevalence"="Chronic obstructive pulmonary disease prevalence",
                                                   "Arthritis"="Arthritis",
                                                   "Asthma"="Asthma"),
-                                   selected=1)
+                                   selected=1))
   )),
   
   fluidRow(
