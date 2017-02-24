@@ -35,10 +35,14 @@ hist_advertising_total <- function(advertising){
 
 map_leaflet <- function(cate, mortality, year, gender, prevalence,
                         df, mor, pre, sta, states ){
+  
+  # Merge Mortality data set with dataframe with center coordinates based on state name
   if (cate=="Mortality") {  
-    ds <- mor
-    point <- ds[ds$disease==mortality & ds$year==year & ds$class==gender,c("statesAbbr","ratio")]
-    point$statesAbbr <- as.character(point$statesAbbr)
+   ds <- mor
+   point <- ds[ds$disease==mortality & ds$year==year & ds$class==gender,c("statesAbbr","ratio")]
+   point$statesAbbr <- as.character(point$statesAbbr)
+    
+    # Assign mortality ratio to data frame. If not, set the rate to 0
     for (i in 1:52) {
       if(sum(df$name[i]==point$statesAbbr)==1) {
         df[i,"ratio"] <- point[point$statesAbbr==df$name[i],"ratio"]
@@ -46,12 +50,18 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
         df[i,"ratio"] <-0
       }
     }
+    
+    # Assign radius of the circle based on the ratio
     df$radius <- rank(df$ratio)*20/52+5
     df[df$ratio==0,]$radius <- 0
     legend_t<-paste0(round(quantile(df$ratio)[-1]*100,2),"% -- ",c("25 Percentile","50 Percentile","75 Percentile","100 Percentile"))
     legend_size <- quantile(df$radius)[-1]
     color <- rep("black",4)
+    
+    # Merge Prevelance data set with data frame with center coordinates based on state name
   } else { 
+   
+    # Some years and genders has missing value. So assign value as NULL
     if(year==2010 | year==2011) {
       df$radius <- 0
       legend_t <- NULL
@@ -85,7 +95,7 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
     }
   }
   
-  # Shade of map
+  # Assign shade of each states based on tobacco consumption
   sta1 <- sta[sta$YEAR==year & sta$LocationDesc!="Guam"& sta$Gender==gender & sta$LocationDesc!="Virgin Islands",]
   var <- sta1$Data_Value
   max <- ceiling(max(var)/10)*10
@@ -110,6 +120,7 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
   }
   fills1 <- fills[order]
  
+  # Merge data set of shade of each states with data frame with center coordinates
   clb <- data.frame("name"=sta1$LocationAbbr[order],"consumption"=sta1$Data_Value[order])
   clb$name <- as.character(clb$name)
   df$name <- as.character(df$name)   
@@ -120,7 +131,7 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
      }  
   clb$ratio<- round(clb$ratio,2)
      
-  
+  # Assign popup value
   dv<-paste( "Consumption:",as.character(sta1$Data_Value[order]),"%")
   dv1<-paste("Ratio:",clb$ratio,"%")
   labels <- sprintf(
@@ -128,6 +139,7 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
     sta1$LocationDesc[order],dv, dv1
   ) %>% lapply(htmltools::HTML)
   
+  # Build the map
   leaflet(states) %>% 
     addTiles() %>% 
     addPolygons(
