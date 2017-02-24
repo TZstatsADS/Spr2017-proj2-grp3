@@ -48,4 +48,5 @@ proj/
 
 
 **Contribution statement**: 
-([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement.
+
+Liangbin Chen, Yifei Lin, Marie Schiltz and Yini Zhang designed the study, collected and cleaned data. Liangbin Chen and Yifei Lin developed the tobacco map. Yini Zhang carried out the states comparison and gender comparison parts of the app. Marie Schiltz completed the parts commercial spendings and consumption analysis. Marie Schiltz organized the final layout of the app. Yini Zhang, Marie Schiltz and Yifei Lin updated readme files and reorganized the GitHub repository.All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement.
