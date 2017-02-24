@@ -98,8 +98,8 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
   # Assign shade of each states based on tobacco consumption
   sta1 <- sta[sta$YEAR==year & sta$LocationDesc!="Guam"& sta$Gender==gender & sta$LocationDesc!="Virgin Islands",]
   var <- sta1$Data_Value
-  max <- ceiling(max(var)/10)*10
-  min <- floor(min(var)/10)*10
+  max <- 25
+  min <- 5
   var <- pmax(var, min)
   var <- pmin(var, max)
   inc <- (max - min) / 4
@@ -110,8 +110,7 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
                    paste0(max, " % or more"))
   #shades <- colorRampPalette(c("#fee6ce", "#ff5300"))(100)
   shades <- colorRampPalette(c("#EFEFFB", "#0101DF"))(100)
-  percents <- as.integer(cut(var, 100, 
-                             include.lowest = TRUE, ordered = TRUE))
+  percents <- as.integer((var-5)*5)
   fills <- shades[percents]
   s <- as.character(states$STUSPS)
   order <- rep(NA,length(fills))
