@@ -1,10 +1,14 @@
 
 # Obtain coordinates of different states
 states_coordinates <- function(states) {
+  
+  # Extract coordinates of each states from downloaded shape file
   coords_list <- list()
   for (i in 1:52) {
     coords_list[[i]]<- slot(states@polygons[[i]]@Polygons[[1]],"coords")
   }
+  
+  # calculate the mean of lat and long in order to find the center of each states
   f <- function(x){apply(x,2,mean)}
   mean_coords_list <- lapply(coords_list,f)
   name <- as.character(states$STUSPS)
@@ -15,7 +19,10 @@ states_coordinates <- function(states) {
     lat[i]<- mean_coords_list[[i]][2]
   }
   
+  # Form the data frame that contains the name and center coordinates of each states
   df <- data.frame(name,long,lat)
+  
+  # Some of the center coordinates are incorrect and need to adjust
   df[df$name=="AK",c(2,3)] <- c(-150,66) #change AK coordinates
   df[df$name=="WA",c(2,3)] <- c(-120,47.2) #change WA coordinates
   df[df$name=="CA",c(2,3)] <- c(-118.4541,37) #change CA coordinates
