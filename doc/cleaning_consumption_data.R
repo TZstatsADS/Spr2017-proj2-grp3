@@ -1,4 +1,6 @@
 
+advertising <- read.csv("../output/advertising.csv", stringsAsFactors = FALSE, sep=",")
+
 
 #### Consumption Accros States
 consumption_us <- read.csv("../data/consumption_tobacco_us.csv")
