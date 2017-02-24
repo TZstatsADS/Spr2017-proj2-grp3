@@ -41,6 +41,11 @@ proj/
 
 **Screenshot: Commercial Spendings**
 ![screenshot](https://github.com/TZstatsADS/Spr2017-proj2-grp3/blob/master/output/commercial%20spending.jpg)
+![screenshot](https://github.com/TZstatsADS/Spr2017-proj2-grp3/blob/master/output/commercial%20spending2.jpg)
+
+**Screenshot: Consumption Analysis**
+![screenshot](https://github.com/TZstatsADS/Spr2017-proj2-grp3/blob/master/output/consumption%20analysis.jpg)
+
 
 **Contribution statement**: 
 ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement.
