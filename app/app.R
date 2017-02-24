@@ -3,7 +3,7 @@
 #### Install Libraries ####
 packages.used=c("shiny", "shinydashboard", "ggplot2", "dplyr",
                 "purr", "tidyr", "plotly", "reshape2", "RColorBrewer",
-                "rgdal", "broom", "htmltools", "leaflet")
+                "rgdal", "broom", "htmltools", "leaflet", "Rcpp")
 # Check packages taht need to be installed
 packages.needed=setdiff(packages.used, 
                         intersect(installed.packages()[,1], 
@@ -18,6 +18,7 @@ if(length(packages.needed)>0){
 library(shiny)
 library(shinydashboard)
 library(ggplot2)
+library(Rcpp)
 library(dplyr)
 library(purrr)
 library(tidyr)
