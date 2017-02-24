@@ -1,8 +1,9 @@
-﻿# Project 2 Open Data NYC
+# Project 2: Open Data App
+# Tobacco Consumption and the Impact on Health iin the USA
 
 ##Group 3
 
-**Tobacco comsumption and the impact on health in the USA**:
+**Team members**:
 
 - Chen, Liangbin: lc3190
 - Lin, Yifei: yl3594
