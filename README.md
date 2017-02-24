@@ -49,4 +49,20 @@ proj/
 
 **Contribution statement**: 
 
-Liangbin Chen, Yifei Lin, Marie Schiltz and Yini Zhang designed the study, collected and cleaned data. Liangbin Chen and Yifei Lin developed the tobacco map. Yini Zhang carried out the states comparison and gender comparison parts of the app. Marie Schiltz completed the parts commercial spendings and consumption analysis. Marie Schiltz organized the final layout of the app. Yini Zhang, Marie Schiltz and Yifei Lin updated readme files and reorganized the GitHub repository. All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement.
+Liangbin Chen, Yifei Lin, Marie Schiltz and Yini Zhang designed the study, collected and cleaned data. Liangbin Chen and Yifei Lin developed the tobacco map. Yini Zhang carried out the states comparison and gender comparison parts of the app. Marie Schiltz completed the commercial spendings and consumption analysis parts. Marie Schiltz built the layout of the app. Yini Zhang, Marie Schiltz and Yifei Lin updated readme files and reorganized the GitHub repository. All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement.
+
+# Context
+
+### Project 2: Open Data App - an RShiny app development project
+
+### [Project Description](doc/project2_desc.md)
+
+In this second project of GU4243/GR5243 Applied Data Science, we develop an *Exploratory Data Analysis and Visualization* shiny app on a topic of your choice using U.S. government open data released on the [data.gov](https://data.gov/) website. See [Project 2 Description](project2_desc.md) for more details.  
+
+The **learning goals** for this project is:
+
+- business intelligence for data science
+- data cleaning
+- data visualization
+- systems development/design life cycle
+- shiny app/shiny server
