@@ -387,13 +387,13 @@ server <- function(input, output) {
     p <- ggplotly(plotly_empty())
     if (length(SelectedYear.m.s())>0){
       p <- plot_ly((mort_conspDF()),x=~smoker_percentage, color=I("black")) %>%
-        add_markers(y = ~avg_death_percentage, text = mort_conspDF()$states, showlegend = FALSE) %>%
+        add_markers(y = ~ round(avg_death_percentage, 3), text = mort_conspDF()$states, showlegend = FALSE) %>%
         add_lines(y = ~fitted(loess(avg_death_percentage~smoker_percentage)),
                   line = list(color = 'rgba(7, 164, 181, 1)'),
                   name = "Loess Smoother") %>%
         add_ribbons(data = augment(loess(avg_death_percentage~smoker_percentage,data = mort_conspDF())),
-                    ymin = ~.fitted - 1.96 * .se.fit,
-                    ymax = ~.fitted + 1.96 * .se.fit,
+                    ymin = ~round(.fitted - 1.96 * .se.fit, 3),
+                    ymax = ~round(.fitted + 1.96 * .se.fit, 3), 
                     line = list(color = 'rgba(7, 164, 181, 0.05)'),
                     fillcolor = 'rgba(7, 164, 181, 0.2)',
                     name = "Standard Error") %>%
