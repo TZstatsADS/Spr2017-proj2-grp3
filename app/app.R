@@ -102,7 +102,7 @@ body <- dashboardBody(
       )
     ),
     box(
-      title = "Legend", width = 4, height = 550, status="warning", solidHeader = TRUE,
+      title = "Legend", width = 4, height = 550, status="primary", solidHeader = TRUE,
       sliderInput("year", label = h3("Year"),
                   min = 2010, max = 2014, value = 2012, 
                   step = 1, ticks = FALSE, sep=""),
