@@ -22,3 +22,6 @@ Source: [U.S. Population](http://www2.census.gov/programs-surveys/popest/dataset
 #### Table Behavioral_Risk_Factor_Data__Tobacco_Use__2011_to_present
 This table contains the proportion of smokers and the frequency of smoking for those people.  
 Source: data.gov [Behavioral Risk Factor Data](https://catalog.data.gov/dataset/behavioral-risk-factor-data-tobacco-use-2011-to-present-c68e1)
+
+#### File cb_2013_us_state_20m.dbf, cb_2013_us_state_20m.prj, cb_2013_us_state_20m.shp, cb_2013_us_state_20m.shp.iso, cb_2013_us_state_20m.shp and cb_2013_us_state_20m.shx
+These files are the shape files of United States that contains name and coordinates etc.
