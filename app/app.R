@@ -3,7 +3,8 @@
 #### Install Libraries ####
 packages.used=c("shiny", "shinydashboard", "ggplot2", "dplyr",
                 "purr", "tidyr", "plotly", "reshape2", "RColorBrewer",
-                "rgdal", "broom", "htmltools", "leaflet", "Rcpp")
+                "rgdal", "broom", "htmltools", "leaflet", "Rcpp",
+                "ggrepel")
 # Check packages taht need to be installed
 packages.needed=setdiff(packages.used, 
                         intersect(installed.packages()[,1], 
@@ -29,6 +30,7 @@ library(rgdal)
 library(broom)
 library(htmltools)
 library(leaflet)
+library(ggrepel)
 
 source("../lib/helper_functions_plots.R")
 source("../lib/helper_functions_computations.R")
@@ -89,6 +91,8 @@ consumption_us <-
   consumption_us %>%
   subset(year>1975)
 advertising_consumption <- cbind(advertising_total, consumption_us)
+advertising_consumption[,1] <- NULL
+advertising_consumption <- advertising_consumption[!is.na(advertising_consumption$percentage),]
 
 # Fifth Row: Consumption
 df1 <- read.csv("../data/Behavioral_Risk_Factor_Data__Tobacco_Use__2010_And_Prior_.csv")
@@ -164,7 +168,9 @@ body <- dashboardBody(
         box(
           width = 3,
           helpText("Select the year:"),
-          uiOutput("YearSelector.m.s")
+          uiOutput("YearSelector.m.s"),
+          strong("Note:"),
+          div("Each point represents one state of the US.")
         )
       ),
       tabPanel(
@@ -176,7 +182,9 @@ body <- dashboardBody(
         box(
           width = 3,
           helpText("Select the year:"),
-          uiOutput("YearSelector.p.s")
+          uiOutput("YearSelector.p.s"),
+          strong("Note:"),
+          div("Each point represents one state of the US.")
         )
       ),
       tabPanel(
@@ -196,24 +204,26 @@ body <- dashboardBody(
         title = "Consumption",
         box(
           width = 9,
-          plotlyOutput("RegPlot.c.g")
+          plotlyOutput("RegPlot.c.g", height=450)
         ),
         box(
           width = 3,
           helpText("Select the year:"),
           uiOutput("YearSelector.c.g"),
           helpText("Select one or more gender:"),
-          uiOutput("GenderSelector.c.g")
+          uiOutput("GenderSelector.c.g"),
+          strong("Note:"),
+          div("Each point represents one state of the US.")
         )
       ),
       tabPanel(
         title = "Mortality",
         box(
-          width = 9,
-          plotlyOutput("RegPlot.m.g", height=470)
+          width = 8,
+          plotlyOutput("RegPlot.m.g", height=450)
         ),
         box( 
-          width = 3,
+          width = 4,
           helpText("Select the year:"),
           uiOutput("YearSelector.m.g"),
           helpText("Select one or more gender:"),
@@ -223,14 +233,16 @@ body <- dashboardBody(
           div("B: Chronic obstructive pulmonary disease"),
           div("C: Cardiovascular disease"),
           div("D: Coronary heart disease"),
-          div("E: Heart failure")
+          div("E: Heart failure"),
+          strong("Note:"),
+          div("Each point represents one state of the US.")
         )
       ),
       tabPanel(
         title = "Prevalence",
         box(
           width = 9,
-          plotlyOutput("RegPlot.p.g")
+          plotlyOutput("RegPlot.p.g", height=450)
         ),
         box( 
           width = 3,
@@ -241,7 +253,9 @@ body <- dashboardBody(
           strong("Diseases"),
           div("B: Chronic obstructive pulmonary disease"),
           div("F: Asthma"),
-          div("G: Arthrisis")
+          div("G: Arthrisis"),
+          strong("Note:"),
+          div("Each point represents one state of the US.")
         )
       ),
       tabPanel(
@@ -314,7 +328,8 @@ body <- dashboardBody(
           width =12,
           sliderInput("year.c.a", label = h5("Year"),
                       min = 1996, max = 2014, value = 2014, 
-                      step = 1, ticks = FALSE, sep="")
+                      step = 1, ticks = FALSE, sep=""),
+          div("Note: Each point represents one state of the US.")
         ),
         box(
           width=12,
@@ -327,7 +342,8 @@ body <- dashboardBody(
           width=12,
           sliderInput("year.c.t", label = h5("Year"),
                       min = 1996, max = 2014, value = 2014, 
-                      step = 1, ticks = FALSE, sep="")
+                      step = 1, ticks = FALSE, sep=""),
+          div("Note: Each point represents one state of the US.")
         ),
         box(
           width=12,
@@ -628,12 +644,21 @@ server <- function(input, output) {
   })
   # Consumption vs Commercial Spendings
   output$scatter_adv_consumption <- renderPlotly({
-    g <- ggplot(advertising_consumption, aes(percentage, spendings/1000, colour=year)) +
-      geom_point() +
-      scale_colour_gradientn(name="Year", colours=rainbow(4)) +
-      xlab("Smorker Proportion(%)") +
-      ylab("Spendings on Tobacco Commercials (thousands $)")
-    ggplotly(g)
+    p <- plot_ly(advertising_consumption, x=~percentage, y=~spendings,
+                 text=~year) %>%
+      add_markers() %>%
+      add_text(textfont=t, textposition = "top right") %>%
+      layout(title="Spendings vs Proportion of Smokers between 1975 and 2014",
+             xaxis=list(title="Smorker Proportion(%)"),
+             yaxis=list(title="Spendings on Tobacco Commercials ($)"),
+             showlegend=FALSE)
+    p
+    # g <- ggplot(advertising_consumption, aes(percentage, spendings/1000)) +
+    #   geom_point() +
+    #   geom_text_repel(aes(label=year)) +
+    #   xlab("Smorker Proportion(%)") +
+    #   ylab("Spendings on Tobacco Commercials (thousands $)")
+    # ggplotly(g)
   })
   
   #### FIFTH ROW: CONSUMPTION
