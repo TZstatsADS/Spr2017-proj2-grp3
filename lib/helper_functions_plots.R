@@ -116,7 +116,7 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
   for (i in 1:nrow(clb)) {
       if (sum(clb$name[i]==df$name)==1) {
         clb$ratio[i] <- df[which(df$name==clb$name[i]),"ratio"]
-      } else {clb$ratio[i]<-NULL}
+      } else {clb$ratio[i]<-0}
      }  
   clb$ratio<- round(clb$ratio,2)
      
