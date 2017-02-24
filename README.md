@@ -1,42 +1,46 @@
-# Project: Tobacco Consumption and the impact on health in the USA
-Term: Spring 2017
+﻿# Project 2 Open Data NYC
 
-+ Team 3
-+ **Tobacco comsumption and the impact on health in the USA**:
-	+ Chen, Liangbin: lc3190
-	+ Lin, Yifei: yl3594
-	+ Schiltz, Marie: ms5293
-	+ Zhang, Yini: yz3005
+##Group 3
 
-+ **Project summary**: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+**Tobacco comsumption and the impact on health in the USA**:
 
-+ **Contribution statement**: ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
+- Chen, Liangbin: lc3190
+- Lin, Yifei: yl3594
+- Schiltz, Marie: ms5293
+- Zhang, Yini: yz3005
 
-Following [suggestions](http://nicercode.github.io/blog/2013-04-05-projects/) by [RICH FITZJOHN](http://nicercode.github.io/about/#Team) (@richfitz). This folder is orgarnized as follows.
 
+**Project Summary**:
+
+In this project, we developed a shiny app of tobacco using exploratory data analysis and visualization techniques. We aim to visualize the correlation between tobacco consumption and its impacts on related diseases, as well as the relationship between tobacco consumption and commercial spendings. Given the desired year, gender and disease type, our app can easily reflect tobacco consumption and disease ratio of all states on leaflet map by different shades of color and different sizes of red circles, along with corresponding value popups. Our goal is to provide a handy tool for healthcare professionals, researchers and hostpitals when they conduct their studies on tobacco.
+
+The learning goals for this project is 
+- exploratory data analysis
+- visualization
+- shiny app
+- app production work flow
+
+This repo has been organized as follows.
 ```
 proj/
 ├── app/
-├── lib/
 ├── data/
 ├── doc/
+├── lib/
 └── output/
 ```
 
-Please see each subfolder for a README file.
+**Screenshot: Map**
+![screenshot](https://github.com/TZstatsADS/Spr2017-proj2-grp3/blob/master/output/map.jpg)
 
-# Context
+**Screenshot: States Comparison**
+![screenshot](https://github.com/TZstatsADS/Spr2017-proj2-grp3/blob/master/output/states%20comparison.jpg)
 
-### Project 2: Open Data App - an RShiny app development project
+**Screenshot: Gender Comparison**
+![screenshot](https://github.com/TZstatsADS/Spr2017-proj2-grp3/blob/master/output/gender%20comparison.jpg)
 
-### [Project Description](doc/project2_desc.md)
+**Screenshot: Commercial Spendings**
+![screenshot](https://github.com/TZstatsADS/Spr2017-proj2-grp3/blob/master/output/commercial%20spending.jpg)
 
-In this second project of GU4243/GR5243 Applied Data Science, we develop an *Exploratory Data Analysis and Visualization* shiny app on a topic of your choice using U.S. government open data released on the [data.gov](https://data.gov/) website. See [Project 2 Description](project2_desc.md) for more details.  
-
-The **learning goals** for this project is:
-
-- business intelligence for data science
-- data cleaning
-- data visualization
-- systems development/design life cycle
-- shiny app/shiny server
+**Contribution statement**: 
+([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement.
