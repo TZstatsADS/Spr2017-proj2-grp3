@@ -1,5 +1,5 @@
 # Project 2: Open Data App
-# Tobacco Consumption and the Impact on Health iin the USA
+# [Tobacco Consumption and the Impact on Health in the USA](https://marieslz.shinyapps.io/tobacco_-_health_issue_in_the_us/)
 
 ##Group 3
 
@@ -14,6 +14,8 @@
 **Project Summary**:
 
 In this project, we developed a shiny app of tobacco using exploratory data analysis and visualization techniques. We aim to visualize the correlation between tobacco consumption and its impacts on related diseases, as well as the relationship between tobacco consumption and commercial spendings. Given the desired year, gender and disease type, our app can easily reflect tobacco consumption and disease ratio of all states on leaflet map by different shades of color and different sizes of red circles, along with corresponding value popups. Our goal is to provide a handy tool for healthcare professionals, researchers and hostpitals when they conduct their studies on tobacco.
+
+**Link to the App** https://marieslz.shinyapps.io/tobacco_-_health_issue_in_the_us/
 
 The learning goals for this project is 
 - exploratory data analysis
