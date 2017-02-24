@@ -89,6 +89,11 @@ consumption_us <-
   subset(year>1975)
 advertising_consumption <- cbind(advertising_total, consumption_us)
 
+# Fifth Row: Consumption
+df1 <- read.csv("../data/Behavioral_Risk_Factor_Data__Tobacco_Use__2010_And_Prior_.csv")
+df2 <- read.csv("../data/Behavioral_Risk_Factor_Data__Tobacco_Use__2011_to_present_.csv")
+consumption_states <- consumption_subset(df1, df2)
+
 
 #### Header of the Dashboard ####
 header <- dashboardHeader(
@@ -295,8 +300,44 @@ body <- dashboardBody(
                Missing Values are due to privacy.
                ")
     )
-  )
+  ),
   
+  fluidRow(
+    tabBox(
+      title = "Commercial Spendings",
+      height = 650,
+      selected = "Ages",
+      width = 12,
+      tabPanel("Ages",
+        box(
+          width =12,
+          sliderInput("year.c.a", label = h5("Year"),
+                      min = 1996, max = 2014, value = 2014, 
+                      step = 1, ticks = FALSE, sep="")
+        ),
+        box(
+          width=12,
+          plotlyOutput("consumption_ages", 
+                       height= 420)
+        )
+      ),
+      tabPanel("Smoker Frequency",
+        box(
+          width=12,
+          sliderInput("year.c.t", label = h5("Year"),
+                      min = 1996, max = 2014, value = 2014, 
+                      step = 1, ticks = FALSE, sep="")
+        ),
+        box(
+          width=12,
+          plotlyOutput("consumption_type", 
+                       height= 420)
+        )
+      ),
+      tabPanel("Methodology and Sources")
+      
+    )
+  )
 )
 
 
@@ -592,6 +633,15 @@ server <- function(input, output) {
       xlab("Smorker Proportion(%)") +
       ylab("Spendings on Tobacco Commercials (thousands $)")
     ggplotly(g)
+  })
+  
+  #### FIFTH ROW: CONSUMPTION
+  # Plot Consumption for different ages
+  output$consumption_ages <- renderPlotly({
+    consumption_ages(consumption_states, input$year.c.a)
+  })
+  output$consumption_type <- renderPlotly({
+    consumption_type(consumption_states, input$year.c.t)
   })
   
 }

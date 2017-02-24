@@ -1,5 +1,5 @@
 
- 
+# Histogram Advertising Spendings for Tobacco Per Media 
 hist_advertising_media <- function(selected_media, advertising) {
   df <- advertising[advertising$media==selected_media,]
   g <- ggplot(df, aes(x=df$year, y=df$spendings/1000, fill="#FA8258")) +
@@ -12,6 +12,7 @@ hist_advertising_media <- function(selected_media, advertising) {
   return(p)
 }
 
+# Histogram Total Advertising Spendings for Tobacco
 hist_advertising_total <- function(advertising){
   p <- plot_ly(advertising, x=~year, y=~spendings, color=~media, colors="Accent") %>%
     add_bars() %>%
@@ -33,6 +34,48 @@ hist_advertising_total <- function(advertising){
   return(p)
 }
 
+# Consumption accross Ages
+consumption_ages <- function(consumption_states, year){
+  consumption_status <- 
+    consumption_states %>%
+    subset(TopicDesc=="Cigarette Use (Adults)" & MeasureDesc=="Current Smoking") %>%
+    subset(Gender=="Overall" & Race=="All Races") %>%
+    subset(Age=="18 to 24 Years" | Age=="25 to 44 Years" | Age=="45 to 64 Years" | Age=="65 Years and Older")
+  
+  consumption_status <- 
+    consumption_status %>%
+    subset(YEAR==year)
+  
+  p <- ggplot(consumption_status, aes(x=Age, y=Data_Value, fill=LocationDesc, color=Age)) +
+    geom_jitter(width=0.25) +
+    xlab("Age") +
+    ylab("Number of People (%)") +
+    theme(legend.position="none") +
+    labs(title="Proportion of Smokers for different Ages for all States")
+  return(ggplotly(p))
+}
+
+# Consumption accros status (never smoken, former smoker, current smoker)
+consumption_type <- function(consumption_states, year){
+  consumption_status <- 
+    consumption_states %>%
+    subset(TopicDesc=="Cigarette Use (Adults)" & MeasureDesc=="Smoking Status") %>%
+    subset(Gender=="Overall" & Age=="All Ages" & Race=="All Races")
+  
+  consumption_status <- 
+    consumption_status %>%
+    subset(YEAR==year)
+  
+  p <- ggplot(consumption_status, aes(x=Response, y=Data_Value, fill=LocationDesc, color=Response)) +
+    geom_jitter() +
+    xlab("Smoker Status") +
+    ylab("Number of People (%)") +
+    theme(legend.position="none") +
+    labs(title="Current Smoker vs Former Smoker vs Non-Smokers for all States")
+  return(ggplotly(p))
+}
+
+# Map
 map_leaflet <- function(cate, mortality, year, gender, prevalence,
                         df, mor, pre, sta, states ){
   

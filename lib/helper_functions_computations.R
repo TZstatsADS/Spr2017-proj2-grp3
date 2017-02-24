@@ -36,3 +36,28 @@ states_coordinates <- function(states) {
   
   return(df)
 }
+
+# Merge and subset columns from Consumption files
+consumption_subset <- function(df1, df2){
+  df2$DisplayOrder <- NULL
+  df2$SubMeasureID <- NULL
+  
+  consumption_states <- rbind(df1,df2)
+  
+  consumption_states$TopicType <- NULL
+  consumption_states$DataSource <- NULL
+  consumption_states$StratificationID1 <- NULL
+  consumption_states$StratificationID2 <- NULL
+  consumption_states$StratificationID3 <- NULL
+  consumption_states$StratificationID4 <- NULL
+  consumption_states$TopicTypeId <- NULL
+  consumption_states$TopicId <- NULL
+  consumption_states$MeasureId <- NULL
+  consumption_states$GeoLocation <- NULL
+  consumption_states$Sample_Size <- NULL
+  consumption_states$High_Confidence_Limit <- NULL
+  consumption_states$Low_Confidence_Limit <- NULL
+  consumption_states$Data_Value_Std_Err <- NULL
+  
+  return(consumption_states)
+}
