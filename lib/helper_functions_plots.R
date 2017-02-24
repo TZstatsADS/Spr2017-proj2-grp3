@@ -173,8 +173,8 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
      } 
      
   # Assign popup value
-  dv<-paste( "Consumption:",as.character(sta1$Data_Value[order]),"%")
-  dv1<-paste("Ratio:",clb$ratio,"%")
+  dv<-paste( "Smokers Proportion:",as.character(sta1$Data_Value[order]),"%")
+  dv1<-paste("disease rate:",clb$ratio,"%")
   labels <- sprintf(
     "<strong>%s</strong><br/>%s <br/>%s",
     sta1$LocationDesc[order],dv, dv1
@@ -199,7 +199,7 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
       title = 'Smokers Proportion'
     ) %>%
     addLegend('bottomright',
-              title = "Ratio",
+              title = "Disease Ratio",
               colors=rep("red",2),
               labels=list(paste("Max:",round(max(df$ratio),2),"%"),
                           paste("Min:",round(min(df$ratio),2),"%")),opacity=0.8
