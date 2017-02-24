@@ -1,3 +1,3 @@
 ### app folder
 
-The output directory contains the final shiny app
+The app directory contains the final shiny app
