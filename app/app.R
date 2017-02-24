@@ -333,7 +333,7 @@ body <- dashboardBody(
         box(
           width=12,
           plotlyOutput("consumption_ages", 
-                       height= 420)
+                       height= 400)
         )
       ),
       tabPanel("Smoker Frequency",
@@ -347,7 +347,7 @@ body <- dashboardBody(
         box(
           width=12,
           plotlyOutput("consumption_type", 
-                       height= 420)
+                       height= 400)
         )
       )
     )
