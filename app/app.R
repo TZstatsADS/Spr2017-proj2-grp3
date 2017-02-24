@@ -120,7 +120,16 @@ body <- dashboardBody(
         leafletOutput("map", height = 490)
       ),
       tabPanel(
-        title = "Methodology and Sources"
+        title = "Methodology and Sources",
+        strong("Methodology"),
+        div("We are aiming to establish a correlation between tobacco consumption and some diseases. The diseases we are displaying on this visualization have been proved to be related to tobacco consumption by the US Surgeon General Report of 2014."),
+        strong("Sources"),
+        div("Diplayed data come from three main sources:"),
+        div("- Data.gov: The home of the U.S. Government’s open data"),
+        div("- CDC: Centers for Disease Control and Prevention"),
+        div("- Federal Trade Commission Report Cigarette Report for 2014"),
+        strong("Definitions"),
+        div("You can find the exact definitions of the different medias shown on the Commercial Spendings tab in the Federal Trade Commission Report Cigarette Report for 2014.")
       )
     ),
     box(
@@ -186,9 +195,6 @@ body <- dashboardBody(
           strong("Note:"),
           div("Each point represents one state of the US.")
         )
-      ),
-      tabPanel(
-        title = "Methodology and Sources"
       )
     )
   ),
@@ -257,9 +263,6 @@ body <- dashboardBody(
           strong("Note:"),
           div("Each point represents one state of the US.")
         )
-      ),
-      tabPanel(
-        title = "Methodology and Sources"
       )
     )
   ),
@@ -309,11 +312,7 @@ body <- dashboardBody(
                             height= 400),
                  width = 9
                )
-               ),
-      tabPanel("Methodology and Sources", 
-               "Promotional Allowances spendings has decreased.
-               Missing Values are due to privacy.
-               ")
+               )
     )
   ),
   
@@ -350,9 +349,7 @@ body <- dashboardBody(
           plotlyOutput("consumption_type", 
                        height= 420)
         )
-      ),
-      tabPanel("Methodology and Sources")
-      
+      )
     )
   )
 )
