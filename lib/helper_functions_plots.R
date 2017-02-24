@@ -198,5 +198,11 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
       labels = legend.text, opacity = 1,
       title = 'Smokers Proportion'
     ) %>%
+    addLegend('bottomright',
+              title = "Ratio",
+              colors=rep("red",2),
+              labels=list(paste("Max:",round(max(df$ratio),2),"%"),
+                          paste("Min:",round(min(df$ratio),2),"%")),opacity=0.8
+             ) %>%
     setView(lng=-97,lat=40,zoom=4)
 }
