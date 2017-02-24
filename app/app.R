@@ -644,6 +644,10 @@ server <- function(input, output) {
   })
   # Consumption vs Commercial Spendings
   output$scatter_adv_consumption <- renderPlotly({
+    t <- list(
+      family = "sans serif",
+      size = 14,
+      color = toRGB("grey50"))
     p <- plot_ly(advertising_consumption, x=~percentage, y=~spendings,
                  text=~year) %>%
       add_markers() %>%
