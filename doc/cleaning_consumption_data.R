@@ -1,5 +1,23 @@
 
-advertising <- read.csv("../output/advertising.csv", stringsAsFactors = FALSE, sep=",")
+advertising <- read.csv("advertising.csv", stringsAsFactors = FALSE, sep=",")
+advertising[is.na(advertising)] <- 0
+advertising_total <-
+  advertising %>%
+  group_by(year) %>%
+  summarize(spendings=sum(spendings)) %>%
+  subset(year>1975)
+consumption_us <- read.csv("consumption_tobacco_us.csv", sep=";")
+consumption_us <- 
+  consumption_us %>%
+  subset(year>1975)
+advertising_consumption <- cbind(advertising_total, consumption_us)
+
+g <- ggplot(advertising_consumption, aes(percentage, spendings/1000, colour=year)) +
+  geom_point() +
+  scale_colour_gradientn(name="Year", colours=rainbow(4)) +
+  xlab("Smorker Proportion(%)") +
+  ylab("Spendings on Tobacco Commercials (thousands $)")
+ggplotly(g)
 
 
 #### Consumption Accros States

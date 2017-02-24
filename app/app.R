@@ -74,9 +74,21 @@ smoker <- read.csv("../output/smokers_proportion.csv") %>%
 # Fourth Row: Advertising data
 advertising <- read.csv("../output/advertising.csv", stringsAsFactors = FALSE, sep=",")
 advertising <- advertising[!advertising$media=="Total",]
+advertising[is.na(advertising)] <- 0
 advertising <- advertising %>%
   group_by(year, media) %>%
   summarize(spendings = sum(spendings))
+advertising_total <-
+  advertising %>%
+  group_by(year) %>%
+  summarize(spendings=sum(spendings)) %>%
+  subset(year>1975)
+consumption_us <- read.csv("../data/consumption_tobacco_us.csv", sep=";")
+consumption_us <- 
+  consumption_us %>%
+  subset(year>1975)
+advertising_consumption <- cbind(advertising_total, consumption_us)
+
 
 #### Header of the Dashboard ####
 header <- dashboardHeader(
@@ -237,8 +249,12 @@ body <- dashboardBody(
     tabBox(
       title = "Commercial Spendings",
       height = 500,
-      selected = "Total",
+      selected = "Consumption vs Spendings",
       width = 12,
+      tabPanel("Consumption vs Spendings",
+               plotlyOutput("scatter_adv_consumption",
+                             height=450)
+               ),
       tabPanel("Total", 
                plotlyOutput("hist_advertising_total", 
                           height= 420)
@@ -567,6 +583,15 @@ server <- function(input, output) {
   # Histogram Total Commercial Spendings per media
   output$hist_advertising_media <- renderPlotly({
     hist_advertising_media(input$media, advertising)
+  })
+  # Consumption vs Commercial Spendings
+  output$scatter_adv_consumption <- renderPlotly({
+    g <- ggplot(advertising_consumption, aes(percentage, spendings/1000, colour=year)) +
+      geom_point() +
+      scale_colour_gradientn(name="Year", colours=rainbow(4)) +
+      xlab("Smorker Proportion(%)") +
+      ylab("Spendings on Tobacco Commercials (thousands $)")
+    ggplotly(g)
   })
   
 }
