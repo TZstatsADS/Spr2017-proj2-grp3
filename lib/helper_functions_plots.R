@@ -128,8 +128,7 @@ map_leaflet <- function(cate, mortality, year, gender, prevalence,
       if (sum(clb$name[i]==df$name)==1) {
         clb$ratio[i] <- round(as.numeric(df[which(df$name==clb$name[i]),"ratio"]),2)
       } else {clb$ratio[i]<-0}
-     }  
-  clb$ratio<- round(clb$ratio,2)
+     } 
      
   # Assign popup value
   dv<-paste( "Consumption:",as.character(sta1$Data_Value[order]),"%")
