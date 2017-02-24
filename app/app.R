@@ -122,14 +122,14 @@ body <- dashboardBody(
     box(
       title = "Legend", width = 4, height = 550, status="primary", solidHeader = TRUE,
       sliderInput("year", label = h3("Year"),
-                  min = 2010, max = 2014, value = 2012, 
+                  min = 2010, max = 2014, value = 2014, 
                   step = 1, ticks = FALSE, sep=""),
       selectInput("gender", label = h3("Gender"), 
                   choices = list("Overall"= "Overall", "Male"="Male", "Female"= "Female"), 
                   selected = 1),
       radioButtons("cate", label = h3("Category"),
                    choices = list("Mortality of Disease"="Mortality",
-                                  "Disease"="Prevalence"),
+                                  "Prevalence of Disease"="Prevalence"),
                    inline = T),
       conditionalPanel("input.cate=='Mortality'",
                        selectInput("mortality",label = h3("Mortality of Disease"),
@@ -368,7 +368,7 @@ server <- function(input, output) {
                 YearName.m.s,
                 multiple = FALSE,
                 selectize = TRUE,
-                selected = 2010) #default value
+                selected = 2014) #default value
   })
   # Get selected year
   SelectedYear.m.s <- reactive({
@@ -413,7 +413,7 @@ server <- function(input, output) {
                 YearName.p.s,
                 multiple = FALSE,
                 selectize = TRUE,
-                selected = 2012) #default value
+                selected = 2014) #default value
   })
   # Get selected year
   SelectedYear.p.s <- reactive({
@@ -461,7 +461,7 @@ server <- function(input, output) {
                 YearName.m.g,
                 multiple = FALSE,
                 selectize = TRUE,
-                selected = 2010) #default value
+                selected = 2014) #default value
   })
   output$GenderSelector.m.g <- renderUI({
     selectInput('gender.m.g', label = 'Gender',
@@ -579,7 +579,7 @@ server <- function(input, output) {
                 YearName.c.g,
                 multiple = FALSE,
                 selectize = TRUE,
-                selected = 2010) #default value
+                selected = 2014) #default value
   })
   output$GenderSelector.c.g <- renderUI({
     selectInput('gender.c.g', label = 'Gender',
