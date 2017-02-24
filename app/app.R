@@ -319,7 +319,7 @@ body <- dashboardBody(
   
   fluidRow(
     tabBox(
-      title = "Commercial Spendings",
+      title = "Consumption Analysis",
       height = 650,
       selected = "Ages",
       width = 12,
