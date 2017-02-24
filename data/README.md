@@ -28,4 +28,4 @@ These files are the shape files of United States that contains name and coordina
 
 #### Table consumption_tobacco_us  
 Table containing Tobacco Consumption Data for the US between 1970 and 2015.  
-SOurce: [Centers for Disease Control and Prevention ](https://www.cdc.gov/tobacco/data_statistics/tables/trends/cig_smoking/)
+Source: [Centers for Disease Control and Prevention ](https://www.cdc.gov/tobacco/data_statistics/tables/trends/cig_smoking/)
