@@ -157,7 +157,8 @@ body <- dashboardBody(
                                    choices = list("Chronic obstructive pulmonary disease prevalence"="Chronic obstructive pulmonary disease prevalence",
                                                   "Arthritis"="Arthritis",
                                                   "Asthma"="Asthma"),
-                                   selected=1))
+                                   selected=1)),
+      div("Note: Data are not available in 2010 and 2011 for diseases prevalence per gender.")
     )
   ),
   
@@ -649,7 +650,7 @@ server <- function(input, output) {
                  text=~year) %>%
       add_markers() %>%
       add_text(textfont=t, textposition = "top right") %>%
-      layout(title="Spendings vs Proportion of Smokers between 1975 and 2014",
+      layout(title="Spendings vs Proportion of Smokers between 1978 and 2014",
              xaxis=list(title="Smorker Proportion(%)"),
              yaxis=list(title="Spendings on Tobacco Commercials ($)"),
              showlegend=FALSE)
